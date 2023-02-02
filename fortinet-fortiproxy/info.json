@@ -1,0 +1,4285 @@
+{
+  "name": "fortinet-fortiproxy",
+  "label": "Fortinet FortiProxy",
+  "version": "1.0.0",
+  "description": "This connector facilitates automated operation related to firwall policy, firewall address, firewall address group, firewall service group, and banned users.",
+  "publisher": "Fortinet",
+  "cs_approved": true,
+  "cs_compatible": true,
+  "category": "IT Services",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "ingestion_supported": false,
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "description": "Specify the URL of the FortiProxy server to which you will connect and perform automated operations.",
+        "type": "text",
+        "name": "server_url",
+        "required": true,
+        "editable": true,
+        "visible": true
+      },
+      {
+        "title": "API Key",
+        "description": "Specify the API key used to access the FortiProxy server to which you will connect and perform the automated operations.",
+        "type": "password",
+        "name": "api_key",
+        "required": true,
+        "editable": true,
+        "visible": true
+      },
+      {
+        "title": "Verify SSL",
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True.",
+        "name": "verify_ssl",
+        "type": "checkbox",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "value": true
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "create_firewall_policy",
+      "title": "Create Firewall Policy",
+      "description": "Creates an firewall policy in FortiProxy server based on the input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "create_firewall_policy",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Policy ID",
+          "name": "policyid",
+          "description": "ID of the policy whose firewall policy you want to create in FortiProxy server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer"
+        },
+        {
+          "title": "Policy Type",
+          "name": "type",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Type of policy.   \nexplicit-web:Explicit Web Proxy policy   \ntransparent:Transparent firewall policy   \nexplicit-ftp:Explicit FTP Proxy policy   \nssh-tunnel:SSH Tunnel policy   \nssh:SSH policy   \naccess-proxy:Access Proxy   \nwanopt:WANopt Tunnel",
+          "options": [
+            "Explicit Web",
+            "Transparent",
+            "Explicit FTP",
+            "SSH Tunnel",
+            "SSH",
+            "Access Proxy",
+            "WanOpt"
+          ]
+        },
+        {
+          "title": "Status",
+          "name": "status",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable or disable this policy.   \nenable:Enable setting.   \ndisable:Disable setting.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Policy Name",
+          "name": "name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Policy name."
+        },
+        {
+          "title": "UUID",
+          "name": "uuid",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "format": "uuid",
+          "description": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset)."
+        },
+        {
+          "title": "Force Proxy",
+          "name": "force-proxy",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Force proxy.   \nenable:Force all TCP transparent traffic to proxy.   \ndisable:Do not force TCP transparent traffic to proxy.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Dynamic Bypass",
+          "name": "dynamic-bypass",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Dynamic bypass.   \nenable:Enable dynamic bypass to all HTTP traffic in this policy.   \ndisable:Disable dynamic bypass to all HTTP traffic in this policy.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Source Interface",
+          "name": "srcintf",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Incoming (ingress) interface.",
+          "type": "json"
+        },
+        {
+          "title": "Destination Interface",
+          "name": "dstintf",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Outgoing (egress) interface.",
+          "type": "json"
+        },
+        {
+          "title": "Source Address",
+          "name": "srcaddr",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Source address and address group names.",
+          "type": "json"
+        },
+        {
+          "title": "Destination Address",
+          "name": "dstaddr",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Destination address and address group names.",
+          "type": "json"
+        },
+        {
+          "title": "IPV6 Source Address",
+          "name": "srcaddr6",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "IPv6 source address (web proxy only).",
+          "type": "json"
+        },
+        {
+          "title": "IPV6 Destination Address",
+          "name": "dstaddr6",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "IPv6 destination address (web proxy only).",
+          "type": "json"
+        },
+        {
+          "title": "Policy Action",
+          "name": "action",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Policy action (allow\/deny).   \naccept:Allows session that match the firewall policy.   \ndeny:Blocks sessions that match the firewall policy.   \nredirect:Redirect sessions that match the firewall policy to a url.   \nisolate:Isolate sessions that match the firewall policy with isolator.",
+          "options": [
+            "Accept",
+            "Deny",
+            "Redirect",
+            "Isolate"
+          ]
+        },
+        {
+          "title": "Schedule Name",
+          "name": "schedule",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Schedule name."
+        },
+        {
+          "title": "Service",
+          "name": "service",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Service and service group names.",
+          "type": "json"
+        },
+        {
+          "title": "Explicit Web Proxy",
+          "name": "explicit-web-proxy",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Explicit web proxy."
+        },
+        {
+          "title": "Transparent",
+          "name": "transparent",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "set webproxy to use original client address.   \nenable:Enable using original client address for webproxy.   \ndisable:Disable using original client address for webproxy.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Access Proxy",
+          "name": "access-proxy",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Access Proxy.",
+          "type": "json"
+        },
+        {
+          "title": "ZTNA Status",
+          "name": "ztna-status",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\/disable zero trust access.   \nenable:Enable zero trust network access.   \ndisable:Disable zero trust network access.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "ZTNA EMS Tag",
+          "name": "ztna-ems-tag",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Source ztna-ems-tag names.",
+          "type": "json"
+        },
+        {
+          "title": "ZTNA GEO Tag",
+          "name": "ztna-geo-tag",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Source ztna-geo-tag names.",
+          "type": "json"
+        },
+        {
+          "title": "Internet Service",
+          "name": "internet-service",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\/disable use of Internet Services for this policy. If enabled, destination address and service are not used.    \nenable:Enable use of Internet Services in policy.   \ndisable:Disable use of Internet Services in policy.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Internet Service Name",
+          "name": "internet-service-name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "json",
+          "description": "Internet Service name."
+        },
+        {
+          "title": "Internet Service Custom",
+          "name": "internet-service-custom",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Custom Internet Service Name.",
+          "type": "json"
+        },
+        {
+          "title": "UTM Status",
+          "name": "utm-status",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable to add one or more security profiles (AV, IPS, etc.) to the firewall policy.   \nenable:Enable setting.   \ndisable:Disable setting.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "WebProxy Profile",
+          "name": "webproxy-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Web proxy profile using when none matched policy."
+        },
+        {
+          "title": "Log Traffic",
+          "name": "logtraffic",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable or disable logging. Log all sessions or security profile sessions.   \nall:Log all sessions accepted or denied by this policy.   \nutm:Log traffic that has a security profile applied to it.   \ndisable:Disable all logging for this policy.",
+          "options": [
+            "All",
+            "UTM",
+            "Disable"
+          ]
+        },
+        {
+          "title": "Log Traffic Start",
+          "name": "logtraffic-start",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Record logs when a session starts and ends.   \nenable:Enable setting.   \ndisable:Disable setting.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Log HTTP Transaction",
+          "name": "log-http-transaction",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\/disable http transaction log.   \nenable:Enable setting.   \ndisable:Disable setting.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "WAN Optimization",
+          "name": "wanopt",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\/disable WAN optimization.   \nenable:Enable setting.   \ndisable:Disable setting.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "WAN Optimization Detection",
+          "name": "wanopt-detection",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "WAN optimization auto-detection mode.   \nactive:Active WAN optimization peer auto-detection.   \npassive:Passive WAN optimization peer auto-detection.   \noff:Turn off WAN optimization peer auto-detection.",
+          "options": [
+            "Active",
+            "Passive",
+            "Off"
+          ]
+        },
+        {
+          "title": "WAN Optimization Passive Mode",
+          "name": "wanopt-passive-opt",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "WAN optimization passive mode options. This option decides what IP address will be used to connect server.   \ndefault:Allow client side WAN opt peer to decide.   \ntransparent:Use address of client to connect to server.   \nnon-transparent:Use local FortiProxy address to connect to server.",
+          "options": [
+            "Default",
+            "Transparent",
+            "Non Transparent"
+          ]
+        },
+        {
+          "title": "WAN Optimization Profile",
+          "name": "wanopt-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "WAN optimization profile."
+        },
+        {
+          "title": "WAN Optimization Peer",
+          "name": "wanopt-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "WAN optimization peer."
+        },
+        {
+          "title": "Web Cache",
+          "name": "webcache",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\/disable web cache.   \nenable:Enable setting.   \ndisable:Disable setting.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Web Cache HTTPS",
+          "name": "webcache-https",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\/disable web cache for HTTPS.   \ndisable:Disable web cache for HTTPS.   \nenable:Enable web cache for HTTPS.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Reverse Cache",
+          "name": "reverse-cache",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\/disable reverse cache servers.   \ndisable:Disable reverse cache.   \nenable:Enable reverse cache servers.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "HTTP Tunnel Authentication",
+          "name": "http-tunnel-auth",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\/disable HTTP tunnel authentication.   \nenable:Enable setting.   \ndisable:Disable setting.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "SSH Policy Redirect",
+          "name": "ssh-policy-redirect",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Redirect SSH traffic to match ssh policy.   \nenable:Enable SSH policy redirect.   \ndisable:Disable SSH policy redirect.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "WebProxy Forward",
+          "name": "webproxy-forward-server",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Webproxy forward server name."
+        },
+        {
+          "title": "Isolator Server Name",
+          "name": "isolator-server",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "isolator server name."
+        },
+        {
+          "title": "IP Pool Name",
+          "name": "poolname",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Name of IP pool object.",
+          "type": "json"
+        },
+        {
+          "title": "User Groups",
+          "name": "groups",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Names of user groups that can authenticate with this policy.",
+          "type": "json"
+        },
+        {
+          "title": "Users",
+          "name": "users",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Names of individual users that can authenticate with this policy.",
+          "type": "json"
+        },
+        {
+          "title": "WebProxy Disclaimer",
+          "name": "disclaimer",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Web proxy disclaimer setting: by domain, policy, or user.   \ndisable:Disable disclaimer.   \ndomain:Display disclaimer for domain   \npolicy:Display disclaimer for policy   \nuser:Display disclaimer for current user",
+          "options": [
+            "Disable",
+            "Domain",
+            "Policy",
+            "User"
+          ]
+        },
+        {
+          "title": "Comments",
+          "name": "comments",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Comment."
+        },
+        {
+          "title": "Redirect URL",
+          "name": "redirect-url",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Redirect URL for further web proxy processing."
+        },
+        {
+          "title": "Custom Log Fields",
+          "name": "custom-log-fields",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Custom fields to append to log messages for this policy.",
+          "type": "json"
+        },
+        {
+          "title": "Override Replacement Message",
+          "name": "replacemsg-override-group",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Override the default replacement message group for this policy."
+        },
+        {
+          "title": "Source Address Negate",
+          "name": "srcaddr-negate",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "When enabled srcaddr specifies what the source address must NOT be.   \nenable:Enable source address negate.   \ndisable:Disable source address negate.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Destination Address Negate",
+          "name": "dstaddr-negate",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "When enabled dstaddr specifies what the destination address must NOT be.   \nenable:Enable destination address negate.   \ndisable:Disable destination address negate.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Service Negate",
+          "name": "service-negate",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "When enabled service specifies what the service must NOT be.   \nenable:Enable negated service match.   \ndisable:Disable negated service match.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Internet Service Negate",
+          "name": "internet-service-negate",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "When enabled internet-service specifies what the service must NOT be.   \nenable:Enable negated Internet Service match.   \ndisable:Disable negated Internet Service match.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Decrypted Traffic Mirror",
+          "name": "decrypted-traffic-mirror",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Decrypted traffic mirror."
+        },
+        {
+          "title": "UTM Sessions",
+          "name": "max-session-per-user",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "description": "Max UTM sessions per user."
+        },
+        {
+          "title": "Profile Type",
+          "name": "profile-type",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Determine whether the firewall policy allows security profile groups or single profiles only.   \nsingle:Do not allow security profile groups.   \ngroup:Allow security profile groups.",
+          "options": [
+            "Single",
+            "Group"
+          ]
+        },
+        {
+          "title": "Profile Group",
+          "name": "profile-group",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of profile group."
+        },
+        {
+          "title": "Profile Protocol",
+          "name": "profile-protocol-options",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing Protocol options profile."
+        },
+        {
+          "title": "SSL SSH Profile",
+          "name": "ssl-ssh-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing SSL SSH profile."
+        },
+        {
+          "title": "Antivirus Profile",
+          "name": "av-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing Antivirus profile."
+        },
+        {
+          "title": "Image Analyzer Profile",
+          "name": "ia-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Image analyzer profile."
+        },
+        {
+          "title": "Web Filter Profile",
+          "name": "webfilter-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing Web filter profile."
+        },
+        {
+          "title": "DNS Filter Profile",
+          "name": "dnsfilter-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing DNS filter profile."
+        },
+        {
+          "title": "Email Filter Profile",
+          "name": "emailfilter-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing email filter profile."
+        },
+        {
+          "title": "DLP Sensor",
+          "name": "dlp-sensor",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing DLP sensor."
+        },
+        {
+          "title": "File Filter Profile",
+          "name": "file-filter-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing file-filter profile."
+        },
+        {
+          "title": "IPS Sensor",
+          "name": "ips-sensor",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing IPS sensor."
+        },
+        {
+          "title": "Application List",
+          "name": "application-list",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing Application list."
+        },
+        {
+          "title": "ICAP Profile",
+          "name": "icap-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing ICAP profile."
+        },
+        {
+          "title": "CIFS Profile",
+          "name": "cifs-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing CIFS profile."
+        },
+        {
+          "title": "VideoFilter Profile",
+          "name": "videofilter-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing VideoFilter profile."
+        },
+        {
+          "title": "SSH Filter Profile",
+          "name": "ssh-filter-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing SSH filter profile."
+        },
+        {
+          "title": "VDOM",
+          "name": "vdom",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Action",
+          "name": "action",
+          "description": "If supported, an action can be specified.\n_clone_: Clone this specific resource.\nWhen *action=clone* is set, the extra parameters *nkey* must be provided.\n__*Note:*__ If this parameter is provided when not supported, the action will be ignored and an \u201cinvalid request\u201d error will be returned.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "value": "clone"
+        },
+        {
+          "title": "New Resource ID",
+          "name": "nkey",
+          "description": " If *action=clone*, use *nkey* to specify the ID for the new resource to be created.\nFor example, to clone `address1` to `address1_clone`, use:\n__action=clone&nkey=address1_clone__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *clone*.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_firewall_policy",
+      "title": "Get Firewall Policy",
+      "description": "Retrieves all firewall policy from FortiProxy server based on the input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_firewall_policy",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Data Source",
+          "name": "datasource",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to include datasource information for each linked object."
+        },
+        {
+          "title": "Start",
+          "name": "start",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "description": "Starting entry index."
+        },
+        {
+          "title": "Count",
+          "name": "count",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "description": "Maximum number of entries to return."
+        },
+        {
+          "title": "With Meta",
+          "name": "with_meta",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to include meta information about each object (type id, references, etc)."
+        },
+        {
+          "title": "Contents Hash",
+          "name": "with_contents_hash",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to include a checksum of each object's contents."
+        },
+        {
+          "title": "Skip",
+          "name": "skip",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to call CLI skip operator to hide skipped properties."
+        },
+        {
+          "title": "Format",
+          "name": "format",
+          "description": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Filter",
+          "name": "filter",
+          "description": "Filtering multiple key/value pairs\nOperator     |   Description\n==     |   Case insensitive match with pattern.\n!=     |    Does not match with pattern (case insensitive).\n=@     |    Pattern found in object value (case insensitive).\n!@     |    \ufeffPattern not\ufeff found in object value (case insensitive).\n<=     |    Value must be less than or equal to \ufeffpattern\ufeff.\n<     |    Value must be less than pattern\ufeff.\n.>=    |    Value must be greater than or equal to \ufeffpattern\ufeff.\n.>     |    Value must be greater than \ufeffpattern\ufeff.\nLogical OR    |    Separate filters using commas ','\nLogical AND    |    Filter strings can be combined to create logical AND queries by including multiple filters in the request.\nCombining AND and OR    |    You can combine AND and OR filters together to create more complex filters.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Key",
+          "name": "key",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "If present, objects will be filtered on property with this name."
+        },
+        {
+          "title": "Pattern",
+          "name": "pattern",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "If present, objects will be filtered on property with this value."
+        },
+        {
+          "title": "Scope",
+          "name": "scope",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Scope [global|vdom|both*]"
+        },
+        {
+          "title": "Exclude Default Values",
+          "name": "exclude-default-values",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Exclude properties\/objects with default value"
+        },
+        {
+          "title": "Meta Only",
+          "name": "meta_only",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "When turned on, the total filtered count (based on the filter params) and table size will be returned, and table entries won't be emitted to results. The flag should only be used when fetching table type datasource and the filter isn't on masterkey."
+        },
+        {
+          "title": "Action",
+          "name": "action",
+          "description": "default: Return the CLI default values for entire CLI tree.\nmeta: Return meta data for a specific object, table, or the entire CLI tree.\nschema: Return schema for entire CLI tree.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Default",
+            "Schema"
+          ]
+        },
+        {
+          "title": "VDOM",
+          "name": "vdom",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_firewall_policy_details",
+      "title": "Get Firewall Policy Details",
+      "description": "Retrieves an specific firewall policy from FortiProxy server based on the policy ID and other input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_firewall_policy_details",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Policy ID",
+          "name": "policyid",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "description": "mkey"
+        },
+        {
+          "title": "Data Source",
+          "name": "datasource",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to include datasource information for each linked object."
+        },
+        {
+          "title": "Include Meta Information",
+          "name": "with_meta",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to include meta information about each object (type id, references, etc)."
+        },
+        {
+          "title": "Skip",
+          "name": "skip",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to call CLI skip operator to hide skipped properties."
+        },
+        {
+          "title": "Format",
+          "name": "format",
+          "description": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Action",
+          "name": "action",
+          "description": "default: Return the CLI default values for this object type.\nschema: Return the CLI schema for this object type.\nrevision: Return the CMDB revision for this object type.\ntransaction-list: List all configuration transaction(s).\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Default",
+            "Schema",
+            "Revision"
+          ]
+        },
+        {
+          "title": "VDOM",
+          "name": "vdom",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "update_firewall_policy",
+      "title": "Update Firewall Policy",
+      "description": "Updates an firewall policy in FortiProxy server based on the policy ID and other input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "update_firewall_policy",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Policy ID",
+          "name": "policyid",
+          "description": "Policy ID.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer"
+        },
+        {
+          "title": "Policy Type",
+          "name": "type",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Type of policy.   \nexplicit-web:Explicit Web Proxy policy   \ntransparent:Transparent firewall policy   \nexplicit-ftp:Explicit FTP Proxy policy   \nssh-tunnel:SSH Tunnel policy   \nssh:SSH policy   \naccess-proxy:Access Proxy   \nwanopt:WANopt Tunnel",
+          "options": [
+            "Explicit Web",
+            "Transparent",
+            "Explicit FTP",
+            "SSH Tunnel",
+            "SSH",
+            "Access Proxy",
+            "WanOpt"
+          ]
+        },
+        {
+          "title": "Policy Name",
+          "name": "name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Policy name."
+        },
+        {
+          "title": "Status",
+          "name": "status",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable or disable this policy.   \nenable:Enable setting.   \ndisable:Disable setting.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "UUID",
+          "name": "uuid",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "format": "uuid",
+          "description": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset)."
+        },
+        {
+          "title": "Force Proxy",
+          "name": "force-proxy",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Force proxy.   \nenable:Force all TCP transparent traffic to proxy.   \ndisable:Do not force TCP transparent traffic to proxy.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Dynamic Bypass",
+          "name": "dynamic-bypass",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Dynamic bypass.   \nenable:Enable dynamic bypass to all HTTP traffic in this policy.   \ndisable:Disable dynamic bypass to all HTTP traffic in this policy.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Source Interface",
+          "name": "srcintf",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Incoming (ingress) interface.",
+          "type": "json"
+        },
+        {
+          "title": "Destination Interface",
+          "name": "dstintf",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Outgoing (egress) interface.",
+          "type": "json"
+        },
+        {
+          "title": "Source Address",
+          "name": "srcaddr",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Source address and address group names.",
+          "type": "json"
+        },
+        {
+          "title": "Destination Address",
+          "name": "dstaddr",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Destination address and address group names.",
+          "type": "json"
+        },
+        {
+          "title": "IPV6 Source Address",
+          "name": "srcaddr6",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "IPv6 source address (web proxy only).",
+          "type": "json"
+        },
+        {
+          "title": "IPV6 Destination Address",
+          "name": "dstaddr6",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "IPv6 destination address (web proxy only).",
+          "type": "json"
+        },
+        {
+          "title": "Policy Action",
+          "name": "action",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Policy action (allow\/deny).   \naccept:Allows session that match the firewall policy.   \ndeny:Blocks sessions that match the firewall policy.   \nredirect:Redirect sessions that match the firewall policy to a url.   \nisolate:Isolate sessions that match the firewall policy with isolator.",
+          "options": [
+            "Accept",
+            "Deny",
+            "Redirect",
+            "Isolate"
+          ]
+        },
+        {
+          "title": "Schedule Name",
+          "name": "schedule",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Schedule name."
+        },
+        {
+          "title": "Service",
+          "name": "service",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Service and service group names.",
+          "type": "json"
+        },
+        {
+          "title": "Explicit Web Proxy",
+          "name": "explicit-web-proxy",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Explicit web proxy."
+        },
+        {
+          "title": "Transparent",
+          "name": "transparent",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "set webproxy to use original client address.   \nenable:Enable using original client address for webproxy.   \ndisable:Disable using original client address for webproxy.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Access Proxy",
+          "name": "access-proxy",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Access Proxy.",
+          "type": "json"
+        },
+        {
+          "title": "ZTNA Status",
+          "name": "ztna-status",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\/disable zero trust access.   \nenable:Enable zero trust network access.   \ndisable:Disable zero trust network access.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "ZTNA EMS Tag",
+          "name": "ztna-ems-tag",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Source ztna-ems-tag names.",
+          "type": "json"
+        },
+        {
+          "title": "ZTNA GEO Tag",
+          "name": "ztna-geo-tag",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Source ztna-geo-tag names.",
+          "type": "json"
+        },
+        {
+          "title": "Internet Service",
+          "name": "internet-service",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\/disable use of Internet Services for this policy. If enabled, destination address and service are not used.    \nenable:Enable use of Internet Services in policy.   \ndisable:Disable use of Internet Services in policy.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Internet Service Name",
+          "name": "internet-service-name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "json",
+          "description": "Internet Service name."
+        },
+        {
+          "title": "Internet Service Custom",
+          "name": "internet-service-custom",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Custom Internet Service Name.",
+          "type": "json"
+        },
+        {
+          "title": "UTM Status",
+          "name": "utm-status",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable to add one or more security profiles (AV, IPS, etc.) to the firewall policy.   \nenable:Enable setting.   \ndisable:Disable setting.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "WebProxy Profile",
+          "name": "webproxy-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Web proxy profile using when none matched policy."
+        },
+        {
+          "title": "Log Traffic",
+          "name": "logtraffic",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable or disable logging. Log all sessions or security profile sessions.   \nall:Log all sessions accepted or denied by this policy.   \nutm:Log traffic that has a security profile applied to it.   \ndisable:Disable all logging for this policy.",
+          "options": [
+            "All",
+            "UTM",
+            "Disable"
+          ]
+        },
+        {
+          "title": "Log Traffic Start",
+          "name": "logtraffic-start",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Record logs when a session starts and ends.   \nenable:Enable setting.   \ndisable:Disable setting.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Log HTTP Transaction",
+          "name": "log-http-transaction",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\/disable http transaction log.   \nenable:Enable setting.   \ndisable:Disable setting.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "WAN Optimization",
+          "name": "wanopt",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\/disable WAN optimization.   \nenable:Enable setting.   \ndisable:Disable setting.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "WAN Optimization Detection",
+          "name": "wanopt-detection",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "WAN optimization auto-detection mode.   \nactive:Active WAN optimization peer auto-detection.   \npassive:Passive WAN optimization peer auto-detection.   \noff:Turn off WAN optimization peer auto-detection.",
+          "options": [
+            "Active",
+            "Passive",
+            "Off"
+          ]
+        },
+        {
+          "title": "WAN Optimization Passive Mode",
+          "name": "wanopt-passive-opt",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "WAN optimization passive mode options. This option decides what IP address will be used to connect server.   \ndefault:Allow client side WAN opt peer to decide.   \ntransparent:Use address of client to connect to server.   \nnon-transparent:Use local FortiProxy address to connect to server.",
+          "options": [
+            "Default",
+            "Transparent",
+            "Non Transparent"
+          ]
+        },
+        {
+          "title": "WAN Optimization Profile",
+          "name": "wanopt-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "WAN optimization profile."
+        },
+        {
+          "title": "WAN Optimization Peer",
+          "name": "wanopt-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "WAN optimization peer."
+        },
+        {
+          "title": "Web Cache",
+          "name": "webcache",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\/disable web cache.   \nenable:Enable setting.   \ndisable:Disable setting.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Web Cache HTTPS",
+          "name": "webcache-https",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\/disable web cache for HTTPS.   \ndisable:Disable web cache for HTTPS.   \nenable:Enable web cache for HTTPS.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Reverse Cache",
+          "name": "reverse-cache",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\/disable reverse cache servers.   \ndisable:Disable reverse cache.   \nenable:Enable reverse cache servers.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "HTTP Tunnel Authentication",
+          "name": "http-tunnel-auth",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\/disable HTTP tunnel authentication.   \nenable:Enable setting.   \ndisable:Disable setting.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "SSH Policy Redirect",
+          "name": "ssh-policy-redirect",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Redirect SSH traffic to match ssh policy.   \nenable:Enable SSH policy redirect.   \ndisable:Disable SSH policy redirect.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "WebProxy Forward",
+          "name": "webproxy-forward-server",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Webproxy forward server name."
+        },
+        {
+          "title": "Isolator Server Name",
+          "name": "isolator-server",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "isolator server name."
+        },
+        {
+          "title": "IP Pool Name",
+          "name": "poolname",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Name of IP pool object.",
+          "type": "json"
+        },
+        {
+          "title": "User Groups",
+          "name": "groups",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Names of user groups that can authenticate with this policy.",
+          "type": "json"
+        },
+        {
+          "title": "Users",
+          "name": "users",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Names of individual users that can authenticate with this policy.",
+          "type": "json"
+        },
+        {
+          "title": "WebProxy Disclaimer",
+          "name": "disclaimer",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Web proxy disclaimer setting: by domain, policy, or user.   \ndisable:Disable disclaimer.   \ndomain:Display disclaimer for domain   \npolicy:Display disclaimer for policy   \nuser:Display disclaimer for current user",
+          "options": [
+            "Disable",
+            "Domain",
+            "Policy",
+            "User"
+          ]
+        },
+        {
+          "title": "Comments",
+          "name": "comments",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Comment."
+        },
+        {
+          "title": "Redirect URL",
+          "name": "redirect-url",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Redirect URL for further web proxy processing."
+        },
+        {
+          "title": "Custom Log Fields",
+          "name": "custom-log-fields",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Custom fields to append to log messages for this policy.",
+          "type": "json"
+        },
+        {
+          "title": "Override Replacement Message",
+          "name": "replacemsg-override-group",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Override the default replacement message group for this policy."
+        },
+        {
+          "title": "Source Address Negate",
+          "name": "srcaddr-negate",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "When enabled srcaddr specifies what the source address must NOT be.   \nenable:Enable source address negate.   \ndisable:Disable source address negate.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Destination Address Negate",
+          "name": "dstaddr-negate",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "When enabled dstaddr specifies what the destination address must NOT be.   \nenable:Enable destination address negate.   \ndisable:Disable destination address negate.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Service Negate",
+          "name": "service-negate",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "When enabled service specifies what the service must NOT be.   \nenable:Enable negated service match.   \ndisable:Disable negated service match.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Internet Service Negate",
+          "name": "internet-service-negate",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "When enabled internet-service specifies what the service must NOT be.   \nenable:Enable negated Internet Service match.   \ndisable:Disable negated Internet Service match.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Decrypted Traffic Mirror",
+          "name": "decrypted-traffic-mirror",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Decrypted traffic mirror."
+        },
+        {
+          "title": "UTM Sessions",
+          "name": "max-session-per-user",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "description": "Max UTM sessions per user."
+        },
+        {
+          "title": "Profile Type",
+          "name": "profile-type",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Determine whether the firewall policy allows security profile groups or single profiles only.   \nsingle:Do not allow security profile groups.   \ngroup:Allow security profile groups.",
+          "options": [
+            "Single",
+            "Group"
+          ]
+        },
+        {
+          "title": "Profile Group",
+          "name": "profile-group",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of profile group."
+        },
+        {
+          "title": "Profile Protocol",
+          "name": "profile-protocol-options",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing Protocol options profile."
+        },
+        {
+          "title": "SSL SSH Profile",
+          "name": "ssl-ssh-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing SSL SSH profile."
+        },
+        {
+          "title": "Antivirus Profile",
+          "name": "av-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing Antivirus profile."
+        },
+        {
+          "title": "Image Analyzer Profile",
+          "name": "ia-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Image analyzer profile."
+        },
+        {
+          "title": "Web Filter Profile",
+          "name": "webfilter-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing Web filter profile."
+        },
+        {
+          "title": "DNS Filter Profile",
+          "name": "dnsfilter-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing DNS filter profile."
+        },
+        {
+          "title": "Email Filter Profile",
+          "name": "emailfilter-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing email filter profile."
+        },
+        {
+          "title": "DLP Sensor",
+          "name": "dlp-sensor",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing DLP sensor."
+        },
+        {
+          "title": "File Filter Profile",
+          "name": "file-filter-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing file-filter profile."
+        },
+        {
+          "title": "IPS Sensor",
+          "name": "ips-sensor",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing IPS sensor."
+        },
+        {
+          "title": "Application List",
+          "name": "application-list",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing Application list."
+        },
+        {
+          "title": "ICAP Profile",
+          "name": "icap-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing ICAP profile."
+        },
+        {
+          "title": "CIFS Profile",
+          "name": "cifs-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing CIFS profile."
+        },
+        {
+          "title": "VideoFilter Profile",
+          "name": "videofilter-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing VideoFilter profile."
+        },
+        {
+          "title": "SSH Filter Profile",
+          "name": "ssh-filter-profile",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Name of an existing SSH filter profile."
+        },
+        {
+          "title": "VDOM",
+          "name": "vdom",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Action",
+          "name": "action",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "value": "move"
+        },
+        {
+          "title": "Before",
+          "name": "before",
+          "description": "If *action=move*, use *before* to specify the ID of the resource that this resource will be moved before.\nFor example, to move `object 1` to before `object 2`, use:\n__action=move&before=2__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *move*.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text"
+        },
+        {
+          "title": "After",
+          "name": "after",
+          "description": "If *action=move*, use *after* to specify the ID of the resource that this resource will be moved after.\nFor example, to move `object 1` to after `object 3`, use:\n__action=move&after=3__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *move*.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "delete_firewall_policy",
+      "title": "Delete Firewall Policy",
+      "description": "Deletes a specific firewall policy in FortiProxy server based on the policy ID and other input parameter that you have specified.",
+      "category": "investigation",
+      "annotation": "delete_firewall_policy",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Policy ID",
+          "name": "policyid",
+          "description": "Policy ID.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer"
+        },
+        {
+          "title": "VDOM",
+          "name": "vdom",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "create_firewall_address",
+      "title": "Create Firewall Address",
+      "description": "Creates an firewall address in FortiProxy server based on the input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "create_firewall_address",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Address Name",
+          "name": "name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Address name."
+        },
+        {
+          "title": "UUID",
+          "name": "uuid",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset)."
+        },
+        {
+          "title": "Subnet",
+          "name": "subnet",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "IP address and subnet mask of address."
+        },
+        {
+          "title": "Address Type",
+          "name": "type",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Type of address.   \nipmask:Standard IPv4 address with subnet mask.   \niprange:Range of IPv4 addresses between two specified addresses (inclusive).   \nfqdn:Fully Qualified Domain Name address.   \ngeography:IP addresses from a specified country.   \nwildcard:Standard IPv4 using a wildcard subnet mask.   \ndynamic:Dynamic address object.   \ninterface-subnet:IP and subnet of interface.   \nmac:Range of MAC addresses.",
+          "options": [
+            "IP Mask",
+            "IP Range",
+            "FQDN",
+            "Geography",
+            "WildCard",
+            "Dynamic",
+            "Interface Subnet",
+            "MAC"
+          ]
+        },
+        {
+          "title": "Sub-Type Address",
+          "name": "sub-type",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Sub-type of address.   \nsdn:SDN address.   \nclearpass-spt:ClearPass SPT (System Posture Token) address.   \nfsso:FSSO address.   \nems-tag:FortiClient EMS tag.   \nswc-tag:Switch Controller NAC policy tag.",
+          "options": [
+            "SDN",
+            "ClearPass SPT",
+            "FSSO",
+            "EMS Tag",
+            "SWC Tag"
+          ]
+        },
+        {
+          "title": "System Posture Token",
+          "name": "clearpass-spt",
+          "type": "select",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "SPT (System Posture Token) value.   \nunknown:UNKNOWN.   \nhealthy:HEALTHY.   \nquarantine:QUARANTINE.   \ncheckup:CHECKUP.   \ntransient:TRANSIENT.   \ninfected:INFECTED.",
+          "options": [
+            "Unknown",
+            "Healthy",
+            "Quarantine",
+            "Checkup",
+            "Transient",
+            "Infected"
+          ]
+        },
+        {
+          "title": "MAC Address",
+          "name": "macaddr",
+          "description": "Multiple MAC address ranges.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Start IPV4 Address",
+          "name": "start-ip",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "First IP address (inclusive) in the range for the address."
+        },
+        {
+          "title": "End IPV4 Address",
+          "name": "end-ip",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Final IP address (inclusive) in the range for the address."
+        },
+        {
+          "title": "FQDN Address",
+          "name": "fqdn",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Fully Qualified Domain Name address."
+        },
+        {
+          "title": "Country",
+          "name": "country",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "IP addresses associated to a specific country."
+        },
+        {
+          "title": "FQDN Address with Wildcard",
+          "name": "wildcard-fqdn",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Fully Qualified Domain Name with wildcard characters."
+        },
+        {
+          "title": "TTL",
+          "name": "cache-ttl",
+          "type": "integer",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Defines the minimal TTL of individual IP addresses in FQDN cache measured in seconds."
+        },
+        {
+          "title": "Wildcard Netmask",
+          "name": "wildcard",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "IP address and wildcard netmask."
+        },
+        {
+          "title": "SDN",
+          "name": "sdn",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "SDN."
+        },
+        {
+          "title": "FSSO Group",
+          "name": "fsso-group",
+          "description": "FSSO group(s).",
+          "type": "json",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Interface Name",
+          "name": "interface",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Name of interface whose IP address is to be used."
+        },
+        {
+          "title": "Tenant",
+          "name": "tenant",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Tenant."
+        },
+        {
+          "title": "Organization",
+          "name": "organization",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Organization domain name (Syntax: organization\/domain)."
+        },
+        {
+          "title": "Endpoint Group Name",
+          "name": "epg-name",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Endpoint group name."
+        },
+        {
+          "title": "Subnet Name",
+          "name": "subnet-name",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Subnet name."
+        },
+        {
+          "title": "SDN Tag",
+          "name": "sdn-tag",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "SDN Tag."
+        },
+        {
+          "title": "Policy Group Name",
+          "name": "policy-group",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Policy group name."
+        },
+        {
+          "title": "Dynamic Address Object Tag",
+          "name": "obj-tag",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Tag of dynamic address object."
+        },
+        {
+          "title": "Object Type",
+          "name": "obj-type",
+          "type": "select",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Object type.   \nip:IP address.   \nmac:MAC address",
+          "options": [
+            "IP",
+            "MAC"
+          ]
+        },
+        {
+          "title": "Comment",
+          "name": "comment",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Comment."
+        },
+        {
+          "title": "Network Interface",
+          "name": "associated-interface",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Network interface associated with address."
+        },
+        {
+          "title": "Color",
+          "name": "color",
+          "type": "integer",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Color of icon on the GUI."
+        },
+        {
+          "title": "Filter",
+          "name": "filter",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Match criteria filter."
+        },
+        {
+          "title": "SDN Address Type",
+          "name": "sdn-addr-type",
+          "type": "select",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Type of addresses to collect.   \nprivate:Collect private addresses only.   \npublic:Collect public addresses only.   \nall:Collect both public and private addresses.",
+          "options": [
+            "Private",
+            "Public",
+            "All"
+          ]
+        },
+        {
+          "title": "Node Address",
+          "name": "node-ip-only",
+          "type": "select",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Enable\/disable collection of node addresses only in Kubernetes.   \nenable:Enable collection of node addresses only in Kubernetes.   \ndisable:Disable collection of node addresses only in Kubernetes.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Object ID",
+          "name": "obj-id",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Object ID for NSX."
+        },
+        {
+          "title": "IP Address",
+          "name": "list",
+          "description": "IP address list.",
+          "type": "json",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Tagging",
+          "name": "tagging",
+          "description": "Config object tagging.",
+          "type": "json",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Allow Routing",
+          "name": "allow-routing",
+          "type": "select",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Enable\/disable use of this address in the static route configuration.   \nenable:Enable use of this address in the static route configuration.   \ndisable:Disable use of this address in the static route configuration.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Security Fabric Object",
+          "name": "fabric-object",
+          "type": "select",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Security Fabric global object setting.   \nenable:Object is set as a security fabric-wide global object.   \ndisable:Object is local to this security fabric member.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "VDOM",
+          "name": "vdom",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Action",
+          "name": "action",
+          "description": "If supported, an action can be specified.\n_clone_: Clone this specific resource.\nWhen *action=clone* is set, the extra parameters *nkey* must be provided.\n__*Note:*__ If this parameter is provided when not supported, the action will be ignored and an \u201cinvalid request\u201d error will be returned.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "value": "clone"
+        },
+        {
+          "title": "New Resource ID",
+          "name": "nkey",
+          "description": " If *action=clone*, use *nkey* to specify the ID for the new resource to be created.\nFor example, to clone `address1` to `address1_clone`, use:\n__action=clone&nkey=address1_clone__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *clone*.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_firewall_address",
+      "title": "Get Firewall Address",
+      "description": "Retrieves all firewall address from FortiProxy server based on the input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_firewall_address",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Data Source",
+          "name": "datasource",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to include datasource information for each linked object."
+        },
+        {
+          "title": "Start",
+          "name": "start",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "description": "Starting entry index."
+        },
+        {
+          "title": "Count",
+          "name": "count",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "description": "Maximum number of entries to return."
+        },
+        {
+          "title": "Include Meta Information",
+          "name": "with_meta",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to include meta information about each object (type id, references, etc)."
+        },
+        {
+          "title": "Include Contents Hash",
+          "name": "with_contents_hash",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to include a checksum of each object's contents."
+        },
+        {
+          "title": "Skip",
+          "name": "skip",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to call CLI skip operator to hide skipped properties."
+        },
+        {
+          "title": "Format",
+          "name": "format",
+          "description": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Filter",
+          "name": "filter",
+          "description": "Filtering multiple key\/value pairs\nOperator     |   Description\n==     |   Case insensitive match with pattern.\n!=     |    Does not match with pattern (case insensitive).\n=@     |    Pattern found in object value (case insensitive).\n!@     |    \ufeffPattern not\ufeff found in object value (case insensitive).\n<=     |    Value must be less than or equal to \ufeffpattern\ufeff.\n<     |    Value must be less than pattern\ufeff.\n.>=    |    Value must be greater than or equal to \ufeffpattern\ufeff.\n.>     |    Value must be greater than \ufeffpattern\ufeff.\nLogical OR    |    Separate filters using commas ','\nLogical AND    |    Filter strings can be combined to create logical AND queries by including multiple filters in the request.\nCombining AND and OR    |    You can combine AND and OR filters together to create more complex filters.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Filter on Property",
+          "name": "key",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "If present, objects will be filtered on property with this name."
+        },
+        {
+          "title": "Pattern",
+          "name": "pattern",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "If present, objects will be filtered on property with this value."
+        },
+        {
+          "title": "Scope",
+          "name": "scope",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Scope [global|vdom|both*]"
+        },
+        {
+          "title": "Exclude Properties",
+          "name": "exclude-default-values",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Exclude properties\/objects with default value"
+        },
+        {
+          "title": "Meta Only",
+          "name": "meta_only",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "When turned on, the total filtered count (based on the filter params) and table size will be returned, and table entries won't be emitted to results. The flag should only be used when fetching table type datasource and the filter isn't on masterkey."
+        },
+        {
+          "title": "Action",
+          "name": "action",
+          "description": "default: Return the CLI default values for entire CLI tree.\nmeta: Return meta data for a specific object, table, or the entire CLI tree.\nschema: Return schema for entire CLI tree.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Default",
+            "Schema"
+          ]
+        },
+        {
+          "title": "VDOM",
+          "name": "vdom",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_firewall_address_details",
+      "title": "Get Firewall Address Details",
+      "description": "Retrieves an specific firewall address from FortiProxy server based on the address name and other input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_firewall_address_details",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Address Name",
+          "name": "name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "mkey"
+        },
+        {
+          "title": "Data Source",
+          "name": "datasource",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to include datasource information for each linked object."
+        },
+        {
+          "title": "Meta Information",
+          "name": "with_meta",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to include meta information about each object (type id, references, etc)."
+        },
+        {
+          "title": "Skip",
+          "name": "skip",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to call CLI skip operator to hide skipped properties."
+        },
+        {
+          "title": "Format",
+          "name": "format",
+          "description": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Action",
+          "name": "action",
+          "description": "default: Return the CLI default values for this object type.\nschema: Return the CLI schema for this object type.\nrevision: Return the CMDB revision for this object type.\ntransaction-list: List all configuration transaction(s).\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Default",
+            "Schema",
+            "Revision"
+          ]
+        },
+        {
+          "title": "VDOM",
+          "name": "vdom",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "update_firewall_address",
+      "title": "Update Firewall Address",
+      "description": "Updates an firewall address in FortiProxy server based on the address name and other input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "update_firewall_address",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Address Name",
+          "name": "name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Address name."
+        },
+        {
+          "title": "UUID",
+          "name": "uuid",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset)."
+        },
+        {
+          "title": "Subnet",
+          "name": "subnet",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "IP address and subnet mask of address."
+        },
+        {
+          "title": "Address Type",
+          "name": "type",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Type of address.   \nipmask:Standard IPv4 address with subnet mask.   \niprange:Range of IPv4 addresses between two specified addresses (inclusive).   \nfqdn:Fully Qualified Domain Name address.   \ngeography:IP addresses from a specified country.   \nwildcard:Standard IPv4 using a wildcard subnet mask.   \ndynamic:Dynamic address object.   \ninterface-subnet:IP and subnet of interface.   \nmac:Range of MAC addresses.",
+          "options": [
+            "IP Mask",
+            "IP Range",
+            "FQDN",
+            "Geography",
+            "WildCard",
+            "Dynamic",
+            "Interface Subnet",
+            "MAC"
+          ]
+        },
+        {
+          "title": "Sub-Type Address",
+          "name": "sub-type",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Sub-type of address.   \nsdn:SDN address.   \nclearpass-spt:ClearPass SPT (System Posture Token) address.   \nfsso:FSSO address.   \nems-tag:FortiClient EMS tag.   \nswc-tag:Switch Controller NAC policy tag.",
+          "options": [
+            "SDN",
+            "ClearPass SPT",
+            "FSSO",
+            "EMS Tag",
+            "SWC Tag"
+          ]
+        },
+        {
+          "title": "System Posture Token",
+          "name": "clearpass-spt",
+          "type": "select",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "SPT (System Posture Token) value.   \nunknown:UNKNOWN.   \nhealthy:HEALTHY.   \nquarantine:QUARANTINE.   \ncheckup:CHECKUP.   \ntransient:TRANSIENT.   \ninfected:INFECTED.",
+          "options": [
+            "Unknown",
+            "Healthy",
+            "Quarantine",
+            "Checkup",
+            "Transient",
+            "Infected"
+          ]
+        },
+        {
+          "title": "MAC Address",
+          "name": "macaddr",
+          "description": "Multiple MAC address ranges.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Start IPV4 Address",
+          "name": "start-ip",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "First IP address (inclusive) in the range for the address."
+        },
+        {
+          "title": "End IPV4 Address",
+          "name": "end-ip",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Final IP address (inclusive) in the range for the address."
+        },
+        {
+          "title": "FQDN Address",
+          "name": "fqdn",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Fully Qualified Domain Name address."
+        },
+        {
+          "title": "Country",
+          "name": "country",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "IP addresses associated to a specific country."
+        },
+        {
+          "title": "FQDN Address with Wildcard",
+          "name": "wildcard-fqdn",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Fully Qualified Domain Name with wildcard characters."
+        },
+        {
+          "title": "TTL",
+          "name": "cache-ttl",
+          "type": "integer",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Defines the minimal TTL of individual IP addresses in FQDN cache measured in seconds."
+        },
+        {
+          "title": "Wildcard Netmask",
+          "name": "wildcard",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "IP address and wildcard netmask."
+        },
+        {
+          "title": "SDN",
+          "name": "sdn",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "SDN."
+        },
+        {
+          "title": "FSSO Group",
+          "name": "fsso-group",
+          "description": "FSSO group(s).",
+          "type": "json",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Interface Name",
+          "name": "interface",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Name of interface whose IP address is to be used."
+        },
+        {
+          "title": "Tenant",
+          "name": "tenant",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Tenant."
+        },
+        {
+          "title": "Organization",
+          "name": "organization",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Organization domain name (Syntax: organization\/domain)."
+        },
+        {
+          "title": "Endpoint Group Name",
+          "name": "epg-name",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Endpoint group name."
+        },
+        {
+          "title": "Subnet Name",
+          "name": "subnet-name",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Subnet name."
+        },
+        {
+          "title": "SDN Tag",
+          "name": "sdn-tag",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "SDN Tag."
+        },
+        {
+          "title": "Policy Group Name",
+          "name": "policy-group",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Policy group name."
+        },
+        {
+          "title": "Dynamic Address Object Tag",
+          "name": "obj-tag",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Tag of dynamic address object."
+        },
+        {
+          "title": "Object Type",
+          "name": "obj-type",
+          "type": "select",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Object type.   \nip:IP address.   \nmac:MAC address",
+          "options": [
+            "IP",
+            "MAC"
+          ]
+        },
+        {
+          "title": "Comment",
+          "name": "comment",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Comment."
+        },
+        {
+          "title": "Network Interface",
+          "name": "associated-interface",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Network interface associated with address."
+        },
+        {
+          "title": "Color",
+          "name": "color",
+          "type": "integer",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Color of icon on the GUI."
+        },
+        {
+          "title": "Filter",
+          "name": "filter",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Match criteria filter."
+        },
+        {
+          "title": "SDN Address Type",
+          "name": "sdn-addr-type",
+          "type": "select",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Type of addresses to collect.   \nprivate:Collect private addresses only.   \npublic:Collect public addresses only.   \nall:Collect both public and private addresses.",
+          "options": [
+            "Private",
+            "Public",
+            "All"
+          ]
+        },
+        {
+          "title": "Node Address",
+          "name": "node-ip-only",
+          "type": "select",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Enable\/disable collection of node addresses only in Kubernetes.   \nenable:Enable collection of node addresses only in Kubernetes.   \ndisable:Disable collection of node addresses only in Kubernetes.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Object ID",
+          "name": "obj-id",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Object ID for NSX."
+        },
+        {
+          "title": "IP Address",
+          "name": "list",
+          "description": "IP address list.",
+          "type": "json",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Tagging",
+          "name": "tagging",
+          "description": "Config object tagging.",
+          "type": "json",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Allow Routing",
+          "name": "allow-routing",
+          "type": "select",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Enable\/disable use of this address in the static route configuration.   \nenable:Enable use of this address in the static route configuration.   \ndisable:Disable use of this address in the static route configuration.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Security Fabric Object",
+          "name": "fabric-object",
+          "type": "select",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Security Fabric global object setting.   \nenable:Object is set as a security fabric-wide global object.   \ndisable:Object is local to this security fabric member.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "VDOM",
+          "name": "vdom",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Action",
+          "name": "action",
+          "description": "If supported, an action can be specified.\n_clone_: Clone this specific resource.\nWhen *action=clone* is set, the extra parameters *nkey* must be provided.\n__*Note:*__ If this parameter is provided when not supported, the action will be ignored and an \u201cinvalid request\u201d error will be returned.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "value": "clone"
+        },
+        {
+          "title": "New Resource ID",
+          "name": "nkey",
+          "description": " If *action=clone*, use *nkey* to specify the ID for the new resource to be created.\nFor example, to clone `address1` to `address1_clone`, use:\n__action=clone&nkey=address1_clone__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *clone*.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text"
+        },
+        {
+          "title": "Before",
+          "name": "before",
+          "description": "If *action=move*, use *before* to specify the ID of the resource that this resource will be moved before.\nFor example, to move `object 1` to before `object 2`, use:\n__action=move&before=2__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *move*.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text"
+        },
+        {
+          "title": "After",
+          "name": "after",
+          "description": "If *action=move*, use *after* to specify the ID of the resource that this resource will be moved after.\nFor example, to move `object 1` to after `object 3`, use:\n__action=move&after=3__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *move*.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "delete_firewall_address",
+      "title": "Delete Firewall Address",
+      "description": "Deletes a specific firewall address in FortiProxy server based on the address name and other input parameter that you have specified.",
+      "category": "investigation",
+      "annotation": "delete_firewall_address",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Address Name",
+          "name": "name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "mkey"
+        },
+        {
+          "title": "VDOM",
+          "name": "vdom",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "create_firewall_address_group",
+      "title": "Create Firewall Address Group",
+      "description": "Creates an firewall address group in FortiProxy server based on the input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "create_firewall_address_group",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Address Group Name",
+          "name": "name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Address group name."
+        },
+        {
+          "title": "Address Group Type",
+          "name": "type",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Address group type.   \ndefault:Default address group type (address may belong to multiple groups).   \nfolder:Address folder group (members may not belong to any other group).",
+          "options": [
+            "Default",
+            "Folder"
+          ]
+        },
+        {
+          "title": "Category",
+          "name": "category",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Address group category.   \ndefault:Default address group category (cannot be used as ztna-ems-tag\/ztna-geo-tag in policy).   \nztna-ems-tag:Members must be ztna-ems-tag group or ems-tag address, can be used as ztna-ems-tag in policy.   \nztna-geo-tag:Members must be ztna-geo-tag group or geographic address, can be used as ztna-geo-tag in policy.",
+          "options": [
+            "Default",
+            "ZTNA EMS Tag",
+            "ZTNA Geo Tag"
+          ]
+        },
+        {
+          "title": "UUID",
+          "name": "uuid",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset)."
+        },
+        {
+          "title": "Member",
+          "name": "member",
+          "description": "Address objects contained within the group.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Comment",
+          "name": "comment",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Comment."
+        },
+        {
+          "title": "Exclude Address",
+          "name": "exclude",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\/disable address exclusion.   \nenable:Enable address exclusion.   \ndisable:Disable address exclusion.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Exclude Member",
+          "name": "exclude-member",
+          "description": "Address exclusion member.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Color",
+          "name": "color",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "description": "Color of icon on the GUI."
+        },
+        {
+          "title": "Tagging",
+          "name": "tagging",
+          "description": "Config object tagging.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Allow Routing",
+          "name": "allow-routing",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\/disable use of this group in the static route configuration.   \nenable:Enable use of this group in the static route configuration.   \ndisable:Disable use of this group in the static route configuration.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Security Fabric Object",
+          "name": "fabric-object",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Security Fabric global object setting.   \nenable:Object is set as a security fabric-wide global object.   \ndisable:Object is local to this security fabric member.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "VDOM",
+          "name": "vdom",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Action",
+          "name": "action",
+          "description": "If supported, an action can be specified.\n_clone_: Clone this specific resource.\nWhen *action=clone* is set, the extra parameters *nkey* must be provided.\n__*Note:*__ If this parameter is provided when not supported, the action will be ignored and an \u201cinvalid request\u201d error will be returned.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "value": "clone"
+        },
+        {
+          "title": "New Resource ID",
+          "name": "nkey",
+          "description": " If *action=clone*, use *nkey* to specify the ID for the new resource to be created.\nFor example, to clone `address1` to `address1_clone`, use:\n__action=clone&nkey=address1_clone__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *clone*.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_firewall_address_group",
+      "title": "Get Firewall Address Group",
+      "description": "Retrieves all firewall address group from FortiProxy server based on the input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_firewall_address_group",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Data Source",
+          "name": "datasource",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to include datasource information for each linked object."
+        },
+        {
+          "title": "Start",
+          "name": "start",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "description": "Starting entry index."
+        },
+        {
+          "title": "Count",
+          "name": "count",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "description": "Maximum number of entries to return."
+        },
+        {
+          "title": "Meta Information",
+          "name": "with_meta",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to include meta information about each object (type id, references, etc)."
+        },
+        {
+          "title": "Include Contents Hash",
+          "name": "with_contents_hash",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to include a checksum of each object's contents."
+        },
+        {
+          "title": "Skip",
+          "name": "skip",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to call CLI skip operator to hide skipped properties."
+        },
+        {
+          "title": "Include Property",
+          "name": "format",
+          "description": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Filter",
+          "name": "filter",
+          "description": "Filtering multiple key\/value pairs\nOperator     |   Description\n==     |   Case insensitive match with pattern.\n!=     |    Does not match with pattern (case insensitive).\n=@     |    Pattern found in object value (case insensitive).\n!@     |    \ufeffPattern not\ufeff found in object value (case insensitive).\n<=     |    Value must be less than or equal to \ufeffpattern\ufeff.\n<     |    Value must be less than pattern\ufeff.\n.>=    |    Value must be greater than or equal to \ufeffpattern\ufeff.\n.>     |    Value must be greater than \ufeffpattern\ufeff.\nLogical OR    |    Separate filters using commas ','\nLogical AND    |    Filter strings can be combined to create logical AND queries by including multiple filters in the request.\nCombining AND and OR    |    You can combine AND and OR filters together to create more complex filters.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Filter on Property",
+          "name": "key",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "If present, objects will be filtered on property with this name."
+        },
+        {
+          "title": "Pattern",
+          "name": "pattern",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "If present, objects will be filtered on property with this value."
+        },
+        {
+          "title": "Scope",
+          "name": "scope",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Scope [global|vdom|both*]"
+        },
+        {
+          "title": "Exclude Properties",
+          "name": "exclude-default-values",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Exclude properties\/objects with default value"
+        },
+        {
+          "title": "Meta Only",
+          "name": "meta_only",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "When turned on, the total filtered count (based on the filter params) and table size will be returned, and table entries won't be emitted to results. The flag should only be used when fetching table type datasource and the filter isn't on masterkey."
+        },
+        {
+          "title": "Action",
+          "name": "action",
+          "description": "default: Return the CLI default values for entire CLI tree.\nmeta: Return meta data for a specific object, table, or the entire CLI tree.\nschema: Return schema for entire CLI tree.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Default",
+            "Schema"
+          ]
+        },
+        {
+          "title": "VDOM",
+          "name": "vdom",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_firewall_address_group_details",
+      "title": "Get Firewall Address Group Details",
+      "description": "Retrieves an specific firewall address group from FortiProxy server based on the address group name and other input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_firewall_address_group_details",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Address Group Name",
+          "name": "name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Address group name."
+        },
+        {
+          "title": "Data Source",
+          "name": "datasource",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to include datasource information for each linked object."
+        },
+        {
+          "title": "Meta Information",
+          "name": "with_meta",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to include meta information about each object (type id, references, etc)."
+        },
+        {
+          "title": "Skip",
+          "name": "skip",
+          "in": "query",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to call CLI skip operator to hide skipped properties."
+        },
+        {
+          "title": "Format",
+          "name": "format",
+          "description": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Action",
+          "name": "action",
+          "description": "default: Return the CLI default values for this object type.\nschema: Return the CLI schema for this object type.\nrevision: Return the CMDB revision for this object type.\ntransaction-list: List all configuration transaction(s).\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Default",
+            "Schema",
+            "Revision"
+          ]
+        },
+        {
+          "title": "VDOM",
+          "name": "vdom",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "update_firewall_address_group",
+      "title": "Update Firewall Address Group",
+      "description": "Updates an firewall address group in FortiProxy server based on the address group name and other input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "update_firewall_address_group",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Address Group Name",
+          "name": "name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Address group name."
+        },
+        {
+          "title": "Address Group Type",
+          "name": "type",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Address group type.   \ndefault:Default address group type (address may belong to multiple groups).   \nfolder:Address folder group (members may not belong to any other group).",
+          "options": [
+            "Default",
+            "Folder"
+          ]
+        },
+        {
+          "title": "Category",
+          "name": "category",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Address group category.   \ndefault:Default address group category (cannot be used as ztna-ems-tag\/ztna-geo-tag in policy).   \nztna-ems-tag:Members must be ztna-ems-tag group or ems-tag address, can be used as ztna-ems-tag in policy.   \nztna-geo-tag:Members must be ztna-geo-tag group or geographic address, can be used as ztna-geo-tag in policy.",
+          "options": [
+            "Default",
+            "ZTNA EMS Tag",
+            "ZTNA Geo Tag"
+          ]
+        },
+        {
+          "title": "UUID",
+          "name": "uuid",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset)."
+        },
+        {
+          "title": "Member",
+          "name": "member",
+          "description": "Address objects contained within the group.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Comment",
+          "name": "comment",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Comment."
+        },
+        {
+          "title": "Exclude Address",
+          "name": "exclude",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\/disable address exclusion.   \nenable:Enable address exclusion.   \ndisable:Disable address exclusion.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Exclude Member",
+          "name": "exclude-member",
+          "description": "Address exclusion member.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Color",
+          "name": "color",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "description": "Color of icon on the GUI."
+        },
+        {
+          "title": "Tagging",
+          "name": "tagging",
+          "description": "Config object tagging.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Allow Routing",
+          "name": "allow-routing",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\/disable use of this group in the static route configuration.   \nenable:Enable use of this group in the static route configuration.   \ndisable:Disable use of this group in the static route configuration.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Security Fabric Object",
+          "name": "fabric-object",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Security Fabric global object setting.   \nenable:Object is set as a security fabric-wide global object.   \ndisable:Object is local to this security fabric member.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "VDOM",
+          "name": "vdom",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Action",
+          "name": "action",
+          "description": "If supported, an action can be specified.\n_move_: Move this specific resource.\nWhen *action=move* is set, one of the extra parameters (*before*, *after*) must be provided.\n__*Note:*__ If this parameter is provided when not supported, the action will be ignored and an \u201cinvalid request\u201d error will be returned.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "value": "move"
+        },
+        {
+          "title": "Before",
+          "name": "before",
+          "description": "If *action=move*, use *before* to specify the ID of the resource that this resource will be moved before.\nFor example, to move `object 1` to before `object 2`, use:\n__action=move&before=2__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *move*.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text"
+        },
+        {
+          "title": "After",
+          "name": "after",
+          "description": "If *action=move*, use *after* to specify the ID of the resource that this resource will be moved after.\nFor example, to move `object 1` to after `object 3`, use:\n__action=move&after=3__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *move*.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "delete_firewall_address_group",
+      "title": "Delete Firewall Address Group",
+      "description": "Deletes a specific firewall address group in FortiProxy server based on the address group name and other input parameter that you have specified.",
+      "category": "investigation",
+      "annotation": "delete_firewall_address_group",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Address Group Name",
+          "name": "name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Address group name."
+        },
+        {
+          "title": "VDOM",
+          "name": "vdom",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "create_firewall_service_group",
+      "title": "Create Firewall Service Group",
+      "description": "Creates an firewall service group in FortiProxy server based on the input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "create_firewall_service_group",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Address Group Name",
+          "name": "name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Address group name."
+        },
+        {
+          "title": "Proxy",
+          "name": "proxy",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\\/disable web proxy service group.   \\nenable:Enable setting.   \\ndisable:Disable setting.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Member",
+          "name": "member",
+          "description": "Address objects contained within the group.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Color",
+          "name": "color",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "description": "Color of icon on the GUI."
+        },
+        {
+          "title": "Security Fabric Object",
+          "name": "fabric-object",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Security Fabric global object setting.   \nenable:Object is set as a security fabric-wide global object.   \ndisable:Object is local to this security fabric member.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "VDOM",
+          "name": "vdom",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Action",
+          "name": "action",
+          "description": "If supported, an action can be specified.\n_clone_: Clone this specific resource.\nWhen *action=clone* is set, the extra parameters *nkey* must be provided.\n__*Note:*__ If this parameter is provided when not supported, the action will be ignored and an \u201cinvalid request\u201d error will be returned.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "value": "clone"
+        },
+        {
+          "title": "New Resource ID",
+          "name": "nkey",
+          "description": " If *action=clone*, use *nkey* to specify the ID for the new resource to be created.\nFor example, to clone `address1` to `address1_clone`, use:\n__action=clone&nkey=address1_clone__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *clone*.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_firewall_service_group",
+      "title": "Get Firewall Service Group",
+      "description": "Retrieves all firewall service group from FortiProxy server based on the input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_firewall_service_group",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Data Source",
+          "name": "datasource",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to include datasource information for each linked object."
+        },
+        {
+          "title": "Start",
+          "name": "start",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "description": "Starting entry index."
+        },
+        {
+          "title": "Count",
+          "name": "count",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "description": "Maximum number of entries to return."
+        },
+        {
+          "title": "Meta Information",
+          "name": "with_meta",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to include meta information about each object (type id, references, etc)."
+        },
+        {
+          "title": "Include Contents Hash",
+          "name": "with_contents_hash",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to include a checksum of each object's contents."
+        },
+        {
+          "title": "Skip",
+          "name": "skip",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to call CLI skip operator to hide skipped properties."
+        },
+        {
+          "title": "Include Property",
+          "name": "format",
+          "description": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Filter",
+          "name": "filter",
+          "description": "Filtering multiple key\/value pairs\nOperator     |   Description\n==     |   Case insensitive match with pattern.\n!=     |    Does not match with pattern (case insensitive).\n=@     |    Pattern found in object value (case insensitive).\n!@     |    \ufeffPattern not\ufeff found in object value (case insensitive).\n<=     |    Value must be less than or equal to \ufeffpattern\ufeff.\n<     |    Value must be less than pattern\ufeff.\n.>=    |    Value must be greater than or equal to \ufeffpattern\ufeff.\n.>     |    Value must be greater than \ufeffpattern\ufeff.\nLogical OR    |    Separate filters using commas ','\nLogical AND    |    Filter strings can be combined to create logical AND queries by including multiple filters in the request.\nCombining AND and OR    |    You can combine AND and OR filters together to create more complex filters.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Filter on Property",
+          "name": "key",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "If present, objects will be filtered on property with this name."
+        },
+        {
+          "title": "Pattern",
+          "name": "pattern",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "If present, objects will be filtered on property with this value."
+        },
+        {
+          "title": "Scope",
+          "name": "scope",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Scope [global|vdom|both*]"
+        },
+        {
+          "title": "Exclude Properties",
+          "name": "exclude-default-values",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Exclude properties\/objects with default value"
+        },
+        {
+          "title": "Meta Only",
+          "name": "meta_only",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "When turned on, the total filtered count (based on the filter params) and table size will be returned, and table entries won't be emitted to results. The flag should only be used when fetching table type datasource and the filter isn't on masterkey."
+        },
+        {
+          "title": "Action",
+          "name": "action",
+          "description": "default: Return the CLI default values for entire CLI tree.\nmeta: Return meta data for a specific object, table, or the entire CLI tree.\nschema: Return schema for entire CLI tree.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Default",
+            "Schema"
+          ]
+        },
+        {
+          "title": "VDOM",
+          "name": "vdom",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_firewall_service_group_details",
+      "title": "Get Firewall Service Group Details",
+      "description": "Retrieves an specific firewall service group from FortiProxy server based on the address group name and other input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_firewall_service_group_details",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Address Group Name",
+          "name": "name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Address group name."
+        },
+        {
+          "title": "Data Source",
+          "name": "datasource",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to include datasource information for each linked object."
+        },
+        {
+          "title": "Meta Information",
+          "name": "with_meta",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to include meta information about each object (type id, references, etc)."
+        },
+        {
+          "title": "Skip",
+          "name": "skip",
+          "in": "query",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Enable to call CLI skip operator to hide skipped properties."
+        },
+        {
+          "title": "Format",
+          "name": "format",
+          "description": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Action",
+          "name": "action",
+          "description": "default: Return the CLI default values for this object type.\nschema: Return the CLI schema for this object type.\nrevision: Return the CMDB revision for this object type.\ntransaction-list: List all configuration transaction(s).\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Default",
+            "Schema",
+            "Revision"
+          ]
+        },
+        {
+          "title": "VDOM",
+          "name": "vdom",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "update_firewall_service_group",
+      "title": "Update Firewall Service Group",
+      "description": "Updates an firewall service group in FortiProxy server based on the address group name and other input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "update_firewall_service_group",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Address Group Name",
+          "name": "name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Address group name."
+        },
+        {
+          "title": "Proxy",
+          "name": "proxy",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Enable\\/disable web proxy service group.   \\nenable:Enable setting.   \\ndisable:Disable setting.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "Member",
+          "name": "member",
+          "description": "Address objects contained within the group.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Color",
+          "name": "color",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "description": "Color of icon on the GUI."
+        },
+        {
+          "title": "Security Fabric Object",
+          "name": "fabric-object",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "description": "Security Fabric global object setting.   \nenable:Object is set as a security fabric-wide global object.   \ndisable:Object is local to this security fabric member.",
+          "options": [
+            "enable",
+            "disable"
+          ]
+        },
+        {
+          "title": "VDOM",
+          "name": "vdom",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        },
+        {
+          "title": "Action",
+          "name": "action",
+          "description": "If supported, an action can be specified.\n_move_: Move this specific resource.\nWhen *action=move* is set, one of the extra parameters (*before*, *after*) must be provided.\n__*Note:*__ If this parameter is provided when not supported, the action will be ignored and an \u201cinvalid request\u201d error will be returned.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "value": "move"
+        },
+        {
+          "title": "Before",
+          "name": "before",
+          "description": "If *action=move*, use *before* to specify the ID of the resource that this resource will be moved before.\nFor example, to move `object 1` to before `object 2`, use:\n__action=move&before=2__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *move*.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text"
+        },
+        {
+          "title": "After",
+          "name": "after",
+          "description": "If *action=move*, use *after* to specify the ID of the resource that this resource will be moved after.\nFor example, to move `object 1` to after `object 3`, use:\n__action=move&after=3__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *move*.\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "delete_firewall_service_group",
+      "title": "Delete Firewall Service Group",
+      "description": "Deletes a specific firewall service group in FortiProxy server based on the address group name and other input parameter that you have specified.",
+      "category": "investigation",
+      "annotation": "delete_firewall_service_group",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Address Group Name",
+          "name": "name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Address group name."
+        },
+        {
+          "title": "VDOM",
+          "name": "vdom",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_authenticated_firewall_users_list",
+      "title": "Get Authenticated Firewall Users List",
+      "description": "Retrieves all authenticated firewall users of \"authgrp\" access group from FortiProxy server based on the input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_authenticated_firewall_users_list",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Start",
+          "name": "start",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "description": "Starting entry index."
+        },
+        {
+          "title": "Count",
+          "name": "count",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "description": "Maximum number of entries to return."
+        },
+        {
+          "title": "Include IPV4 Users",
+          "name": "ipv4",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Include IPv4 user (default=true).",
+          "value": true
+        },
+        {
+          "title": "Include IPV6 Users",
+          "name": "ipv6",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Include IPv6 users."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "deauthenticate_firewall_users",
+      "title": "DeAuthenticate Firewall Users",
+      "description": "Retrieves all de-authenticated firewall users of \"authgrp\" access group from FortiProxy server based on the user type, user ID, IP address, and other input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "deauthenticate_firewall_users",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "User Type",
+          "name": "user_type",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "User type [proxy|firewall]. Required for both proxy and firewall users."
+        },
+        {
+          "title": "User ID",
+          "name": "id",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "description": "User ID. Required for both proxy and firewall users."
+        },
+        {
+          "title": "IP Address",
+          "name": "ip",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "User IP address. Required for both proxy and firewall users."
+        },
+        {
+          "title": "IP Version",
+          "name": "ip_version",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "IP version [ip4|ip6]. Only required if user_type is firewall."
+        },
+        {
+          "title": "Authentication Method",
+          "name": "method",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "Authentication method [fsso|rsso|ntlm|firewall|wsso|fsso_citrix|sso_guest]. Only required if user_type is firewall."
+        },
+        {
+          "title": "DeAuthenticate All Users",
+          "name": "all",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "description": "Set to true to deauthenticate all users. Other parameters will be ignored."
+        },
+        {
+          "title": "Users",
+          "name": "users",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json",
+          "description": "Array of user objects to deauthenticate. Use this to deauthenticate multiple users at once. Each object should include the above properties."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_all_banned_users_list",
+      "title": "Get All Banned Users List",
+      "description": "Retrieves list of all banned users of \"authgrp\" access group from FortiProxy.",
+      "category": "investigation",
+      "annotation": "get_all_banned_users_list",
+      "enabled": true,
+      "parameters": [
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "add_users_to_banned_list",
+      "title": "Add Users to Banned List",
+      "description": "Add users to banned list of \"authgrp\" access group from FortiProxy based on the IP addresses and expiry that you have specified.",
+      "category": "investigation",
+      "annotation": "add_users_to_banned_list",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "IP Addresses",
+          "name": "ip_addresses",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "List of IP Addresses to ban. IPv4 and IPv6 addresses are allowed."
+        },
+        {
+          "title": "Expiry",
+          "name": "expiry",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "description": "Time until expiry in seconds. 0 for indefinite ban.",
+          "value": 0
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "clear_all_banned_users_list",
+      "title": "Clear All Banned Users List",
+      "description": "Clear list of all banned users of \"authgrp\" access group from FortiProxy.",
+      "category": "investigation",
+      "annotation": "clear_all_banned_users_list",
+      "enabled": true,
+      "parameters": [
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "clear_banned_users_list_by_ip",
+      "title": "Clear Banned Users List by IP",
+      "description": "Clear list of all banned users by IP's of \"authgrp\" access group from FortiProxy based on the IP addresses that you have specified.",
+      "category": "investigation",
+      "annotation": "clear_banned_users_list_by_ip",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "IP Addresses",
+          "name": "ip_addresses",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "description": "List of banned user IPs to clear. IPv4 and IPv6 addresses are allowed."
+        }
+      ],
+      "output_schema": {}
+    }
+  ]
+}

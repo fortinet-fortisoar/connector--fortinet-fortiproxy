@@ -54,57 +54,63 @@
       "parameters": [
         {
           "title": "Policy Name",
+          "description": "Specify the name of the policy whose firewall policy that you want to create in FortiProxy server.",
           "name": "name",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Specify the name of the policy whose firewall policy you want to create in FortiProxy server."
+          "tooltip": "Specify the name of the policy whose firewall policy that you want to create in FortiProxy server."
         },
         {
           "title": "Schedule Name",
+          "description": "Specify the name of the schedule whose firewall policy that you want to create in FortiProxy server.",
           "name": "schedule",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Specify the name of the schedule whose firewall policy you want to create in FortiProxy server."
+          "tooltip": "Specify the name of the schedule whose firewall policy that you want to create in FortiProxy server."
         },
         {
           "title": "Source Interface",
+          "description": "Specify the Incoming (ingress) interface whose firewall policy that you want to create in FortiProxy server.",
           "name": "srcintf",
           "required": true,
           "editable": true,
           "visible": true,
-          "description": "Specify the Incoming (ingress) interface whose firewall policy you want to create in FortiProxy server.",
+          "tooltip": "Specify the Incoming (ingress) interface whose firewall policy that you want to create in FortiProxy server.",
           "type": "json"
         },
         {
           "title": "Destination Interface",
+          "description": "Specify the Outgoing (egress) interface whose firewall policy that you want to create in FortiProxy server.",
           "name": "dstintf",
           "required": true,
           "editable": true,
           "visible": true,
-          "description": "Specify the Outgoing (egress) interface whose firewall policy you want to create in FortiProxy server.",
+          "tooltip": "Specify the Outgoing (egress) interface whose firewall policy that you want to create in FortiProxy server.",
           "type": "json"
         },
         {
           "title": "Policy ID",
+          "description": "Specify the ID of the policy whose firewall policy that you want to create in FortiProxy server.",
           "name": "policyid",
-          "description": "Specify the ID of the policy whose firewall policy you want to create in FortiProxy server.",
           "required": false,
           "editable": true,
           "visible": true,
+          "tooltip": "Specify the ID of the policy whose firewall policy that you want to create in FortiProxy server.",
           "type": "integer"
         },
         {
           "title": "Policy Type",
+          "description": "Specify the type of the policy, from the following available options: Explicit Web: Explicit Web Proxy policy, Transparent: Transparent firewall policy, Explicit FTP: Explicit FTP Proxy policy, SSH Tunnel: SSH Tunnel policy, SSH: SSH policy, Access Proxy: Access Proxy, or WanOpt: WANopt Tunnel",
           "name": "type",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Specify the type of the policy returned, from the following available options: Explicit Web: Explicit Web Proxy policy, Transparent: Transparent firewall policy, Explicit FTP: Explicit FTP Proxy policy, SSH Tunnel: SSH Tunnel policy, SSH: SSH policy, Access Proxy: Access Proxy, or WanOpt: WANopt Tunnel",
+          "tooltip": "Specify the type of the policy, from the following available options: Explicit Web: Explicit Web Proxy policy, Transparent: Transparent firewall policy, Explicit FTP: Explicit FTP Proxy policy, SSH Tunnel: SSH Tunnel policy, SSH: SSH policy, Access Proxy: Access Proxy, or WanOpt: WANopt Tunnel",
           "options": [
             "Explicit Web",
             "Transparent",
@@ -117,12 +123,13 @@
         },
         {
           "title": "Status",
+          "description": "Specify the status for the policy, from the following available options: enable: Enable setting for this policy or disable: Disable setting for this policy.",
           "name": "status",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Specify the status for the policy, from the following available options: enable: Enable setting for this policy or disable: Disable setting for this policy.",
+          "tooltip": "Specify the status for the policy, from the following available options: enable: Enable setting for this policy or disable: Disable setting for this policy.",
           "options": [
             "enable",
             "disable"
@@ -130,12 +137,13 @@
         },
         {
           "title": "Force Proxy",
+          "description": "Specify the force proxy for the policy, from the following available options: enable: Force all TCP transparent traffic to proxy or disable: Do not force TCP transparent traffic to proxy.",
           "name": "force-proxy",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Specify the force proxy for the policy, from the following available options: enable: Force all TCP transparent traffic to proxy or disable: Do not force TCP transparent traffic to proxy.",
+          "tooltip": "Specify the force proxy for the policy, from the following available options: enable: Force all TCP transparent traffic to proxy or disable: Do not force TCP transparent traffic to proxy.",
           "options": [
             "enable",
             "disable"
@@ -143,48 +151,53 @@
         },
         {
           "title": "Source Address",
+          "description": "Specify the source address and address group names whose firewall policy that you want to create in FortiProxy server.",
           "name": "srcaddr",
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "Specify the source address and address group names whose firewall policy you want to create in FortiProxy server.",
+          "tooltip": "Specify the source address and address group names whose firewall policy that you want to create in FortiProxy server.",
           "type": "json"
         },
         {
           "title": "Destination Address",
+          "description": "Specify the destination address and address group names whose firewall policy that you want to create in FortiProxy server.",
           "name": "dstaddr",
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "Specify the destination address and address group names whose firewall policy you want to create in FortiProxy server.",
+          "tooltip": "Specify the destination address and address group names whose firewall policy that you want to create in FortiProxy server.",
           "type": "json"
         },
         {
           "title": "IPV6 Source Address",
+          "description": "Specify the IPv6 source address (web proxy only) whose firewall policy that you want to create in FortiProxy server.",
           "name": "srcaddr6",
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "Specify the IPv6 source address (web proxy only) whose firewall policy you want to create in FortiProxy server.",
+          "tooltip": "Specify the IPv6 source address (web proxy only) whose firewall policy that you want to create in FortiProxy server.",
           "type": "json"
         },
         {
           "title": "IPV6 Destination Address",
+          "description": "Specify the IPv6 destination address (web proxy only) whose firewall policy that you want to create in FortiProxy server.",
           "name": "dstaddr6",
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "Specify the IPv6 destination address (web proxy only) whose firewall policy you want to create in FortiProxy server.",
+          "tooltip": "Specify the IPv6 destination address (web proxy only) whose firewall policy that you want to create in FortiProxy server.",
           "type": "json"
         },
         {
           "title": "Policy Action",
+          "description": "Specify the policy action for this policy, from the following available options: Accept: Allows session that match the firewall policy, Deny: Blocks sessions that match the firewall policy, Redirect: Redirect sessions that match the firewall policy to a url, or Isolate: Isolate sessions that match the firewall policy with isolator.",
           "name": "action",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Specify the Policy action for this policy, from the following available options: Accept: Allows session that match the firewall policy, Deny: Blocks sessions that match the firewall policy, Redirect: Redirect sessions that match the firewall policy to a url, or Isolate: Isolate sessions that match the firewall policy with isolator.",
+          "tooltip": "Specify the policy action for this policy, from the following available options: Accept: Allows session that match the firewall policy, Deny: Blocks sessions that match the firewall policy, Redirect: Redirect sessions that match the firewall policy to a url, or Isolate: Isolate sessions that match the firewall policy with isolator.",
           "options": [
             "Accept",
             "Deny",
@@ -194,12 +207,13 @@
         },
         {
           "title": "Transparent",
+          "description": "Specify the set webproxy to use original client address, from the following available options: enable:Enable using original client address for webproxy or disable: Disable using original client address for webproxy.",
           "name": "transparent",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Specify the set webproxy to use original client address, from the following available options: enable:Enable using original client address for webproxy or disable: Disable using original client address for webproxy.",
+          "tooltip": "Specify the set webproxy to use original client address, from the following available options: enable:Enable using original client address for webproxy or disable: Disable using original client address for webproxy.",
           "options": [
             "enable",
             "disable"
@@ -207,46 +221,50 @@
         },
         {
           "title": "Access Proxy",
+          "description": "Specify the access proxy whose firewall policy that you want to create in FortiProxy server.",
           "name": "access-proxy",
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "Specify the access proxy whose firewall policy you want to create in FortiProxy server.",
+          "tooltip": "Specify the access proxy whose firewall policy that you want to create in FortiProxy server.",
           "type": "json"
         },
         {
           "title": "VDOM",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned. The URL parameter is one of: vdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
           "name": "vdom",
-          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
           "required": false,
           "editable": true,
           "visible": true,
+          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned. The URL parameter is one of: vdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
           "type": "json"
         },
         {
           "title": "Action",
           "name": "action",
-          "description": "If supported, an action can be specified.\n_clone_: Clone this specific resource.\nWhen *action=clone* is set, the extra parameters *nkey* must be provided.\n__*Note:*__ If this parameter is provided when not supported, the action will be ignored and an \u201cinvalid request\u201d error will be returned.\n",
+          "description": "If supported, an action can be specified. _clone_: Clone this specific resource. When \"clone\" is set, the parameter \"New Resource ID\" must be provided. Note: If this parameter is provided when not supported, the action will be ignored and an invalid request error will be returned.",
           "required": false,
           "editable": true,
           "visible": true,
+          "tooltip": "If supported, an action can be specified. _clone_: Clone this specific resource. When \"clone\" is set, the parameter \"New Resource ID\" must be provided. Note: If this parameter is provided when not supported, the action will be ignored and an invalid request error will be returned.",
           "type": "text"
         },
         {
           "title": "New Resource ID",
           "name": "nkey",
-          "description": " If *action=clone*, use *nkey* to specify the ID for the new resource to be created.\nFor example, to clone `address1` to `address1_clone`, use:\n__action=clone&nkey=address1_clone__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *clone*.\n",
+          "description": "If \"Action\" parameter value is specified as \"clone\", use ID for the new resource to be created. For example, to clone `address1` to `address1_clone`, use: \"Action\" parameter as \"clone\" and \"New Resource ID\" parameter as \"address1_clone\". Note: This parameter can only be used when the \"Action\" parameter is set to \"clone\".",
           "required": false,
           "editable": true,
           "visible": true,
+          "tooltip": "If \"Action\" parameter value is specified as \"clone\", use ID for the new resource to be created. For example, to clone `address1` to `address1_clone`, use: \"Action\" parameter as \"clone\" and \"New Resource ID\" parameter as \"address1_clone\". Note: This parameter can only be used when the \"Action\" parameter is set to \"clone\".",
           "type": "text"
         },
         {
           "title": "Custom Properties",
           "name": "custom_attributes",
           "type": "json",
-          "description": "Additional properties (fields), in the JSON format, that you want to .",
-          "tooltip": "Additional properties (fields), in the JSON format, that you want to .",
+          "description": "Additional properties (fields), in the JSON format, based on which you want to create an firewall policy in Fortinet FortiProxy.",
+          "tooltip": "Additional properties (fields), in the JSON format, based on which you want to create an firewall policy in Fortinet FortiProxy.",
           "visible": true,
           "required": false,
           "editable": true
@@ -278,57 +296,63 @@
       "parameters": [
         {
           "title": "Data Source",
+          "description": "Enable to include datasource information for each linked object.",
           "name": "datasource",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to include datasource information for each linked object."
+          "tooltip": "Enable to include datasource information for each linked object."
         },
         {
           "title": "Start",
+          "description": "Specify the starting entry index from which you want this operation to fetch from FortiProxy server.",
           "name": "start",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
-          "description": "Starting entry index."
+          "tooltip": "Specify the starting entry index from which you want this operation to fetch from FortiProxy server."
         },
         {
           "title": "Count",
+          "description": "Specify the maximum count of records that you want this operation to fetch from FortiProxy server.",
           "name": "count",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
-          "description": "Maximum number of entries to return."
+          "tooltip": "Specify the maximum count of records that you want this operation to fetch from FortiProxy server."
         },
         {
           "title": "With Meta",
+          "description": "Enable to include meta information about each object (type id, references, etc).",
           "name": "with_meta",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to include meta information about each object (type id, references, etc)."
+          "tooltip": "Enable to include meta information about each object (type id, references, etc)."
         },
         {
           "title": "Contents Hash",
+          "description": "Enable to include a checksum of each object's contents.",
           "name": "with_contents_hash",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to include a checksum of each object's contents."
+          "tooltip": "Enable to include a checksum of each object's contents."
         },
         {
           "title": "Skip",
+          "description": "Enable to call CLI skip operator to hide skipped properties.",
           "name": "skip",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to call CLI skip operator to hide skipped properties."
+          "tooltip": "Enable to call CLI skip operator to hide skipped properties."
         },
         {
           "title": "Format",
@@ -337,6 +361,7 @@
           "required": false,
           "editable": true,
           "visible": true,
+          "tooltip": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
           "type": "json"
         },
         {
@@ -350,53 +375,58 @@
         },
         {
           "title": "Key",
+          "description": "If present, objects will be filtered on property with this name.",
           "name": "key",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "If present, objects will be filtered on property with this name."
+          "tooltip": "If present, objects will be filtered on property with this name."
         },
         {
           "title": "Pattern",
+          "description": "If present, objects will be filtered on property with this value.",
           "name": "pattern",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "If present, objects will be filtered on property with this value."
+          "tooltip": "If present, objects will be filtered on property with this value."
         },
         {
           "title": "Scope",
+          "description": "Specify the scope based on which you want to retrieve firewall policy from FortiProxy server.",
           "name": "scope",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Scope [global|vdom|both*]"
+          "tooltip": "Specify the scope based on which you want to retrieve firewall policy from FortiProxy server. [global|vdom|both*]"
         },
         {
           "title": "Exclude Default Values",
+          "description": "Exclude properties/objects with default value",
           "name": "exclude-default-values",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Exclude properties\/objects with default value"
+          "tooltip": "Exclude properties/objects with default value"
         },
         {
           "title": "Meta Only",
+          "description": "When turned on, the total filtered count (based on the filter params) and table size will be returned, and table entries won't be emitted to results. The flag should only be used when fetching table type datasource and the filter isn't on masterkey.",
           "name": "meta_only",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "When turned on, the total filtered count (based on the filter params) and table size will be returned, and table entries won't be emitted to results. The flag should only be used when fetching table type datasource and the filter isn't on masterkey."
+          "tooltip": "When turned on, the total filtered count (based on the filter params) and table size will be returned, and table entries won't be emitted to results. The flag should only be used when fetching table type datasource and the filter isn't on masterkey."
         },
         {
           "title": "Action",
           "name": "action",
-          "description": "default: Return the CLI default values for entire CLI tree.\nmeta: Return meta data for a specific object, table, or the entire CLI tree.\nschema: Return schema for entire CLI tree.\n",
+          "description": "Specify the action of the policy returned, from the following available options: default: (Return the CLI default values for entire CLI tree or meta: Return meta data for a specific object, table, the entire CLI tree) or schema: Return schema for entire CLI tree.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -404,7 +434,8 @@
           "options": [
             "Default",
             "Schema"
-          ]
+          ],
+          "tooltip": "Specify the action of the policy returned, from the following available options: default: (Return the CLI default values for entire CLI tree or meta: Return meta data for a specific object, table, the entire CLI tree) or schema: Return schema for entire CLI tree."
         },
         {
           "title": "VDOM",
@@ -413,7 +444,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],
       "output_schema": {
@@ -545,39 +577,43 @@
       "parameters": [
         {
           "title": "Policy ID",
+          "description": "Specify the ID of the policy whose firewall policy details you want to retrieve from FortiProxy server.",
           "name": "policyid",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "integer",
-          "description": "mkey"
+          "tooltip": "Specify the ID of the policy whose firewall policy details you want to retrieve from FortiProxy server."
         },
         {
           "title": "Data Source",
+          "description": "Enable to include datasource information for each linked object.",
           "name": "datasource",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to include datasource information for each linked object."
+          "tooltip": "Enable to include datasource information for each linked object."
         },
         {
           "title": "Include Meta Information",
+          "description": "Enable to include meta information about each object (type id, references, etc).",
           "name": "with_meta",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to include meta information about each object (type id, references, etc)."
+          "tooltip": "Enable to include meta information about each object (type id, references, etc)."
         },
         {
           "title": "Skip",
+          "description": "Enable to call CLI skip operator to hide skipped properties.",
           "name": "skip",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to call CLI skip operator to hide skipped properties."
+          "tooltip": "Enable to call CLI skip operator to hide skipped properties."
         },
         {
           "title": "Format",
@@ -586,12 +622,13 @@
           "required": false,
           "editable": true,
           "visible": true,
+          "tooltip": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
           "type": "json"
         },
         {
           "title": "Action",
           "name": "action",
-          "description": "default: Return the CLI default values for this object type.\nschema: Return the CLI schema for this object type.\nrevision: Return the CMDB revision for this object type.\ntransaction-list: List all configuration transaction(s).\n",
+          "description": "Specify the action of the policy, from the following available options: Default: Return the CLI default values for this object type, Schema: Return the CLI schema for this object type or Revision: (Return the CMDB revision for this object type or Transaction List: List all configuration transaction(s)).",
           "required": false,
           "editable": true,
           "visible": true,
@@ -600,7 +637,8 @@
             "Default",
             "Schema",
             "Revision"
-          ]
+          ],
+          "tooltip": "Specify the action of the policy, from the following available options: Default: Return the CLI default values for this object type, Schema: Return the CLI schema for this object type or Revision: (Return the CMDB revision for this object type or Transaction List: List all configuration transaction(s))."
         },
         {
           "title": "VDOM",
@@ -609,7 +647,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],
       "output_schema": {
@@ -740,46 +779,51 @@
         {
           "title": "Policy ID",
           "name": "policyid",
-          "description": "Specify the ID of the policy whose firewall policy you want to create in FortiProxy server.",
+          "description": "Specify the ID of the policy whose firewall policy that you want to update in FortiProxy server.",
           "required": true,
           "editable": true,
           "visible": true,
-          "type": "integer"
+          "type": "integer",
+          "tooltip": "Specify the ID of the policy whose firewall policy that you want to update in FortiProxy server."
         },
         {
           "title": "Policy Name",
+          "description": "Specify the name of the policy whose firewall policy you want to update in FortiProxy server.",
           "name": "name",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Specify the name of the policy whose firewall policy you want to create in FortiProxy server."
+          "tooltip": "Specify the name of the policy whose firewall policy you want to update in FortiProxy server."
         },
         {
           "title": "Schedule Name",
+          "description": "Specify the name of the schedule whose firewall policy you want to update in FortiProxy server.",
           "name": "schedule",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Specify the name of the schedule whose firewall policy you want to create in FortiProxy server."
+          "tooltip": "Specify the name of the schedule whose firewall policy you want to update in FortiProxy server."
         },
         {
           "title": "Source Interface",
+          "description": "Specify the Incoming (ingress) interface whose firewall policy you want to update in FortiProxy server.",
           "name": "srcintf",
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "Specify the Incoming (ingress) interface whose firewall policy you want to create in FortiProxy server.",
+          "tooltip": "Specify the Incoming (ingress) interface whose firewall policy you want to update in FortiProxy server.",
           "type": "json"
         },
         {
           "title": "Destination Interface",
+           "description": "Specify the Outgoing (egress) interface whose firewall policy you want to update in FortiProxy server.",
           "name": "dstintf",
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "Specify the Outgoing (egress) interface whose firewall policy you want to create in FortiProxy server.",
+          "tooltip": "Specify the Outgoing (egress) interface whose firewall policy you want to update in FortiProxy server.",
           "type": "json"
         },
         {
@@ -798,7 +842,8 @@
             "SSH",
             "Access Proxy",
             "WanOpt"
-          ]
+          ],
+          "tooltip": "Specify the type of the policy returned, from the following available options: Explicit Web: Explicit Web Proxy policy, Transparent: Transparent firewall policy, Explicit FTP: Explicit FTP Proxy policy, SSH Tunnel: SSH Tunnel policy, SSH: SSH policy, Access Proxy: Access Proxy, or WanOpt: WANopt Tunnel"
         },
         {
           "title": "Status",
@@ -811,7 +856,8 @@
           "options": [
             "enable",
             "disable"
-          ]
+          ],
+          "tooltip": "Specify the status for the policy, from the following available options: enable: Enable setting for this policy or disable: Disable setting for this policy."
         },
         {
           "title": "Force Proxy",
@@ -824,42 +870,47 @@
           "options": [
             "enable",
             "disable"
-          ]
+          ],
+          "tooltip": "Specify the force proxy for the policy, from the following available options: enable: Force all TCP transparent traffic to proxy or disable: Do not force TCP transparent traffic to proxy."
         },
         {
           "title": "Source Address",
+          "description": "Specify the source address and address group names whose firewall policy you want to update in FortiProxy server.",
           "name": "srcaddr",
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "Specify the source address and address group names whose firewall policy you want to create in FortiProxy server.",
+          "tooltip": "Specify the source address and address group names whose firewall policy you want to update in FortiProxy server.",
           "type": "json"
         },
         {
           "title": "Destination Address",
+          "description": "Specify the destination address and address group names whose firewall policy you want to update in FortiProxy server.",
           "name": "dstaddr",
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "Specify the destination address and address group names whose firewall policy you want to create in FortiProxy server.",
+          "tooltip": "Specify the destination address and address group names whose firewall policy you want to update in FortiProxy server.",
           "type": "json"
         },
         {
           "title": "IPV6 Source Address",
+          "description": "Specify the IPv6 source address (web proxy only) whose firewall policy you want to update in FortiProxy server.",
           "name": "srcaddr6",
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "Specify the IPv6 source address (web proxy only) whose firewall policy you want to create in FortiProxy server.",
+          "tooltip": "Specify the IPv6 source address (web proxy only) whose firewall policy you want to update in FortiProxy server.",
           "type": "json"
         },
         {
           "title": "IPV6 Destination Address",
+          "description": "Specify the IPv6 destination address (web proxy only) whose firewall policy you want to update in FortiProxy server.",
           "name": "dstaddr6",
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "Specify the IPv6 destination address (web proxy only) whose firewall policy you want to create in FortiProxy server.",
+          "tooltip": "Specify the IPv6 destination address (web proxy only) whose firewall policy you want to update in FortiProxy server.",
           "type": "json"
         },
         {
@@ -869,13 +920,14 @@
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Specify the Policy action for this policy, from the following available options: Accept: Allows session that match the firewall policy, Deny: Blocks sessions that match the firewall policy, Redirect: Redirect sessions that match the firewall policy to a url, or Isolate: Isolate sessions that match the firewall policy with isolator.",
+          "description": "Specify the policy action for this policy, from the following available options: Accept: Allows session that match the firewall policy, Deny: Blocks sessions that match the firewall policy, Redirect: Redirect sessions that match the firewall policy to a url, or Isolate: Isolate sessions that match the firewall policy with isolator.",
           "options": [
             "Accept",
             "Deny",
             "Redirect",
             "Isolate"
-          ]
+          ],
+          "tooltip": "Specify the policy action for this policy, from the following available options: Accept: Allows session that match the firewall policy, Deny: Blocks sessions that match the firewall policy, Redirect: Redirect sessions that match the firewall policy to a url, or Isolate: Isolate sessions that match the firewall policy with isolator."
         },
         {
           "title": "Transparent",
@@ -884,19 +936,21 @@
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Specify the set webproxy to use original client address, from the following available options: enable:Enable using original client address for webproxy or disable: Disable using original client address for webproxy.",
+          "description": "Specify the set webproxy to use original client address, from the following available options: enable: Enable using original client address for webproxy or disable: Disable using original client address for webproxy.",
           "options": [
             "enable",
             "disable"
-          ]
+          ],
+          "tooltip": "Specify the set webproxy to use original client address, from the following available options: enable: Enable using original client address for webproxy or disable: Disable using original client address for webproxy."
         },
         {
           "title": "Access Proxy",
+          "description": "Specify the access proxy whose firewall policy you want to update in FortiProxy server.",
           "name": "access-proxy",
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "Specify the access proxy whose firewall policy you want to create in FortiProxy server.",
+          "tooltip": "Specify the access proxy whose firewall policy you want to update in FortiProxy server.",
           "type": "json"
         },
         {
@@ -906,50 +960,55 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         },
         {
           "title": "Action",
           "name": "action",
-          "description": "If supported, an action can be specified.\n_clone_: Clone this specific resource.\nWhen *action=clone* is set, the extra parameters *nkey* must be provided.\n__*Note:*__ If this parameter is provided when not supported, the action will be ignored and an \u201cinvalid request\u201d error will be returned.\n",
+          "description": "If supported, an action can be specified. _clone_: Clone this specific resource. When \"clone\" is set, the parameter \"New Resource ID\" must be provided. Note: If this parameter is provided when not supported, the action will be ignored and an invalid request error will be returned.",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text"
+          "type": "text",
+          "tooltip": "If supported, an action can be specified. _clone_: Clone this specific resource. When \"clone\" is set, the parameter \"New Resource ID\" must be provided. Note: If this parameter is provided when not supported, the action will be ignored and an invalid request error will be returned."
         },
         {
           "title": "New Resource ID",
           "name": "nkey",
-          "description": " If *action=clone*, use *nkey* to specify the ID for the new resource to be created.\nFor example, to clone `address1` to `address1_clone`, use:\n__action=clone&nkey=address1_clone__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *clone*.\n",
+          "description": "If \"Action\" parameter value is specified as \"clone\", use this parameter to specify the ID for the new resource to be created. For example, to clone `address1` to `address1_clone`, use: \"Action\" parameter as \"clone\" and \"New Resource ID\" parameter as \"address1_clone\". Note: This parameter can only be used when the \"Action\" parameter is set to \"clone\".",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text"
+          "type": "text",
+          "tooltip": "If \"Action\" parameter value is specified as \"clone\", use this parameter to specify the ID for the new resource to be created. For example, to clone `address1` to `address1_clone`, use: \"Action\" parameter as \"clone\" and \"New Resource ID\" parameter as \"address1_clone\". Note: This parameter can only be used when the \"Action\" parameter is set to \"clone\"."
         },
         {
           "title": "Before",
           "name": "before",
-          "description": "If *action=move*, use *before* to specify the ID of the resource that this resource will be moved before.\nFor example, to move `object 1` to before `object 2`, use:\n__action=move&before=2__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *move*.\n",
+          "description": "If \"Action\" parameter value is specified as \"move\", use this parameter to specify the ID of the resource that this resource will be moved before. For example, to move `object 1` to before `object 2`, use: \"Action\" parameter as \"move\" and \"New Resource ID\" parameter as 2. Note: This parameter can only be used when the \"Action\" parameter is set to \"move\".",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text"
+          "type": "text",
+          "tooltip": "If \"Action\" parameter value is specified as \"move\", use this parameter to specify the ID of the resource that this resource will be moved before. For example, to move `object 1` to before `object 2`, use: \"Action\" parameter as \"move\" and \"New Resource ID\" parameter as 2. Note: This parameter can only be used when the \"Action\" parameter is set to \"move\"."
         },
         {
           "title": "After",
           "name": "after",
-          "description": "If *action=move*, use *after* to specify the ID of the resource that this resource will be moved after.\nFor example, to move `object 1` to after `object 3`, use:\n__action=move&after=3__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *move*.\n",
+          "description": "If \"Action\" parameter value is specified as \"move\", use this parameter to specify the ID of the resource that this resource will be moved before. For example, to move `object 1` to after `object 2`, use: \"Action\" parameter as \"move\" and \"New Resource ID\" parameter as 3. Note: This parameter can only be used when the \"Action\" parameter is set to \"move\".",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text"
+          "type": "text",
+          "tooltip": "If \"Action\" parameter value is specified as \"move\", use this parameter to specify the ID of the resource that this resource will be moved before. For example, to move `object 1` to after `object 2`, use: \"Action\" parameter as \"move\" and \"New Resource ID\" parameter as 3. Note: This parameter can only be used when the \"Action\" parameter is set to \"move\"."
         },
         {
           "title": "Custom Properties",
           "name": "custom_attributes",
           "type": "json",
-          "description": "Additional properties (fields), in the JSON format, that you want to .",
-          "tooltip": "Additional properties (fields), in the JSON format, that you want to .",
+          "description": "Additional properties (fields), in the JSON format, based on which you want to update an firewall policy in Fortinet FortiProxy.",
+          "tooltip": "Additional properties (fields), in the JSON format, based on which you want to update an firewall policy in Fortinet FortiProxy.",
           "visible": true,
           "required": false,
           "editable": true
@@ -981,7 +1040,7 @@
         {
           "title": "Policy ID",
           "name": "policyid",
-          "description": "Policy ID.",
+          "description": "Specify the ID of the policy whose firewall policy that you want to delete in FortiProxy server.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -994,7 +1053,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],
       "output_schema": {
@@ -1023,30 +1083,33 @@
       "parameters": [
         {
           "title": "Address Name",
+          "description": "Specify the address name based on which you want to create an firewall address in FortiProxy server.",
           "name": "name",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Address name."
+          "tooltip": "Specify the address name based on which you want to create an firewall address in FortiProxy server."
         },
         {
           "title": "UUID",
+          "description": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset).",
           "name": "uuid",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset)."
+          "tooltip": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset)."
         },
         {
           "title": "Subnet",
+          "description": "Specify the IP address and subnet mask of address based on which you want to create an firewall address in FortiProxy server.",
           "name": "subnet",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "IP address and subnet mask of address."
+          "tooltip": "Specify the IP address and subnet mask of address based on which you want to create an firewall address in FortiProxy server."
         },
         {
           "title": "Address Type",
@@ -1055,7 +1118,7 @@
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Type of address.   \nipmask:Standard IPv4 address with subnet mask.   \niprange:Range of IPv4 addresses between two specified addresses (inclusive).   \nfqdn:Fully Qualified Domain Name address.   \ngeography:IP addresses from a specified country.   \nwildcard:Standard IPv4 using a wildcard subnet mask.   \ndynamic:Dynamic address object.   \ninterface-subnet:IP and subnet of interface.   \nmac:Range of MAC addresses.",
+          "description": "Specify the type of the address, from the following available options: IP Mask: Standard IPv4 address with subnet mask, IP Range: Range of IPv4 addresses between two specified addresses (inclusive), FQDN: Fully Qualified Domain Name address, Geography: IP addresses from a specified country, WildCard: Standard IPv4 using a wildcard subnet mask, Dynamic: Dynamic address object, Interface Subnet: IP and subnet of interface, or MAC: Range of MAC addresses.",
           "options": [
             "IP Mask",
             "IP Range",
@@ -1065,7 +1128,8 @@
             "Dynamic",
             "Interface Subnet",
             "MAC"
-          ]
+          ],
+          "tooltip": "Specify the type of the address, from the following available options: IP Mask: Standard IPv4 address with subnet mask, IP Range: Range of IPv4 addresses between two specified addresses (inclusive), FQDN: Fully Qualified Domain Name address, Geography: IP addresses from a specified country, WildCard: Standard IPv4 using a wildcard subnet mask, Dynamic: Dynamic address object, Interface Subnet: IP and subnet of interface, or MAC: Range of MAC addresses."
         },
         {
           "title": "Sub-Type Address",
@@ -1074,14 +1138,15 @@
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Sub-type of address.   \nsdn:SDN address.   \nclearpass-spt:ClearPass SPT (System Posture Token) address.   \nfsso:FSSO address.   \nems-tag:FortiClient EMS tag.   \nswc-tag:Switch Controller NAC policy tag.",
+          "description": "Specify the Sub-type of address, from the following available options: SDN: SDN address, ClearPass SPT: ClearPass SPT (System Posture Token) address, FSSO: FSSO address, EMS Tag: FortiClient EMS tag, or SWC Tag: Switch Controller NAC policy tag.",
           "options": [
             "SDN",
             "ClearPass SPT",
             "FSSO",
             "EMS Tag",
             "SWC Tag"
-          ]
+          ],
+          "tooltip": "Specify the Sub-type of address, from the following available options: SDN: SDN address, ClearPass SPT: ClearPass SPT (System Posture Token) address, FSSO: FSSO address, EMS Tag: FortiClient EMS tag, or SWC Tag: Switch Controller NAC policy tag."
         },
         {
           "title": "System Posture Token",
@@ -1090,7 +1155,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "SPT (System Posture Token) value.   \nunknown:UNKNOWN.   \nhealthy:HEALTHY.   \nquarantine:QUARANTINE.   \ncheckup:CHECKUP.   \ntransient:TRANSIENT.   \ninfected:INFECTED.",
+          "description": "Specify the System Posture Token, from the following available options: Unknown, Healthy, Quarantine, Checkup, Transient, or Infected",
           "options": [
             "Unknown",
             "Healthy",
@@ -1098,52 +1163,58 @@
             "Checkup",
             "Transient",
             "Infected"
-          ]
+          ],
+          "tooltip": "Specify the System Posture Token, from the following available options: Unknown, Healthy, Quarantine, Checkup, Transient, or Infected"
         },
         {
           "title": "MAC Address",
           "name": "macaddr",
-          "description": "Multiple MAC address ranges.",
+          "description": "Specify the multiple MAC address ranges based on which you want to create an firewall address in FortiProxy server.",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the multiple MAC address ranges based on which you want to create an firewall address in FortiProxy server."
         },
         {
           "title": "Start IPV4 Address",
+          "description": "Specify the first IP address (inclusive) in the range for the address based on which you want to create an firewall address in FortiProxy server.",
           "name": "start-ip",
           "type": "text",
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "First IP address (inclusive) in the range for the address."
+          "tooltip": "Specify the first IP address (inclusive) in the range for the address based on which you want to create an firewall address in FortiProxy server."
         },
         {
           "title": "End IPV4 Address",
+          "description": "Specify the final IP address (inclusive) in the range for the address based on which you want to create an firewall address in FortiProxy server.",
           "name": "end-ip",
           "type": "text",
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "Final IP address (inclusive) in the range for the address."
+          "tooltip": "Specify the final IP address (inclusive) in the range for the address based on which you want to create an firewall address in FortiProxy server."
         },
         {
           "title": "FQDN Address",
+          "description": "Specify the Fully Qualified Domain Name address based on which you want to create an firewall address in FortiProxy server.",
           "name": "fqdn",
           "type": "text",
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "Fully Qualified Domain Name address."
+          "tooltip": "Specify the Fully Qualified Domain Name address based on which you want to create an firewall address in FortiProxy server."
         },
         {
           "title": "Country",
+          "description": "Specify the IP addresses associated to a specific country based on which you want to create an firewall address in FortiProxy server.",
           "name": "country",
           "type": "text",
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "IP addresses associated to a specific country."
+          "tooltip": "Specify the IP addresses associated to a specific country based on which you want to create an firewall address in FortiProxy server."
         },
         {
           "title": "VDOM",
@@ -1152,32 +1223,35 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         },
         {
           "title": "Action",
           "name": "action",
-          "description": "If supported, an action can be specified.\n_clone_: Clone this specific resource.\nWhen *action=clone* is set, the extra parameters *nkey* must be provided.\n__*Note:*__ If this parameter is provided when not supported, the action will be ignored and an \u201cinvalid request\u201d error will be returned.\n",
+          "description": "If supported, an action can be specified. _clone_: Clone this specific resource. When \"clone\" is set, the parameter \"New Resource ID\" must be provided. Note: If this parameter is provided when not supported, the action will be ignored and an invalid request error will be returned.",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text"
+          "type": "text",
+          "tooltip": "If supported, an action can be specified. _clone_: Clone this specific resource. When \"clone\" is set, the parameter \"New Resource ID\" must be provided. Note: If this parameter is provided when not supported, the action will be ignored and an invalid request error will be returned."
         },
         {
           "title": "New Resource ID",
           "name": "nkey",
-          "description": " If *action=clone*, use *nkey* to specify the ID for the new resource to be created.\nFor example, to clone `address1` to `address1_clone`, use:\n__action=clone&nkey=address1_clone__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *clone*.\n",
+          "description": "If \"Action\" parameter value is specified as \"clone\", use ID for the new resource to be created. For example, to clone `address1` to `address1_clone`, use: \"Action\" parameter as \"clone\" and \"New Resource ID\" parameter as \"address1_clone\". Note: This parameter can only be used when the \"Action\" parameter is set to \"clone\".",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text"
+          "type": "text",
+          "tooltip": "If \"Action\" parameter value is specified as \"clone\", use ID for the new resource to be created. For example, to clone `address1` to `address1_clone`, use: \"Action\" parameter as \"clone\" and \"New Resource ID\" parameter as \"address1_clone\". Note: This parameter can only be used when the \"Action\" parameter is set to \"clone\"."
         },
         {
           "title": "Custom Properties",
           "name": "custom_attributes",
           "type": "json",
-          "description": "Additional properties (fields), in the JSON format, that you want to .",
-          "tooltip": "Additional properties (fields), in the JSON format, that you want to .",
+          "description": "Additional properties (fields), in the JSON format, based on which you want to create an firewall address in Fortinet FortiProxy.",
+          "tooltip": "Additional properties (fields), in the JSON format, based on which you want to create an firewall address in Fortinet FortiProxy.",
           "visible": true,
           "required": false,
           "editable": true
@@ -1209,57 +1283,63 @@
       "parameters": [
         {
           "title": "Data Source",
+          "description": "Enable to include datasource information for each linked object.",
           "name": "datasource",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to include datasource information for each linked object."
+          "tooltip": "Enable to include datasource information for each linked object."
         },
         {
           "title": "Start",
+          "description": "Specify the starting entry index from which you want this operation to fetch from FortiProxy server.",
           "name": "start",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
-          "description": "Starting entry index."
+          "tooltip": "Specify the starting entry index from which you want this operation to fetch from FortiProxy server."
         },
         {
           "title": "Count",
+          "description": "Specify the maximum count of records that you want this operation to fetch from FortiProxy server.",
           "name": "count",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
-          "description": "Maximum number of entries to return."
+          "tooltip": "Specify the maximum count of records that you want this operation to fetch from FortiProxy server."
         },
         {
           "title": "Include Meta Information",
+          "description": "Enable to include meta information about each object (type id, references, etc).",
           "name": "with_meta",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to include meta information about each object (type id, references, etc)."
+          "tooltip": "Enable to include meta information about each object (type id, references, etc)."
         },
         {
           "title": "Include Contents Hash",
+          "description": "Enable to include a checksum of each object's contents.",
           "name": "with_contents_hash",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to include a checksum of each object's contents."
+          "tooltip": "Enable to include a checksum of each object's contents."
         },
         {
           "title": "Skip",
+          "description": "Enable to call CLI skip operator to hide skipped properties.",
           "name": "skip",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to call CLI skip operator to hide skipped properties."
+          "tooltip": "Enable to call CLI skip operator to hide skipped properties."
         },
         {
           "title": "Format",
@@ -1268,7 +1348,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "List of property names to include in results, separated by | (i.e. policyid|srcintf)."
         },
         {
           "title": "Filter",
@@ -1281,53 +1362,58 @@
         },
         {
           "title": "Filter on Property",
+          "description": "If present, objects will be filtered on property with this name.",
           "name": "key",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "If present, objects will be filtered on property with this name."
+          "tooltip": "If present, objects will be filtered on property with this name."
         },
         {
           "title": "Pattern",
+          "description": "If present, objects will be filtered on property with this value.",
           "name": "pattern",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "If present, objects will be filtered on property with this value."
+          "tooltip": "If present, objects will be filtered on property with this value."
         },
         {
           "title": "Scope",
+          "description": "Specify the scope based on which you want to retrieve firewall address from FortiProxy server.",
           "name": "scope",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Scope [global|vdom|both*]"
+          "tooltip": "Specify the scope based on which you want to retrieve firewall address from FortiProxy server. [global|vdom|both*]"
         },
         {
           "title": "Exclude Properties",
+          "description": "Exclude properties/objects with default value",
           "name": "exclude-default-values",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Exclude properties\/objects with default value"
+          "tooltip": "Exclude properties/objects with default value"
         },
         {
           "title": "Meta Only",
+          "description": "When turned on, the total filtered count (based on the filter params) and table size will be returned, and table entries won't be emitted to results. The flag should only be used when fetching table type datasource and the filter isn't on masterkey.",
           "name": "meta_only",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "When turned on, the total filtered count (based on the filter params) and table size will be returned, and table entries won't be emitted to results. The flag should only be used when fetching table type datasource and the filter isn't on masterkey."
+          "tooltip": "When turned on, the total filtered count (based on the filter params) and table size will be returned, and table entries won't be emitted to results. The flag should only be used when fetching table type datasource and the filter isn't on masterkey."
         },
         {
           "title": "Action",
           "name": "action",
-          "description": "default: Return the CLI default values for entire CLI tree.\nmeta: Return meta data for a specific object, table, or the entire CLI tree.\nschema: Return schema for entire CLI tree.\n",
+          "description": "Specify the action of the address, from the following available options: Default: (Return the CLI default values for entire CLI tree, meta: Return meta data for a specific object, table, or the entire CLI tree), or Schema: Return schema for entire CLI tree.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -1335,7 +1421,8 @@
           "options": [
             "Default",
             "Schema"
-          ]
+          ],
+          "tooltip": "Specify the action of the address, from the following available options: Default: (Return the CLI default values for entire CLI tree, meta: Return meta data for a specific object, table, or the entire CLI tree), or Schema: Return schema for entire CLI tree."
         },
         {
           "title": "VDOM",
@@ -1344,7 +1431,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],
       "output_schema": {
@@ -1406,39 +1494,43 @@
       "parameters": [
         {
           "title": "Address Name",
+          "description": "Specify the address name based on which you want to retrieve firewall address from FortiProxy server.",
           "name": "name",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "mkey"
+          "tooltip": "Specify the address name based on which you want to retrieve firewall address from FortiProxy server."
         },
         {
           "title": "Data Source",
+          "description": "Enable to include datasource information for each linked object.",
           "name": "datasource",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to include datasource information for each linked object."
+          "tooltip": "Enable to include datasource information for each linked object."
         },
         {
           "title": "Meta Information",
+          "description": "Enable to include meta information about each object (type id, references, etc).",
           "name": "with_meta",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to include meta information about each object (type id, references, etc)."
+          "tooltip": "Enable to include meta information about each object (type id, references, etc)."
         },
         {
           "title": "Skip",
+          "description": "Enable to call CLI skip operator to hide skipped properties.",
           "name": "skip",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to call CLI skip operator to hide skipped properties."
+          "tooltip": "Enable to call CLI skip operator to hide skipped properties."
         },
         {
           "title": "Format",
@@ -1447,12 +1539,13 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "List of property names to include in results, separated by | (i.e. policyid|srcintf)."
         },
         {
           "title": "Action",
           "name": "action",
-          "description": "default: Return the CLI default values for this object type.\nschema: Return the CLI schema for this object type.\nrevision: Return the CMDB revision for this object type.\ntransaction-list: List all configuration transaction(s).\n",
+          "description": "Specify the action of address, from the following available options: Default: Return the CLI default values for this object type, Schema: Return the CLI schema for this object type, or Revision: (Return the CMDB revision for this object type, transaction-list: List all configuration transaction(s)).",
           "required": false,
           "editable": true,
           "visible": true,
@@ -1461,7 +1554,8 @@
             "Default",
             "Schema",
             "Revision"
-          ]
+          ],
+          "tooltip": "Specify the action of address, from the following available options: Default: Return the CLI default values for this object type, Schema: Return the CLI schema for this object type, or Revision: (Return the CMDB revision for this object type, transaction-list: List all configuration transaction(s))."
         },
         {
           "title": "VDOM",
@@ -1470,12 +1564,13 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],
       "output_schema": {
-        "http_method": "GET",
-        "revision": "71161d70e56673cc5e24adc5f153d23e",
+        "http_method": "",
+        "revision": "",
         "results": [
           {
             "name": "",
@@ -1530,30 +1625,33 @@
       "parameters": [
         {
           "title": "Address Name",
+          "description": "Specify the address name based on which you want to update the firewall address in FortiProxy server.",
           "name": "name",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Address name."
+          "tooltip": "Specify the address name based on which you want to update the firewall address in FortiProxy server."
         },
         {
           "title": "UUID",
+          "description": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset).",
           "name": "uuid",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset)."
+          "tooltip": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset)."
         },
         {
           "title": "Subnet",
+          "description": "Specify the IP address and subnet mask of address based on which you want to update the firewall address in FortiProxy server.",
           "name": "subnet",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "IP address and subnet mask of address."
+          "tooltip": "Specify the IP address and subnet mask of address based on which you want to update the firewall address in FortiProxy server."
         },
         {
           "title": "Address Type",
@@ -1562,7 +1660,7 @@
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Type of address.   \nipmask:Standard IPv4 address with subnet mask.   \niprange:Range of IPv4 addresses between two specified addresses (inclusive).   \nfqdn:Fully Qualified Domain Name address.   \ngeography:IP addresses from a specified country.   \nwildcard:Standard IPv4 using a wildcard subnet mask.   \ndynamic:Dynamic address object.   \ninterface-subnet:IP and subnet of interface.   \nmac:Range of MAC addresses.",
+          "description": "Specify the type of address, from the following available options: IP Mask: Standard IPv4 address with subnet mask, IP Range: Range of IPv4 addresses between two specified addresses (inclusive), FQDN : Fully Qualified Domain Name address, Geography: IP addresses from a specified country, Wildcard: Standard IPv4 using a wildcard subnet mask, Dynamic: Dynamic address object, Interface Subnet: IP and subnet of interface or Mac: Range of MAC addresses.",
           "options": [
             "IP Mask",
             "IP Range",
@@ -1572,7 +1670,8 @@
             "Dynamic",
             "Interface Subnet",
             "MAC"
-          ]
+          ],
+          "tooltip": "Specify the type of address, from the following available options: IP Mask: Standard IPv4 address with subnet mask, IP Range: Range of IPv4 addresses between two specified addresses (inclusive), FQDN : Fully Qualified Domain Name address, Geography: IP addresses from a specified country, Wildcard: Standard IPv4 using a wildcard subnet mask, Dynamic: Dynamic address object, Interface Subnet: IP and subnet of interface or Mac: Range of MAC addresses."
         },
         {
           "title": "Sub-Type Address",
@@ -1581,14 +1680,15 @@
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Sub-type of address.   \nsdn:SDN address.   \nclearpass-spt:ClearPass SPT (System Posture Token) address.   \nfsso:FSSO address.   \nems-tag:FortiClient EMS tag.   \nswc-tag:Switch Controller NAC policy tag.",
+          "description": "Specify the Sub-type of address, from the following available options: SDN: SDN address, ClearPass SPT: ClearPass SPT (System Posture Token) address, FSSO: FSSO address, EMS Tag: FortiClient EMS tag or SWC Tag: Switch Controller NAC policy tag.",
           "options": [
             "SDN",
             "ClearPass SPT",
             "FSSO",
             "EMS Tag",
             "SWC Tag"
-          ]
+          ],
+          "tooltip": "Specify the Sub-type of address, from the following available options: SDN: SDN address, ClearPass SPT: ClearPass SPT (System Posture Token) address, FSSO: FSSO address, EMS Tag: FortiClient EMS tag or SWC Tag: Switch Controller NAC policy tag."
         },
         {
           "title": "System Posture Token",
@@ -1597,7 +1697,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "SPT (System Posture Token) value.   \nunknown:UNKNOWN.   \nhealthy:HEALTHY.   \nquarantine:QUARANTINE.   \ncheckup:CHECKUP.   \ntransient:TRANSIENT.   \ninfected:INFECTED.",
+          "description": "Specify the System Posture Token, from the following available options: Unknown, Healthy, Quarantine, Checkup, Transient, or Infected.",
           "options": [
             "Unknown",
             "Healthy",
@@ -1605,52 +1705,58 @@
             "Checkup",
             "Transient",
             "Infected"
-          ]
+          ],
+          "tooltip": "Specify the System Posture Token, from the following available options: Unknown, Healthy, Quarantine, Checkup, Transient, or Infected."
         },
         {
           "title": "MAC Address",
           "name": "macaddr",
-          "description": "Multiple MAC address ranges.",
+          "description": "Specify the multiple MAC address ranges based on which you want to update the firewall address in FortiProxy server.",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the multiple MAC address ranges based on which you want to update the firewall address in FortiProxy server."
         },
         {
           "title": "Start IPV4 Address",
+          "description": "Specify the First IP address (inclusive) in the range for the address based on which you want to update the firewall address in FortiProxy server.",
           "name": "start-ip",
           "type": "text",
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "First IP address (inclusive) in the range for the address."
+          "tooltip": "Specify the First IP address (inclusive) in the range for the address based on which you want to update the firewall address in FortiProxy server."
         },
         {
           "title": "End IPV4 Address",
+          "description": "Specify the Final IP address (inclusive) in the range for the address based on which you want to update the firewall address in FortiProxy server.",
           "name": "end-ip",
           "type": "text",
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "Final IP address (inclusive) in the range for the address."
+          "tooltip": "Specify the Final IP address (inclusive) in the range for the address based on which you want to update the firewall address in FortiProxy server."
         },
         {
           "title": "FQDN Address",
+          "description": "Specify the Fully Qualified Domain Name address based on which you want to update the firewall address in FortiProxy server.",
           "name": "fqdn",
           "type": "text",
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "Fully Qualified Domain Name address."
+          "tooltip": "Specify the Fully Qualified Domain Name address based on which you want to update the firewall address in FortiProxy server."
         },
         {
           "title": "Country",
+          "description": "Specify the IP addresses associated to a specific country based on which you want to update the firewall address in FortiProxy server.",
           "name": "country",
           "type": "text",
           "required": false,
           "editable": true,
           "visible": true,
-          "description": "IP addresses associated to a specific country."
+          "tooltip": "Specify the IP addresses associated to a specific country based on which you want to update the firewall address in FortiProxy server."
         },
         {
           "title": "VDOM",
@@ -1659,50 +1765,55 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         },
         {
           "title": "Action",
           "name": "action",
-          "description": "If supported, an action can be specified.\n_clone_: Clone this specific resource.\nWhen *action=clone* is set, the extra parameters *nkey* must be provided.\n__*Note:*__ If this parameter is provided when not supported, the action will be ignored and an \u201cinvalid request\u201d error will be returned.\n",
+          "description": "If supported, an action can be specified. _clone_: Clone this specific resource. When \"clone\" is set, the parameter \"New Resource ID\" must be provided. Note: If this parameter is provided when not supported, the action will be ignored and an invalid request error will be returned.",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text"
+          "type": "text",
+          "tooltip": "If supported, an action can be specified. _clone_: Clone this specific resource. When \"clone\" is set, the parameter \"New Resource ID\" must be provided. Note: If this parameter is provided when not supported, the action will be ignored and an invalid request error will be returned."
         },
         {
           "title": "New Resource ID",
           "name": "nkey",
-          "description": " If *action=clone*, use *nkey* to specify the ID for the new resource to be created.\nFor example, to clone `address1` to `address1_clone`, use:\n__action=clone&nkey=address1_clone__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *clone*.\n",
+          "description": "If \"Action\" parameter value is specified as \"clone\", use this parameter to specify the ID for the new resource to be created. For example, to clone `address1` to `address1_clone`, use: \"Action\" parameter as \"clone\" and \"New Resource ID\" parameter as \"address1_clone\". Note: This parameter can only be used when the \"Action\" parameter is set to \"clone\".",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text"
+          "type": "text",
+          "tooltip": "If \"Action\" parameter value is specified as \"clone\", use this parameter to specify the ID for the new resource to be created. For example, to clone `address1` to `address1_clone`, use: \"Action\" parameter as \"clone\" and \"New Resource ID\" parameter as \"address1_clone\". Note: This parameter can only be used when the \"Action\" parameter is set to \"clone\"."
         },
         {
           "title": "Before",
           "name": "before",
-          "description": "If *action=move*, use *before* to specify the ID of the resource that this resource will be moved before.\nFor example, to move `object 1` to before `object 2`, use:\n__action=move&before=2__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *move*.\n",
+          "description": "If \"Action\" parameter value is specified as \"move\", use this parameter to specify the ID of the resource that this resource will be moved before. For example, to move `object 1` to before `object 2`, use: \"Action\" parameter as \"move\" and \"New Resource ID\" parameter as 2. Note: This parameter can only be used when the \"Action\" parameter is set to \"move\".",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text"
+          "type": "text",
+          "tooltip": "If \"Action\" parameter value is specified as \"move\", use this parameter to specify the ID of the resource that this resource will be moved before. For example, to move `object 1` to before `object 2`, use: \"Action\" parameter as \"move\" and \"New Resource ID\" parameter as 2. Note: This parameter can only be used when the \"Action\" parameter is set to \"move\"."
         },
         {
           "title": "After",
           "name": "after",
-          "description": "If *action=move*, use *after* to specify the ID of the resource that this resource will be moved after.\nFor example, to move `object 1` to after `object 3`, use:\n__action=move&after=3__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *move*.\n",
+          "description": "If \"Action\" parameter value is specified as \"move\", use this parameter to specify the ID of the resource that this resource will be moved before. For example, to move `object 1` to after `object 2`, use: \"Action\" parameter as \"move\" and \"New Resource ID\" parameter as 3. Note: This parameter can only be used when the \"Action\" parameter is set to \"move\".",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text"
+          "type": "text",
+          "tooltip": "If \"Action\" parameter value is specified as \"move\", use this parameter to specify the ID of the resource that this resource will be moved before. For example, to move `object 1` to after `object 2`, use: \"Action\" parameter as \"move\" and \"New Resource ID\" parameter as 3. Note: This parameter can only be used when the \"Action\" parameter is set to \"move\"."
         },
         {
           "title": "Custom Properties",
           "name": "custom_attributes",
           "type": "json",
-          "description": "Additional properties (fields), in the JSON format, that you want to .",
-          "tooltip": "Additional properties (fields), in the JSON format, that you want to .",
+          "description": "Additional properties (fields), in the JSON format, based on which you want to update an firewall address in Fortinet FortiProxy.",
+          "tooltip": "Additional properties (fields), in the JSON format, based on which you want to update an firewall address in Fortinet FortiProxy.",
           "visible": true,
           "required": false,
           "editable": true
@@ -1747,7 +1858,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],
       "output_schema": {
@@ -1776,21 +1888,23 @@
       "parameters": [
         {
           "title": "Address Group Name",
+          "description": "Specify the address group name based on which you want to create an firewall address group in FortiProxy server.",
           "name": "name",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Address group name."
+          "tooltip": "Specify the address group name based on which you want to create an firewall address group in FortiProxy server."
         },
         {
           "title": "Member",
           "name": "member",
-          "description": "Address objects contained within the group.",
+          "description": "Specify the address objects contained within the group based on which you want to create an firewall address group in FortiProxy server.",
           "required": true,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the address objects contained within the group based on which you want to create an firewall address group in FortiProxy server."
         },
         {
           "title": "Address Group Type",
@@ -1799,11 +1913,12 @@
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Address group type.   \ndefault:Default address group type (address may belong to multiple groups).   \nfolder:Address folder group (members may not belong to any other group).",
+          "description": "Specify the type of address group, from the following available options: Default: Default address group type (address may belong to multiple groups), or Folder: Address folder group (members may not belong to any other group).",
           "options": [
             "Default",
             "Folder"
-          ]
+          ],
+          "tooltip": "Specify the type of address group, from the following available options: Default: Default address group type (address may belong to multiple groups), or Folder: Address folder group (members may not belong to any other group)."
         },
         {
           "title": "Category",
@@ -1812,30 +1927,33 @@
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Address group category.   \ndefault:Default address group category (cannot be used as ztna-ems-tag\/ztna-geo-tag in policy).   \nztna-ems-tag:Members must be ztna-ems-tag group or ems-tag address, can be used as ztna-ems-tag in policy.   \nztna-geo-tag:Members must be ztna-geo-tag group or geographic address, can be used as ztna-geo-tag in policy.",
+          "description": "Specify the category of address group, from the following available options: Default: Default address group category (cannot be used as ztna-ems-tag or ztna-geo-tag in policy), ZTNA EMS Tag: Members must be ztna-ems-tag group or ems-tag address, can be used as ztna-ems-tag in policy, or ZTNA Geo Tag: Members must be ztna-geo-tag group or geographic address, can be used as ztna-geo-tag in policy.",
           "options": [
             "Default",
             "ZTNA EMS Tag",
             "ZTNA Geo Tag"
-          ]
+          ],
+          "tooltip": "Specify the category of address group, from the following available options: Default: Default address group category (cannot be used as ztna-ems-tag or ztna-geo-tag in policy), ZTNA EMS Tag: Members must be ztna-ems-tag group or ems-tag address, can be used as ztna-ems-tag in policy, or ZTNA Geo Tag: Members must be ztna-geo-tag group or geographic address, can be used as ztna-geo-tag in policy."
         },
         {
           "title": "UUID",
+          "description": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset).",
           "name": "uuid",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset)."
+          "tooltip": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset)."
         },
         {
           "title": "Comment",
+          "description": "Specify the comment based on which you want to create you want to create an firewall address group in FortiProxy server.",
           "name": "comment",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Comment."
+          "tooltip": "Specify the comment based on which you want to create you want to create an firewall address group in FortiProxy server."
         },
         {
           "title": "Exclude Address",
@@ -1844,38 +1962,42 @@
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Enable\/disable address exclusion.   \nenable:Enable address exclusion.   \ndisable:Disable address exclusion.",
+          "description": "Specify the exclude address, from the following available options: enable: Enable address exclusion or disable: Disable address exclusion.",
           "options": [
             "enable",
             "disable"
-          ]
+          ],
+          "tooltip": "Specify the exclude address, from the following available options: enable: Enable address exclusion or disable: Disable address exclusion."
         },
         {
           "title": "Exclude Member",
           "name": "exclude-member",
-          "description": "Address exclusion member.",
+          "description": "Specify the address exclusion member based on which you want to create you want to create an firewall address group in FortiProxy server.",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the address exclusion member based on which you want to create you want to create an firewall address group in FortiProxy server."
         },
         {
           "title": "Color",
+          "description": "Specify the color of icon on the GUI based on which you want to create you want to create an firewall address group in FortiProxy server.",
           "name": "color",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
-          "description": "Color of icon on the GUI."
+          "tooltip": "Specify the color of icon on the GUI based on which you want to create you want to create an firewall address group in FortiProxy server."
         },
         {
           "title": "Tagging",
           "name": "tagging",
-          "description": "Config object tagging.",
+          "description": "Specify the config object tagging based on which you want to create you want to create an firewall address group in FortiProxy server.",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the config object tagging based on which you want to create you want to create an firewall address group in FortiProxy server."
         },
         {
           "title": "Allow Routing",
@@ -1884,11 +2006,12 @@
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Enable\/disable use of this group in the static route configuration.   \nenable:Enable use of this group in the static route configuration.   \ndisable:Disable use of this group in the static route configuration.",
+          "description": "Specify the allow routing use of this group in the static route configuration, from the following available options: enable: Enable use of this group in the static route configuration or disable: Disable use of this group in the static route configuration.",
           "options": [
             "enable",
             "disable"
-          ]
+          ],
+          "tooltip": "Specify the allow routing use of this group in the static route configuration, from the following available options: enable: Enable use of this group in the static route configuration or disable: Disable use of this group in the static route configuration."
         },
         {
           "title": "Security Fabric Object",
@@ -1897,11 +2020,12 @@
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Security Fabric global object setting.   \nenable:Object is set as a security fabric-wide global object.   \ndisable:Object is local to this security fabric member.",
+          "description": "Specify the security fabric global object setting, from the following available options: enable: Object is set as a security fabric-wide global object or disable:Object is local to this security fabric member.",
           "options": [
             "enable",
             "disable"
-          ]
+          ],
+          "tooltip": "Specify the security fabric global object setting, from the following available options: enable: Object is set as a security fabric-wide global object or disable:Object is local to this security fabric member."
         },
         {
           "title": "VDOM",
@@ -1910,25 +2034,28 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         },
         {
           "title": "Action",
           "name": "action",
-          "description": "If supported, an action can be specified.\n_clone_: Clone this specific resource.\nWhen *action=clone* is set, the extra parameters *nkey* must be provided.\n__*Note:*__ If this parameter is provided when not supported, the action will be ignored and an \u201cinvalid request\u201d error will be returned.\n",
+          "description": "If supported, an action can be specified. _clone_: Clone this specific resource. When \"clone\" is set, the parameter \"New Resource ID\" must be provided. Note: If this parameter is provided when not supported, the action will be ignored and an invalid request error will be returned.",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text"
+          "type": "text",
+          "tooltip": "If supported, an action can be specified. _clone_: Clone this specific resource. When \"clone\" is set, the parameter \"New Resource ID\" must be provided. Note: If this parameter is provided when not supported, the action will be ignored and an invalid request error will be returned."
         },
         {
           "title": "New Resource ID",
           "name": "nkey",
-          "description": " If *action=clone*, use *nkey* to specify the ID for the new resource to be created.\nFor example, to clone `address1` to `address1_clone`, use:\n__action=clone&nkey=address1_clone__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *clone*.\n",
+          "description": "If \"Action\" parameter value is specified as \"clone\", use ID for the new resource to be created. For example, to clone `address1` to `address1_clone`, use: \"Action\" parameter as \"clone\" and \"New Resource ID\" parameter as \"address1_clone\". Note: This parameter can only be used when the \"Action\" parameter is set to \"clone\".",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text"
+          "type": "text",
+          "tooltip": "If \"Action\" parameter value is specified as \"clone\", use ID for the new resource to be created. For example, to clone `address1` to `address1_clone`, use: \"Action\" parameter as \"clone\" and \"New Resource ID\" parameter as \"address1_clone\". Note: This parameter can only be used when the \"Action\" parameter is set to \"clone\"."
         }
       ],
       "output_schema": {
@@ -1957,57 +2084,63 @@
       "parameters": [
         {
           "title": "Data Source",
+          "description": "Enable to include datasource information for each linked object.",
           "name": "datasource",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to include datasource information for each linked object."
+          "tooltip": "Enable to include datasource information for each linked object."
         },
         {
           "title": "Start",
+          "description": "Specify the starting entry index from which you want this operation to fetch from FortiProxy server.",
           "name": "start",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
-          "description": "Starting entry index."
+          "tooltip": "Specify the starting entry index from which you want this operation to fetch from FortiProxy server."
         },
         {
           "title": "Count",
+          "description": "Specify the maximum count of records that you want this operation to fetch from FortiProxy server.",
           "name": "count",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
-          "description": "Maximum number of entries to return."
+          "tooltip": "Specify the maximum count of records that you want this operation to fetch from FortiProxy server."
         },
         {
           "title": "Meta Information",
+          "description": "Enable to include meta information about each object (type id, references, etc).",
           "name": "with_meta",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to include meta information about each object (type id, references, etc)."
+          "tooltip": "Enable to include meta information about each object (type id, references, etc)."
         },
         {
           "title": "Include Contents Hash",
+          "description": "Enable to include a checksum of each object's contents.",
           "name": "with_contents_hash",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to include a checksum of each object's contents."
+          "tooltip": "Enable to include a checksum of each object's contents."
         },
         {
           "title": "Skip",
+          "description": "Enable to call CLI skip operator to hide skipped properties.",
           "name": "skip",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to call CLI skip operator to hide skipped properties."
+          "tooltip": "Enable to call CLI skip operator to hide skipped properties."
         },
         {
           "title": "Include Property",
@@ -2016,7 +2149,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "List of property names to include in results, separated by | (i.e. policyid|srcintf)."
         },
         {
           "title": "Filter",
@@ -2029,53 +2163,58 @@
         },
         {
           "title": "Filter on Property",
+          "description": "If present, objects will be filtered on property with this name.",
           "name": "key",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "If present, objects will be filtered on property with this name."
+          "tooltip": "If present, objects will be filtered on property with this name."
         },
         {
           "title": "Pattern",
+          "description": "If present, objects will be filtered on property with this value.",
           "name": "pattern",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "If present, objects will be filtered on property with this value."
+          "tooltip": "If present, objects will be filtered on property with this value."
         },
         {
           "title": "Scope",
+          "description": "Specify the scope based on which you want to retrieve firewall policy from FortiProxy server.",
           "name": "scope",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Scope [global|vdom|both*]"
+          "tooltip": "Specify the scope based on which you want to retrieve firewall policy from FortiProxy server. [global|vdom|both*]"
         },
         {
           "title": "Exclude Properties",
+          "description": "Exclude properties/objects with default value",
           "name": "exclude-default-values",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Exclude properties\/objects with default value"
+          "tooltip": "Exclude properties/objects with default value"
         },
         {
           "title": "Meta Only",
+          "description": "When turned on, the total filtered count (based on the filter params) and table size will be returned, and table entries won't be emitted to results. The flag should only be used when fetching table type datasource and the filter isn't on masterkey.",
           "name": "meta_only",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "When turned on, the total filtered count (based on the filter params) and table size will be returned, and table entries won't be emitted to results. The flag should only be used when fetching table type datasource and the filter isn't on masterkey."
+          "tooltip": "When turned on, the total filtered count (based on the filter params) and table size will be returned, and table entries won't be emitted to results. The flag should only be used when fetching table type datasource and the filter isn't on masterkey."
         },
         {
           "title": "Action",
           "name": "action",
-          "description": "default: Return the CLI default values for entire CLI tree.\nmeta: Return meta data for a specific object, table, or the entire CLI tree.\nschema: Return schema for entire CLI tree.\n",
+          "description": "Specify the action of address group, from the following available options: Default: (Return the CLI default values for entire CLI tree, meta: Return meta data for a specific object, table, or the entire CLI tree.), or Schema: Return schema for entire CLI tree.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -2083,7 +2222,8 @@
           "options": [
             "Default",
             "Schema"
-          ]
+          ],
+          "tooltip": "Specify the action of address group, from the following available options: Default: (Return the CLI default values for entire CLI tree, meta: Return meta data for a specific object, table, or the entire CLI tree.), or Schema: Return schema for entire CLI tree."
         },
         {
           "title": "VDOM",
@@ -2092,7 +2232,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],
       "output_schema": {
@@ -2143,40 +2284,44 @@
       "parameters": [
         {
           "title": "Address Group Name",
+          "description": "Specify the Address group name based on which you want to retrieve firewall address group from FortiProxy server.",
           "name": "name",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Address group name."
+          "tooltip": "Specify the Address group name based on which you want to retrieve firewall address group from FortiProxy server."
         },
         {
           "title": "Data Source",
+          "description": "Enable to include datasource information for each linked object.",
           "name": "datasource",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to include datasource information for each linked object."
+          "tooltip": "Enable to include datasource information for each linked object."
         },
         {
           "title": "Meta Information",
+          "description": "Enable to include meta information about each object (type id, references, etc).",
           "name": "with_meta",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to include meta information about each object (type id, references, etc)."
+          "tooltip": "Enable to include meta information about each object (type id, references, etc)."
         },
         {
           "title": "Skip",
+          "description": "Enable to call CLI skip operator to hide skipped properties.",
           "name": "skip",
           "in": "query",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to call CLI skip operator to hide skipped properties."
+          "tooltip": "Enable to call CLI skip operator to hide skipped properties."
         },
         {
           "title": "Format",
@@ -2185,12 +2330,13 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "List of property names to include in results, separated by | (i.e. policyid|srcintf)."
         },
         {
           "title": "Action",
           "name": "action",
-          "description": "default: Return the CLI default values for this object type.\nschema: Return the CLI schema for this object type.\nrevision: Return the CMDB revision for this object type.\ntransaction-list: List all configuration transaction(s).\n",
+          "description": "Specify the action of address group, from the following available options: Default: Return the CLI default values for this object type, Schema: Return the CLI schema for this object type, or Revision: (Return the CMDB revision for this object type, Transaction List: List all configuration transaction(s)).",
           "required": false,
           "editable": true,
           "visible": true,
@@ -2199,7 +2345,8 @@
             "Default",
             "Schema",
             "Revision"
-          ]
+          ],
+          "tooltip": "Specify the action of address group, from the following available options: Default: Return the CLI default values for this object type, Schema: Return the CLI schema for this object type, or Revision: (Return the CMDB revision for this object type, Transaction List: List all configuration transaction(s))."
         },
         {
           "title": "VDOM",
@@ -2212,8 +2359,8 @@
         }
       ],
       "output_schema": {
-        "http_method": "GET",
-        "revision": "0ca49f726de631225d1bdb44f8be465c",
+        "http_method": "",
+        "revision": "",
         "results": [
           {
             "name": "",
@@ -2257,12 +2404,13 @@
       "parameters": [
         {
           "title": "Address Group Name",
+          "description": "Specify the address group name based on which you want to update the firewall address group in FortiProxy server.",
           "name": "name",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Address group name."
+          "tooltip": "Specify the address group name based on which you want to update the firewall address group in FortiProxy server."
         },
         {
           "title": "Address Group Type",
@@ -2271,11 +2419,12 @@
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Address group type.   \ndefault:Default address group type (address may belong to multiple groups).   \nfolder:Address folder group (members may not belong to any other group).",
+          "description": "Specify the type of the address group, from the following available options: Default: Default address group type (address may belong to multiple groups) or Folder: Address folder group (members may not belong to any other group).",
           "options": [
             "Default",
             "Folder"
-          ]
+          ],
+          "tooltip": "Specify the type of the address group, from the following available options: Default: Default address group type (address may belong to multiple groups) or Folder: Address folder group (members may not belong to any other group)."
         },
         {
           "title": "Category",
@@ -2284,39 +2433,43 @@
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Address group category.   \ndefault:Default address group category (cannot be used as ztna-ems-tag\/ztna-geo-tag in policy).   \nztna-ems-tag:Members must be ztna-ems-tag group or ems-tag address, can be used as ztna-ems-tag in policy.   \nztna-geo-tag:Members must be ztna-geo-tag group or geographic address, can be used as ztna-geo-tag in policy.",
+          "description": "Specify the category of the address group, from the following available options: Default: Default address group category (cannot be used as ztna-ems-tag or ztna-geo-tag in policy), ZTNA EMS Tag: Members must be ztna-ems-tag group or ems-tag address, can be used as ztna-ems-tag in policy, or ZTNA Geo Tag: Members must be ztna-geo-tag group or geographic address, can be used as ztna-geo-tag in policy.",
           "options": [
             "Default",
             "ZTNA EMS Tag",
             "ZTNA Geo Tag"
-          ]
+          ],
+          "tooltip": "Specify the category of the address group, from the following available options: Default: Default address group category (cannot be used as ztna-ems-tag or ztna-geo-tag in policy), ZTNA EMS Tag: Members must be ztna-ems-tag group or ems-tag address, can be used as ztna-ems-tag in policy, or ZTNA Geo Tag: Members must be ztna-geo-tag group or geographic address, can be used as ztna-geo-tag in policy."
         },
         {
           "title": "UUID",
+          "description": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset).",
           "name": "uuid",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset)."
+          "tooltip": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset)."
         },
         {
           "title": "Member",
           "name": "member",
-          "description": "Address objects contained within the group.",
+          "description": "Specify the address objects contained within the group based on which you want to update the firewall address group in FortiProxy server.",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the address objects contained within the group based on which you want to update the firewall address group in FortiProxy server."
         },
         {
           "title": "Comment",
+          "description": "Specify the comment based on which you want to update the firewall address group in FortiProxy server.",
           "name": "comment",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Comment."
+          "tooltip": "Specify the comment based on which you want to update the firewall address group in FortiProxy server."
         },
         {
           "title": "Exclude Address",
@@ -2325,38 +2478,42 @@
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Enable\/disable address exclusion.   \nenable:Enable address exclusion.   \ndisable:Disable address exclusion.",
+          "description": "Specify the exclude address exclusion, from the following available options: enable: Enable address exclusion or disable: Disable address exclusion.",
           "options": [
             "enable",
             "disable"
-          ]
+          ],
+          "tooltip": "Specify the exclude address exclusion, from the following available options: enable: Enable address exclusion or disable: Disable address exclusion."
         },
         {
           "title": "Exclude Member",
           "name": "exclude-member",
-          "description": "Address exclusion member.",
+          "description": "Specify the Address exclusion member based on which you want to update the firewall address group in FortiProxy server.",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the Address exclusion member based on which you want to update the firewall address group in FortiProxy server."
         },
         {
           "title": "Color",
+          "tooltip": "Specify the color of icon on the GUI based on which you want to update the firewall address group in FortiProxy server.",
           "name": "color",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
-          "description": "Color of icon on the GUI."
+          "description": "Specify the color of icon on the GUI based on which you want to update the firewall address group in FortiProxy server."
         },
         {
           "title": "Tagging",
           "name": "tagging",
-          "description": "Config object tagging.",
+          "description": "Specify the config object tagging based on which you want to update the firewall address group in FortiProxy server.",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the config object tagging based on which you want to update the firewall address group in FortiProxy server."
         },
         {
           "title": "Allow Routing",
@@ -2365,20 +2522,22 @@
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Enable\/disable use of this group in the static route configuration.   \nenable:Enable use of this group in the static route configuration.   \ndisable:Disable use of this group in the static route configuration.",
+          "description": "Specify the allow routing use of this group in the static route configuration, from the following available options: enable: Enable use of this group in the static route configuration or disable: Disable use of this group in the static route configuration.",
           "options": [
             "enable",
             "disable"
-          ]
+          ],
+          "tooltip": "Specify the allow routing use of this group in the static route configuration, from the following available options: enable: Enable use of this group in the static route configuration or disable: Disable use of this group in the static route configuration."
         },
         {
           "title": "Security Fabric Object",
+          "description": "Specifty the security fabric global object setting, from the following available options: enable: Object is set as a security fabric-wide global object or disable: Object is local to this security fabric member.",
           "name": "fabric-object",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Security Fabric global object setting.   \nenable:Object is set as a security fabric-wide global object.   \ndisable:Object is local to this security fabric member.",
+          "tooltip": "Specify the security fabric global object setting, from the following available options: enable: Object is set as a security fabric-wide global object or disable: Object is local to this security fabric member.",
           "options": [
             "enable",
             "disable"
@@ -2391,34 +2550,38 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         },
         {
           "title": "Action",
           "name": "action",
-          "description": "If supported, an action can be specified.\n_move_: Move this specific resource.\nWhen *action=move* is set, one of the extra parameters (*before*, *after*) must be provided.\n__*Note:*__ If this parameter is provided when not supported, the action will be ignored and an \u201cinvalid request\u201d error will be returned.\n",
+          "description": "If supported, an action can be specified. _clone_: Clone this specific resource. When \"clone\" is set, the parameter \"New Resource ID\" must be provided. Note: If this parameter is provided when not supported, the action will be ignored and an invalid request error will be returned.",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text"
+          "type": "text",
+          "tooltip": "If supported, an action can be specified. _clone_: Clone this specific resource. When \"clone\" is set, the parameter \"New Resource ID\" must be provided. Note: If this parameter is provided when not supported, the action will be ignored and an invalid request error will be returned."
         },
         {
           "title": "Before",
           "name": "before",
-          "description": "If *action=move*, use *before* to specify the ID of the resource that this resource will be moved before.\nFor example, to move `object 1` to before `object 2`, use:\n__action=move&before=2__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *move*.\n",
+          "description": "If \"Action\" parameter value is specified as \"move\", use this parameter to specify the ID of the resource that this resource will be moved before. For example, to move `object 1` to before `object 2`, use: \"Action\" parameter as \"move\" and \"New Resource ID\" parameter as 2. Note: This parameter can only be used when the \"Action\" parameter is set to \"move\".",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text"
+          "type": "text",
+          "tooltip": "If \"Action\" parameter value is specified as \"move\", use this parameter to specify the ID of the resource that this resource will be moved before. For example, to move `object 1` to before `object 2`, use: \"Action\" parameter as \"move\" and \"New Resource ID\" parameter as 2. Note: This parameter can only be used when the \"Action\" parameter is set to \"move\"."
         },
         {
           "title": "After",
           "name": "after",
-          "description": "If *action=move*, use *after* to specify the ID of the resource that this resource will be moved after.\nFor example, to move `object 1` to after `object 3`, use:\n__action=move&after=3__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *move*.\n",
+          "description": "If \"Action\" parameter value is specified as \"move\", use this parameter to specify the ID of the resource that this resource will be moved before. For example, to move `object 1` to after `object 2`, use: \"Action\" parameter as \"move\" and \"New Resource ID\" parameter as 3. Note: This parameter can only be used when the \"Action\" parameter is set to \"move\".",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text"
+          "type": "text",
+          "tooltip": "If \"Action\" parameter value is specified as \"move\", use this parameter to specify the ID of the resource that this resource will be moved before. For example, to move `object 1` to after `object 2`, use: \"Action\" parameter as \"move\" and \"New Resource ID\" parameter as 3. Note: This parameter can only be used when the \"Action\" parameter is set to \"move\"."
         }
       ],
       "output_schema": {
@@ -2446,12 +2609,13 @@
       "parameters": [
         {
           "title": "Address Group Name",
+          "description": "Specify the address group name based on which you want to delete firewall address group from FortiProxy server.",
           "name": "name",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Address group name."
+          "tooltip": "Specify the address group name based on which you want to delete firewall address group from FortiProxy server."
         },
         {
           "title": "VDOM",
@@ -2460,7 +2624,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],
       "output_schema": {
@@ -2489,12 +2654,13 @@
       "parameters": [
         {
           "title": "Address Group Name",
+          "description": "Specify the address group name based on which you want to create an firewall service group from FortiProxy server.",
           "name": "name",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Address group name."
+          "tooltip": "Specify the address group name based on which you want to create an firewall service group from FortiProxy server."
         },
         {
           "title": "Proxy",
@@ -2503,29 +2669,32 @@
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Enable\\/disable web proxy service group.   \\nenable:Enable setting.   \\ndisable:Disable setting.",
+          "description": "Specify the web proxy service group, from the following available options: enable: Enable setting or disable: Disable setting.",
           "options": [
             "enable",
             "disable"
-          ]
+          ],
+          "tooltip": "Specify the web proxy service group, from the following available options: enable: Enable setting or disable: Disable setting."
         },
         {
           "title": "Member",
           "name": "member",
-          "description": "Address objects contained within the group.",
+          "description": "Specify the address objects contained within the group based on which you want to create an firewall service group from FortiProxy server.",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the address objects contained within the group based on which you want to create an firewall service group from FortiProxy server."
         },
         {
           "title": "Color",
+          "description": "Specify the color of icon on the GUI based on which you want to create an firewall service group from FortiProxy server.",
           "name": "color",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
-          "description": "Color of icon on the GUI."
+          "tooltip": "Color of icon on the GUI based on which you want to create an firewall service group from FortiProxy server."
         },
         {
           "title": "Security Fabric Object",
@@ -2534,11 +2703,12 @@
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Security Fabric global object setting.   \nenable:Object is set as a security fabric-wide global object.   \ndisable:Object is local to this security fabric member.",
+          "description": "Specify the security fabric global object setting, from the following available options: enable: Object is set as a security fabric-wide global object, or disable: Object is local to this security fabric member.",
           "options": [
             "enable",
             "disable"
-          ]
+          ],
+          "tooltip": "Specify the security fabric global object setting, from the following available options: enable: Object is set as a security fabric-wide global object, or disable: Object is local to this security fabric member."
         },
         {
           "title": "VDOM",
@@ -2547,25 +2717,28 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         },
         {
           "title": "Action",
           "name": "action",
-          "description": "If supported, an action can be specified.\n_clone_: Clone this specific resource.\nWhen *action=clone* is set, the extra parameters *nkey* must be provided.\n__*Note:*__ If this parameter is provided when not supported, the action will be ignored and an \u201cinvalid request\u201d error will be returned.\n",
+          "description": "If supported, an action can be specified. _clone_: Clone this specific resource. When \"clone\" is set, the parameter \"New Resource ID\" must be provided. Note: If this parameter is provided when not supported, the action will be ignored and an invalid request error will be returned.",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text"
+          "type": "text",
+          "tooltip": "If supported, an action can be specified. _clone_: Clone this specific resource. When \"clone\" is set, the parameter \"New Resource ID\" must be provided. Note: If this parameter is provided when not supported, the action will be ignored and an invalid request error will be returned."
         },
         {
           "title": "New Resource ID",
           "name": "nkey",
-          "description": " If *action=clone*, use *nkey* to specify the ID for the new resource to be created.\nFor example, to clone `address1` to `address1_clone`, use:\n__action=clone&nkey=address1_clone__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *clone*.\n",
+          "description": "If \"Action\" parameter value is specified as \"clone\", use ID for the new resource to be created. For example, to clone `address1` to `address1_clone`, use: \"Action\" parameter as \"clone\" and \"New Resource ID\" parameter as \"address1_clone\". Note: This parameter can only be used when the \"Action\" parameter is set to \"clone\".",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text"
+          "type": "text",
+          "tooltip": "If \"Action\" parameter value is specified as \"clone\", use ID for the new resource to be created. For example, to clone `address1` to `address1_clone`, use: \"Action\" parameter as \"clone\" and \"New Resource ID\" parameter as \"address1_clone\". Note: This parameter can only be used when the \"Action\" parameter is set to \"clone\"."
         }
       ],
       "output_schema": {
@@ -2594,57 +2767,63 @@
       "parameters": [
         {
           "title": "Data Source",
+          "description": "Enable to include datasource information for each linked object.",
           "name": "datasource",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to include datasource information for each linked object."
+          "tooltip": "Enable to include datasource information for each linked object."
         },
         {
           "title": "Start",
+          "description": "Specify the starting entry index from which you want this operation to fetch from FortiProxy server.",
           "name": "start",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
-          "description": "Starting entry index."
+          "tooltip": "Specify the starting entry index from which you want this operation to fetch from FortiProxy server."
         },
         {
           "title": "Count",
+          "description": "Specify the maximum count of records that you want this operation to fetch from FortiProxy server.",
           "name": "count",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
-          "description": "Maximum number of entries to return."
+          "tooltip": "Specify the maximum count of records that you want this operation to fetch from FortiProxy server."
         },
         {
           "title": "Meta Information",
+          "description": "Enable to include meta information about each object (type id, references, etc).",
           "name": "with_meta",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to include meta information about each object (type id, references, etc)."
+          "tooltip": "Enable to include meta information about each object (type id, references, etc)."
         },
         {
           "title": "Include Contents Hash",
+          "description": "Enable to include a checksum of each object's contents.",
           "name": "with_contents_hash",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to include a checksum of each object's contents."
+          "tooltip": "Enable to include a checksum of each object's contents."
         },
         {
           "title": "Skip",
+          "description": "Enable to call CLI skip operator to hide skipped properties.",
           "name": "skip",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to call CLI skip operator to hide skipped properties."
+          "tooltip": "Enable to call CLI skip operator to hide skipped properties."
         },
         {
           "title": "Include Property",
@@ -2653,7 +2832,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "List of property names to include in results, separated by | (i.e. policyid|srcintf)."
         },
         {
           "title": "Filter",
@@ -2666,53 +2846,58 @@
         },
         {
           "title": "Filter on Property",
+          "description": "If present, objects will be filtered on property with this name.",
           "name": "key",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "If present, objects will be filtered on property with this name."
+          "tooltip": "If present, objects will be filtered on property with this name."
         },
         {
           "title": "Pattern",
+          "description": "If present, objects will be filtered on property with this value.",
           "name": "pattern",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "If present, objects will be filtered on property with this value."
+          "tooltip": "If present, objects will be filtered on property with this value."
         },
         {
           "title": "Scope",
+          "description": "Specify the scope based on which you want to retrieve firewall policy from FortiProxy server.",
           "name": "scope",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Scope [global|vdom|both*]"
+          "tooltip": "Specify the scope based on which you want to retrieve firewall policy from FortiProxy server [global|vdom|both*]"
         },
         {
           "title": "Exclude Properties",
+          "description": "Specify the exclude properties/objects with default value based on which you want to retrieve firewall policy from FortiProxy server.",
           "name": "exclude-default-values",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Exclude properties\/objects with default value"
+          "tooltip": "Specify the exclude properties/objects with default value based on which you want to retrieve firewall policy from FortiProxy server."
         },
         {
           "title": "Meta Only",
+          "description": "When turned on, the total filtered count (based on the filter params) and table size will be returned, and table entries won't be emitted to results. The flag should only be used when fetching table type datasource and the filter isn't on masterkey.",
           "name": "meta_only",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "When turned on, the total filtered count (based on the filter params) and table size will be returned, and table entries won't be emitted to results. The flag should only be used when fetching table type datasource and the filter isn't on masterkey."
+          "tooltip": "When turned on, the total filtered count (based on the filter params) and table size will be returned, and table entries won't be emitted to results. The flag should only be used when fetching table type datasource and the filter isn't on masterkey."
         },
         {
           "title": "Action",
           "name": "action",
-          "description": "default: Return the CLI default values for entire CLI tree.\nmeta: Return meta data for a specific object, table, or the entire CLI tree.\nschema: Return schema for entire CLI tree.\n",
+          "description": "Specify the action of firewall service group, from the following available options: default: (Return the CLI default values for entire CLI tree, meta: Return meta data for a specific object, table, or the entire CLI tree.), or Schema: Return schema for entire CLI tree.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -2720,7 +2905,8 @@
           "options": [
             "Default",
             "Schema"
-          ]
+          ],
+          "tooltip": "Specify the action of firewall service group, from the following available options: default: (Return the CLI default values for entire CLI tree, meta: Return meta data for a specific object, table, or the entire CLI tree.), or Schema: Return schema for entire CLI tree."
         },
         {
           "title": "VDOM",
@@ -2729,7 +2915,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],
       "output_schema": {
@@ -2774,40 +2961,44 @@
       "parameters": [
         {
           "title": "Address Group Name",
+          "description": "Specify the address group name based on which you want to retrieve firewall service group from FortiProxy server.",
           "name": "name",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Address group name."
+          "tooltip": "Specify the address group name based on which you want to retrieve firewall service group from FortiProxy server."
         },
         {
           "title": "Data Source",
+          "description": "Enable to include datasource information for each linked object.",
           "name": "datasource",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to include datasource information for each linked object."
+          "tooltip": "Enable to include datasource information for each linked object."
         },
         {
           "title": "Meta Information",
+          "description": "Enable to include meta information about each object (type id, references, etc).",
           "name": "with_meta",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to include meta information about each object (type id, references, etc)."
+          "tooltip": "Enable to include meta information about each object (type id, references, etc)."
         },
         {
           "title": "Skip",
+          "description": "Enable to call CLI skip operator to hide skipped properties.",
           "name": "skip",
           "in": "query",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Enable to call CLI skip operator to hide skipped properties."
+          "tooltip": "Enable to call CLI skip operator to hide skipped properties."
         },
         {
           "title": "Format",
@@ -2816,12 +3007,13 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "List of property names to include in results, separated by | (i.e. policyid|srcintf)."
         },
         {
           "title": "Action",
           "name": "action",
-          "description": "default: Return the CLI default values for this object type.\nschema: Return the CLI schema for this object type.\nrevision: Return the CMDB revision for this object type.\ntransaction-list: List all configuration transaction(s).\n",
+          "description": "Specify the action of firewall service group, from the following available options: Default: Return the CLI default values for this object type, Schema: Return the CLI schema for this object type, or Revision: (Return the CMDB revision for this object type, Transaction List: List all configuration transaction(s)).",
           "required": false,
           "editable": true,
           "visible": true,
@@ -2830,7 +3022,8 @@
             "Default",
             "Schema",
             "Revision"
-          ]
+          ],
+          "tooltip": "Specify the action of firewall service group, from the following available options: Default: Return the CLI default values for this object type, Schema: Return the CLI schema for this object type, or Revision: (Return the CMDB revision for this object type, Transaction List: List all configuration transaction(s))."
         },
         {
           "title": "VDOM",
@@ -2839,7 +3032,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],
       "output_schema": {
@@ -2882,12 +3076,13 @@
       "parameters": [
         {
           "title": "Address Group Name",
+          "description": "Specify the address group name based on which you want to update an firewall service group in FortiProxy server.",
           "name": "name",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Address group name."
+          "tooltip": "Specify the address group name based on which you want to update an firewall service group in FortiProxy server."
         },
         {
           "title": "Proxy",
@@ -2896,29 +3091,32 @@
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Enable\\/disable web proxy service group.   \\nenable:Enable setting.   \\ndisable:Disable setting.",
+          "description": "Specify the web proxy service group, from the following available options: enable: Enable setting or disable: Disable setting.",
           "options": [
             "enable",
             "disable"
-          ]
+          ],
+          "tooltip": "Specify the web proxy service group, from the following available options: enable: Enable setting or disable: Disable setting."
         },
         {
           "title": "Member",
           "name": "member",
-          "description": "Address objects contained within the group.",
+          "description": "Specify the address objects contained within the group based on which you want to update an firewall service group in FortiProxy server.",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the address objects contained within the group based on which you want to update an firewall service group in FortiProxy server."
         },
         {
           "title": "Color",
+          "description": "Specify the color of icon on the GUI based on which you want to update an firewall service group in FortiProxy server.",
           "name": "color",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
-          "description": "Color of icon on the GUI."
+          "dtooltip": "Specify the color of icon on the GUI based on which you want to update an firewall service group in FortiProxy server."
         },
         {
           "title": "Security Fabric Object",
@@ -2927,11 +3125,12 @@
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Security Fabric global object setting.   \nenable:Object is set as a security fabric-wide global object.   \ndisable:Object is local to this security fabric member.",
+          "description": "Specify the security fabric global object setting, from the following available options: enable: Object is set as a security fabric-wide global object or disable: Object is local to this security fabric member.",
           "options": [
             "enable",
             "disable"
-          ]
+          ],
+          "tooltip": "Specify the security fabric global object setting, from the following available options: enable: Object is set as a security fabric-wide global object or disable: Object is local to this security fabric member."
         },
         {
           "title": "VDOM",
@@ -2940,34 +3139,38 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         },
         {
           "title": "Action",
           "name": "action",
-          "description": "If supported, an action can be specified.\n_move_: Move this specific resource.\nWhen *action=move* is set, one of the extra parameters (*before*, *after*) must be provided.\n__*Note:*__ If this parameter is provided when not supported, the action will be ignored and an \u201cinvalid request\u201d error will be returned.\n",
+          "description": "If supported, an action can be specified. _clone_: Clone this specific resource. When \"clone\" is set, the parameter \"New Resource ID\" must be provided. Note: If this parameter is provided when not supported, the action will be ignored and an invalid request error will be returned.",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text"
+          "type": "text",
+          "tooltip": "If supported, an action can be specified. _clone_: Clone this specific resource. When \"clone\" is set, the parameter \"New Resource ID\" must be provided. Note: If this parameter is provided when not supported, the action will be ignored and an invalid request error will be returned."
         },
         {
           "title": "Before",
           "name": "before",
-          "description": "If *action=move*, use *before* to specify the ID of the resource that this resource will be moved before.\nFor example, to move `object 1` to before `object 2`, use:\n__action=move&before=2__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *move*.\n",
+          "description": "If \"Action\" parameter value is specified as \"move\", use this parameter to specify the ID of the resource that this resource will be moved before. For example, to move `object 1` to before `object 2`, use: \"Action\" parameter as \"move\" and \"New Resource ID\" parameter as 2. Note: This parameter can only be used when the \"Action\" parameter is set to \"move\".",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text"
+          "type": "text",
+          "tooltip": "If \"Action\" parameter value is specified as \"move\", use this parameter to specify the ID of the resource that this resource will be moved before. For example, to move `object 1` to before `object 2`, use: \"Action\" parameter as \"move\" and \"New Resource ID\" parameter as 2. Note: This parameter can only be used when the \"Action\" parameter is set to \"move\"."
         },
         {
           "title": "After",
           "name": "after",
-          "description": "If *action=move*, use *after* to specify the ID of the resource that this resource will be moved after.\nFor example, to move `object 1` to after `object 3`, use:\n__action=move&after=3__\n__*Note:*__ This parameter can only be used when the *action* parameter is set to *move*.\n",
+          "description": "If \"Action\" parameter value is specified as \"move\", use this parameter to specify the ID of the resource that this resource will be moved before. For example, to move `object 1` to after `object 2`, use: \"Action\" parameter as \"move\" and \"New Resource ID\" parameter as 3. Note: This parameter can only be used when the \"Action\" parameter is set to \"move\".",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text"
+          "type": "text",
+          "tooltip": "If \"Action\" parameter value is specified as \"move\", use this parameter to specify the ID of the resource that this resource will be moved before. For example, to move `object 1` to after `object 2`, use: \"Action\" parameter as \"move\" and \"New Resource ID\" parameter as 3. Note: This parameter can only be used when the \"Action\" parameter is set to \"move\"."
         }
       ],
       "output_schema": {
@@ -2996,12 +3199,13 @@
       "parameters": [
         {
           "title": "Address Group Name",
+          "description": "Specify the address group name based on which you want to delete firewall service group from FortiProxy server.",
           "name": "name",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Address group name."
+          "tooltip": "Specify the address group name based on which you want to delete firewall service group from FortiProxy server."
         },
         {
           "title": "VDOM",
@@ -3010,7 +3214,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "json",
+          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],
       "output_schema": {
@@ -3039,40 +3244,44 @@
       "parameters": [
         {
           "title": "Start",
+          "description": "Specify the starting entry index from which you want this operation to fetch from FortiProxy server.",
           "name": "start",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
-          "description": "Starting entry index."
+          "tooltip": "Specify the starting entry index from which you want this operation to fetch from FortiProxy server."
         },
         {
           "title": "Count",
+          "description": "Specify the maximum count of records that you want this operation to fetch from FortiProxy server.",
           "name": "count",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
-          "description": "Maximum number of entries to return."
+          "tooltip": "Specify the maximum count of records that you want this operation to fetch from FortiProxy server."
         },
         {
           "title": "Include IPV4 Users",
+          "description": "Enable to include IPv4 user (default=true).",
           "name": "ipv4",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Include IPv4 user (default=true).",
+          "tooltip": "Enable to include IPv4 user (default=true).",
           "value": true
         },
         {
           "title": "Include IPV6 Users",
+          "description": "Enable to include IPv6 users.",
           "name": "ipv6",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Include IPv6 users."
+          "tooltip": "Enable to include IPv6 users."
         }
       ],
       "output_schema": {
@@ -3098,66 +3307,73 @@
       "parameters": [
         {
           "title": "User Type",
+          "description": "Specify the type of the user whose de-authenticate firewall users you want to retrieve from FortiProxy server. User type [proxy|firewall].",
           "name": "user_type",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "User type [proxy|firewall]. Required for both proxy and firewall users."
+          "tooltip": "Specify the type of the user whose de-authenticate firewall users you want to retrieve from FortiProxy server. User type [proxy|firewall]."
         },
         {
           "title": "User ID",
+          "description": "Specify the ID of the user whose de-authenticate firewall users you want to retrieve from FortiProxy server.",
           "name": "id",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "integer",
-          "description": "User ID. Required for both proxy and firewall users."
+          "tooltip": "Specify the ID of the user whose de-authenticate firewall users you want to retrieve from FortiProxy server."
         },
         {
           "title": "IP Address",
+          "description": "Specify the IP address of the users whose de-authenticate firewall users you want to retrieve from FortiProxy server.",
           "name": "ip",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "User IP address. Required for both proxy and firewall users."
+          "tooltip": "Specify the IP address of the users whose de-authenticate firewall users you want to retrieve from FortiProxy server."
         },
         {
           "title": "IP Version",
+          "description": "Specify the IP version [ip4|ip6] of the users whose de-authenticate firewall users you want to retrieve from FortiProxy server. Only required if User Type is firewall.",
           "name": "ip_version",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "IP version [ip4|ip6]. Only required if user_type is firewall."
+          "tooltip": "Specify the IP version [ip4|ip6] of the users whose de-authenticate firewall users you want to retrieve from FortiProxy server. Only required if User Type is firewall."
         },
         {
           "title": "Authentication Method",
+          "description": "Specify the authentication method [fsso|rsso|ntlm|firewall|wsso|fsso_citrix|sso_guest] of the users whose de-authenticate firewall users you want to retrieve from FortiProxy server. Only required if User Type is firewall.",
           "name": "method",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "Authentication method [fsso|rsso|ntlm|firewall|wsso|fsso_citrix|sso_guest]. Only required if user_type is firewall."
+          "tooltip": "Specify the authentication method [fsso|rsso|ntlm|firewall|wsso|fsso_citrix|sso_guest] of the users whose de-authenticate firewall users you want to retrieve from FortiProxy server. Only required if User Type is firewall."
         },
         {
           "title": "DeAuthenticate All Users",
+          "description": "Set to true to de-authenticate all users. Note: If Specify, all other parameters will be ignored.",
           "name": "all",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "description": "Set to true to deauthenticate all users. Other parameters will be ignored."
+          "tooltip": "Set to true to de-authenticate all users. Note: If Specify, all other parameters will be ignored."
         },
         {
           "title": "Users",
+          "description": "Array of user objects to de-authenticate. Use this to de-authenticate multiple users at once. Each object should include the above properties.",
           "name": "users",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "json",
-          "description": "Array of user objects to deauthenticate. Use this to deauthenticate multiple users at once. Each object should include the above properties."
+          "tooltip": "Array of user objects to de-authenticate. Use this to de-authenticate multiple users at once. Each object should include the above properties."
         }
       ],
       "output_schema": {}
@@ -3172,21 +3388,23 @@
       "parameters": [
         {
           "title": "IP Addresses",
+          "description": "Specify a list of comma-separated IP addresses which you want to ban. IPv4 and IPv6 addresses are allowed.",
           "name": "ip_addresses",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "List of IP Addresses to ban. IPv4 and IPv6 addresses are allowed."
+          "tooltip": "Specify a list of comma-separated IP addresses which you want to ban. IPv4 and IPv6 addresses are allowed."
         },
         {
           "title": "Expiry",
+          "description": "Time until expiry in seconds. 0 for indefinite ban.",
           "name": "expiry",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "integer",
-          "description": "Time until expiry in seconds. 0 for indefinite ban.",
+          "tooltip": "Time until expiry in seconds. 0 for indefinite ban.",
           "value": 0
         }
       ],
@@ -3263,12 +3481,13 @@
       "parameters": [
         {
           "title": "IP Addresses",
+          "description": "Specify the list of banned user IPs to clear. IPv4 and IPv6 addresses are allowed.",
           "name": "ip_addresses",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
-          "description": "List of banned user IPs to clear. IPv4 and IPv6 addresses are allowed."
+          "tooltip": "Specify the list of banned user IPs to clear. IPv4 and IPv6 addresses are allowed."
         }
       ],
       "output_schema": {

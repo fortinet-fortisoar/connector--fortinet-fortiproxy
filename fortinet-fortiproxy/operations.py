@@ -74,9 +74,7 @@ def create_firewall_policy(config, params):
         'action': params.pop('action', ''),
         'nkey': params.pop('nkey', '')
     }
-    policy_type = params.get('type')
-    if policy_type:
-        params.update({'type': Policy_Type.get(policy_type)})
+    params.update({'type': Policy_Type.get(params.get('type'))}) if params.get('type') else ''
     params.update({'action': params.get('action').lower()}) if params.get('action') else ''
     custom_attributes = params.pop('custom_attributes', '')
     if custom_attributes:
@@ -90,6 +88,7 @@ def create_firewall_policy(config, params):
 def get_firewall_policy(config, params):
     fp = FortiProxy(config)
     endpoint = 'cmdb/firewall/policy'
+    params.update({'action': params.get('action').lower()}) if params.get('action') else ''
     query_parameter = {k: v for k, v in params.items() if v is not None and v != ''}
     response = fp.make_rest_call(endpoint, 'GET', params=query_parameter)
     return response
@@ -98,6 +97,7 @@ def get_firewall_policy(config, params):
 def get_firewall_policy_details(config, params):
     fp = FortiProxy(config)
     endpoint = 'cmdb/firewall/policy/{0}'.format(params.pop('policyid'))
+    params.update({'action': params.get('action').lower()}) if params.get('action') else ''
     query_parameter = {k: v for k, v in params.items() if v is not None and v != ''}
     response = fp.make_rest_call(endpoint, 'GET', params=query_parameter)
     return response
@@ -112,9 +112,7 @@ def update_firewall_policy(config, params):
         'before': params.pop('before', ''),
         'after': params.pop('after', '')
     }
-    policy_type = params.get('type')
-    if policy_type:
-        params.update({'type': Policy_Type.get(policy_type)})
+    params.update({'type': Policy_Type.get(params.get('type'))}) if params.get('type') else ''
     params.update({'action': params.get('action').lower()}) if params.get('action') else ''
     custom_attributes = params.pop('custom_attributes', '')
     if custom_attributes:
@@ -141,12 +139,9 @@ def create_firewall_address(config, params):
         'action': params.pop('action', ''),
         'nkey': params.pop('nkey', '')
     }
-    address_type = params.get('type')
-    if address_type:
-        params.update({'type': Address_Type.get(address_type)})
-    sub_type = params.get('sub-type')
-    if sub_type:
-        params.update({'sub-type': Sub_Type_Address.get('sub_type')})
+    params.update({'clearpass-spt': params.get('clearpass-spt').lower()}) if params.get('clearpass-spt') else ''
+    params.update({'type': Address_Type.get(params.get('type'))}) if params.get('type') else ''
+    params.update({'sub-type': Sub_Type_Address.get(params.get('sub-type'))}) if params.get('sub-type') else ''
     custom_attributes = params.pop('custom_attributes', '')
     if custom_attributes:
         params.update(custom_attributes)
@@ -159,6 +154,7 @@ def create_firewall_address(config, params):
 def get_firewall_address(config, params):
     fp = FortiProxy(config)
     endpoint = 'cmdb/firewall/address'
+    params.update({'action': params.get('action').lower()}) if params.get('action') else ''
     query_parameter = {k: v for k, v in params.items() if v is not None and v != ''}
     response = fp.make_rest_call(endpoint, 'GET', params=query_parameter)
     return response
@@ -167,6 +163,7 @@ def get_firewall_address(config, params):
 def get_firewall_address_details(config, params):
     fp = FortiProxy(config)
     endpoint = 'cmdb/firewall/address/{0}'.format(params.pop('name'))
+    params.update({'action': params.get('action').lower()}) if params.get('action') else ''
     query_parameter = {k: v for k, v in params.items() if v is not None and v != ''}
     response = fp.make_rest_call(endpoint, 'GET', params=query_parameter)
     return response
@@ -181,12 +178,9 @@ def update_firewall_address(config, params):
         'before': params.pop('before', ''),
         'after': params.get('after', '')
     }
-    address_type = params.get('type')
-    if address_type:
-        params.update({'type': Address_Type.get(address_type)})
-    sub_type = params.get('sub-type')
-    if sub_type:
-        params.update({'sub-type': Sub_Type_Address.get('sub_type')})
+    params.update({'clearpass-spt': params.get('clearpass-spt').lower()}) if params.get('clearpass-spt') else ''
+    params.update({'type': Address_Type.get(params.get('type'))}) if params.get('type') else ''
+    params.update({'sub-type': Sub_Type_Address.get(params.get('sub-type'))}) if params.get('sub-type') else ''
     custom_attributes = params.pop('custom_attributes', '')
     if custom_attributes:
         params.update(custom_attributes)
@@ -212,9 +206,8 @@ def create_firewall_address_group(config, params):
         'action': params.pop('action', ''),
         'nkey': params.pop('nkey', '')
     }
-    category = params.get('category')
-    if category:
-        params.update({'category': Category.get('category')})
+    params.update({'type': params.get('type').lower()}) if params.get('type') else ''
+    params.update({'category': Category.get(params.get('category'))}) if params.get('category') else ''
     query_parameter = {k: v for k, v in query_parameter.items() if v is not None and v != ''}
     data = check_payload(params)
     response = fp.make_rest_call(endpoint, 'POST', params=query_parameter, data=json.dumps(data))
@@ -224,6 +217,7 @@ def create_firewall_address_group(config, params):
 def get_firewall_address_group(config, params):
     fp = FortiProxy(config)
     endpoint = 'cmdb/firewall/addrgrp'
+    params.update({'action': params.get('action').lower()}) if params.get('action') else ''
     query_parameter = {k: v for k, v in params.items() if v is not None and v != ''}
     response = fp.make_rest_call(endpoint, 'GET', params=query_parameter)
     return response
@@ -232,6 +226,7 @@ def get_firewall_address_group(config, params):
 def get_firewall_address_group_details(config, params):
     fp = FortiProxy(config)
     endpoint = 'cmdb/firewall/addrgrp/{0}'.format(params.pop('name'))
+    params.update({'action': params.get('action').lower()}) if params.get('action') else ''
     query_parameter = {k: v for k, v in params.items() if v is not None and v != ''}
     response = fp.make_rest_call(endpoint, 'GET', params=query_parameter)
     return response
@@ -246,9 +241,8 @@ def update_firewall_address_group(config, params):
         'before': params.pop('before', ''),
         'after': params.get('after', '')
     }
-    category = params.get('category')
-    if category:
-        params.update({'category': Category.get('category')})
+    params.update({'type': params.get('type').lower()}) if params.get('type') else ''
+    params.update({'category': Category.get(params.get('category'))}) if params.get('category') else ''
     query_parameter = {k: v for k, v in query_parameter.items() if v is not None and v != ''}
     data = check_payload(params)
     response = fp.make_rest_call(endpoint, 'PUT', params=query_parameter, data=json.dumps(data))
@@ -280,6 +274,7 @@ def create_firewall_service_group(config, params):
 def get_firewall_service_group(config, params):
     fp = FortiProxy(config)
     endpoint = 'cmdb/firewall.service/group'
+    params.update({'action': params.get('action').lower()}) if params.get('action') else ''
     query_parameter = {k: v for k, v in params.items() if v is not None and v != ''}
     response = fp.make_rest_call(endpoint, 'GET', params=query_parameter)
     return response
@@ -288,6 +283,7 @@ def get_firewall_service_group(config, params):
 def get_firewall_service_group_details(config, params):
     fp = FortiProxy(config)
     endpoint = 'cmdb/firewall.service/group/{0}'.format(params.pop('name'))
+    params.update({'action': params.get('action').lower()}) if params.get('action') else ''
     query_parameter = {k: v for k, v in params.items() if v is not None and v != ''}
     response = fp.make_rest_call(endpoint, 'GET', params=query_parameter)
     return response

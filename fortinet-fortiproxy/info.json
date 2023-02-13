@@ -192,7 +192,7 @@
         {
           "title": "Policy Action",
           "description": "Specify the policy action for this policy, from the following available options: Accept: Allows session that match the firewall policy, Deny: Blocks sessions that match the firewall policy, Redirect: Redirect sessions that match the firewall policy to a url, or Isolate: Isolate sessions that match the firewall policy with isolator.",
-          "name": "action",
+          "name": "policy_action",
           "required": false,
           "editable": true,
           "visible": true,
@@ -915,7 +915,7 @@
         },
         {
           "title": "Policy Action",
-          "name": "action",
+          "name": "policy_action",
           "required": false,
           "editable": true,
           "visible": true,

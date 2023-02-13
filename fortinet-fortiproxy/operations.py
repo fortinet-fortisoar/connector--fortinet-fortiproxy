@@ -75,7 +75,7 @@ def create_firewall_policy(config, params):
         'nkey': params.pop('nkey', '')
     }
     params.update({'type': Policy_Type.get(params.get('type'))}) if params.get('type') else ''
-    params.update({'action': params.get('action').lower()}) if params.get('action') else ''
+    params.update({'action': params.get('policy_action').lower()}) if params.get('policy_action') else ''
     custom_attributes = params.pop('custom_attributes', '')
     if custom_attributes:
         params.update(custom_attributes)
@@ -113,7 +113,7 @@ def update_firewall_policy(config, params):
         'after': params.pop('after', '')
     }
     params.update({'type': Policy_Type.get(params.get('type'))}) if params.get('type') else ''
-    params.update({'action': params.get('action').lower()}) if params.get('action') else ''
+    params.update({'action': params.get('policy_action').lower()}) if params.get('policy_action') else ''
     custom_attributes = params.pop('custom_attributes', '')
     if custom_attributes:
         params.update(custom_attributes)

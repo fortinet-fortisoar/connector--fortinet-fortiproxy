@@ -38,7 +38,7 @@ class FortiProxy(object):
                 else:
                     return response
             elif response.status_code == 404:
-                return response.json()
+                return {'message': 'Not Found'}
             else:
                 raise ConnectorError("{0}".format(response.content))
         except requests.exceptions.SSLError:
@@ -49,7 +49,7 @@ class FortiProxy(object):
             raise ConnectorError(
                 'The server did not send any data in the allotted amount of time')
         except requests.exceptions.ConnectionError:
-            raise ConnectorError('Invalid Credentials')
+            raise ConnectorError('Invalid Credentials/URL')
         except Exception as err:
             raise ConnectorError(str(err))
 
@@ -61,7 +61,7 @@ def check_payload(payload):
             nested = check_payload(value)
             if len(nested.keys()) > 0:
                 updated_payload[key] = nested
-        elif value:
+        elif value != '' and value is not None:
             updated_payload[key] = value
     return updated_payload
 
@@ -363,10 +363,12 @@ def clear_banned_users_list_by_ip(config, params):
 def _check_health(config):
     try:
         response = get_firewall_policy(config, params={})
-        if response:
+        if response.get('message'):
+            raise ConnectorError("Invalid Credentials/URL")
+        else:
             return True
     except Exception as err:
-        raise ConnectorError("Invalid Credentials")
+        raise ConnectorError("Invalid Credentials/URL")
 
 
 operations = {

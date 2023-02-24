@@ -1,0 +1,2780 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@type": "WorkflowCollection",
+      "name": "Sample - Fortinet FortiProxy - 1.0.0",
+      "description": "Sample playbooks for \"Fortinet FortiProxy\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
+      "visible": true,
+      "image": null,
+      "uuid": "03db88cf-b3e0-4446-b600-e8929497001e",
+      "id": 221,
+      "deletedAt": null,
+      "importedBy": [],
+      "recordTags": [
+        "Fortinet",
+        "fortinet-fortiproxy"
+      ],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Delete Firewall Address Group",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Deletes a specific firewall address group in FortiProxy server based on the address group name and other input parameter that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675838235,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/d7408af9-1f9e-4c86-9813-1e937a394ea8",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Delete Firewall Address Group",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "name": "Sample Address Group",
+                  "vdom": ""
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "delete_firewall_address_group",
+                "operationTitle": "Delete Firewall Address Group",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "af4c7d80-34c9-4acf-92eb-bba61baf9ee7"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "81f4447a-2b3f-4047-bf92-18021fa988d5",
+                "title": "Fortinet FortiProxy: Delete Firewall Address Group",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "d7408af9-1f9e-4c86-9813-1e937a394ea8"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Delete Firewall Address Group",
+              "targetStep": "/api/3/workflow_steps/af4c7d80-34c9-4acf-92eb-bba61baf9ee7",
+              "sourceStep": "/api/3/workflow_steps/d7408af9-1f9e-4c86-9813-1e937a394ea8",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "6918cf75-4ac8-4fb7-9c59-e62ca3530f4a"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "01f4b76b-e812-4ba8-b2e6-a1fa7950536f",
+          "id": 3304,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Firewall Address",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Retrieves all firewall address from FortiProxy server based on the input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675837344,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/d5a49255-1448-4f25-8f3c-e65833069167",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Firewall Address",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "get_firewall_address",
+                "operationTitle": "Get Firewall Address",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "c714966c-4e25-4454-b80a-1d64ffb8eeb0"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "d7507953-1e7c-433b-b01b-539069ee0d9f",
+                "title": "Fortinet FortiProxy: Get Firewall Address",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "d5a49255-1448-4f25-8f3c-e65833069167"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Get Firewall Address",
+              "targetStep": "/api/3/workflow_steps/c714966c-4e25-4454-b80a-1d64ffb8eeb0",
+              "sourceStep": "/api/3/workflow_steps/d5a49255-1448-4f25-8f3c-e65833069167",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "099cf5d1-b2c1-48b8-97aa-9d22c6dda872"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "062a90cd-d303-4cbc-a9ec-fe45077daa7a",
+          "id": 3305,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Create Firewall Policy",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Creates an firewall policy in FortiProxy server based on the input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675836812,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/78c196dc-8578-4b0c-8c91-5956832c3218",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Firewall Policy",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "name": "Sample Policy",
+                  "nkey": "",
+                  "type": "",
+                  "vdom": "",
+                  "action": "",
+                  "status": "",
+                  "dstaddr": "",
+                  "dstintf": "[\n  {\n    \"name\": \"port2\",\n    \"q_origin_key\": \"port2\"\n  }\n]",
+                  "srcaddr": "",
+                  "srcintf": "[\n  {\n    \"name\": \"port1\",\n    \"q_origin_key\": \"port1\"\n  }\n]",
+                  "dstaddr6": "",
+                  "policyid": "",
+                  "schedule": "always",
+                  "srcaddr6": "",
+                  "force-proxy": "",
+                  "transparent": "",
+                  "access-proxy": "",
+                  "custom_attributes": ""
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "create_firewall_policy",
+                "operationTitle": "Create Firewall Policy",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "5bad8ea9-a9c9-4a58-88ab-a01585a57c8f"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "03d964cc-14c9-455e-8138-65f37e0d5d25",
+                "title": "Fortinet FortiProxy: Create Firewall Policy",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "78c196dc-8578-4b0c-8c91-5956832c3218"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Create Firewall Policy",
+              "targetStep": "/api/3/workflow_steps/5bad8ea9-a9c9-4a58-88ab-a01585a57c8f",
+              "sourceStep": "/api/3/workflow_steps/78c196dc-8578-4b0c-8c91-5956832c3218",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "6b81702f-55bf-4d0a-aba8-021032556b83"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "09151708-cfd7-47fe-8720-65f23be56b92",
+          "id": 3306,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Firewall Address Group Details",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Retrieves an specific firewall address group from FortiProxy server based on the address group name and other input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675837954,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/753a717a-36fb-4756-aee8-c71b6e467c7a",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Firewall Address Group Details",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "name": "Sample Address Group",
+                  "skip": "",
+                  "vdom": "",
+                  "action": "",
+                  "format": "",
+                  "with_meta": "",
+                  "datasource": ""
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "get_firewall_address_group_details",
+                "operationTitle": "Get Firewall Address Group Details",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "4827431f-7735-4950-ae2e-0c785c1d6e86"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "0eaa1366-8383-42de-ae1d-b04fca347bf4",
+                "title": "Fortinet FortiProxy: Get Firewall Address Group Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "753a717a-36fb-4756-aee8-c71b6e467c7a"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Get Firewall Address Group Details",
+              "targetStep": "/api/3/workflow_steps/4827431f-7735-4950-ae2e-0c785c1d6e86",
+              "sourceStep": "/api/3/workflow_steps/753a717a-36fb-4756-aee8-c71b6e467c7a",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "880ef1ba-a3d1-41ee-91d8-935c7932158f"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "2b2e4131-ab53-47b1-aeba-97f7e2a51db7",
+          "id": 3307,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Firewall Policy Details",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Retrieves an specific firewall policy from FortiProxy server based on the policy ID and other input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675836986,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/a48ade14-5ce6-4829-8449-65ff1a05175b",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Firewall Policy Details",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "skip": "",
+                  "vdom": "",
+                  "action": "",
+                  "format": "",
+                  "policyid": 8,
+                  "with_meta": "",
+                  "datasource": ""
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "get_firewall_policy_details",
+                "operationTitle": "Get Firewall Policy Details",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "2621d1eb-24bf-4685-991b-65a316856aad"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "52a8008d-6d3c-4ce1-906d-a084310df7fc",
+                "title": "Fortinet FortiProxy: Get Firewall Policy Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "a48ade14-5ce6-4829-8449-65ff1a05175b"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Get Firewall Policy Details",
+              "targetStep": "/api/3/workflow_steps/2621d1eb-24bf-4685-991b-65a316856aad",
+              "sourceStep": "/api/3/workflow_steps/a48ade14-5ce6-4829-8449-65ff1a05175b",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "18a16482-d1c7-4dc6-8905-bbc0967eee4d"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "347e85c8-5158-4742-be67-b65508c8ee13",
+          "id": 3308,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Add Users to Banned List",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Add users to banned list of \"authgrp\" access group from FortiProxy based on the IP addresses and expiry that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675839147,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/bf97295a-1c9d-4d36-8b7e-976991300c17",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "d47d3f94-2fad-4d14-86e5-b323cf00f150",
+                "title": "Fortinet FortiProxy: Add Users to Banned List",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "bf97295a-1c9d-4d36-8b7e-976991300c17"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Add Users to Banned List",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "expiry": 0,
+                  "ip_addresses": "8.8.8.8"
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "add_users_to_banned_list",
+                "operationTitle": "Add Users to Banned List",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "c6158290-0568-4bc3-9e2a-a81c2592b8cc"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Add Users to Banned List",
+              "targetStep": "/api/3/workflow_steps/c6158290-0568-4bc3-9e2a-a81c2592b8cc",
+              "sourceStep": "/api/3/workflow_steps/bf97295a-1c9d-4d36-8b7e-976991300c17",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "c8e37734-c5dc-449b-86af-892cf4e4ca8d"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "3ecab4f0-cc51-497c-a8d5-05588c3f08e2",
+          "id": 3309,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Delete Firewall Service Group",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Deletes a specific firewall service group in FortiProxy server based on the address group name and other input parameter that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675838845,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/4b88eb4d-b212-4283-bc50-8ed0b8840f0f",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Delete Firewall Service Group",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "name": "Sample Service Group",
+                  "vdom": ""
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "delete_firewall_service_group",
+                "operationTitle": "Delete Firewall Service Group",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "25015dfe-ce75-4c51-8c4f-c829f593736c"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "30183ac7-c75f-4d2b-9237-f6258c50f648",
+                "title": "Fortinet FortiProxy: Delete Firewall Service Group",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "4b88eb4d-b212-4283-bc50-8ed0b8840f0f"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Delete Firewall Service Group",
+              "targetStep": "/api/3/workflow_steps/25015dfe-ce75-4c51-8c4f-c829f593736c",
+              "sourceStep": "/api/3/workflow_steps/4b88eb4d-b212-4283-bc50-8ed0b8840f0f",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "09fe0c43-daf7-49c2-bbb1-1c3c47e7b05a"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "47fd9e4b-b096-472f-b551-85ff8d7e9197",
+          "id": 3310,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Update Firewall Service Group",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Updates an firewall service group in FortiProxy server based on the address group name and other input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675838803,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/87757429-b9fe-4148-871a-ef02ae8ebc1d",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "28951c8b-2b7e-4080-bc77-86d5dd1f3cba",
+                "title": "Fortinet FortiProxy: Update Firewall Service Group",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "87757429-b9fe-4148-871a-ef02ae8ebc1d"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Firewall Service Group Details",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "name": "{{vars.steps.Update_Firewall_Service_Group.data.mkey}}",
+                  "skip": "",
+                  "vdom": "",
+                  "action": "",
+                  "format": "",
+                  "with_meta": "",
+                  "datasource": ""
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "get_firewall_service_group_details",
+                "operationTitle": "Get Firewall Service Group Details",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "300",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "af0c726b-ca6f-497d-bc92-4d4883a2ea74"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Update Firewall Service Group",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "name": "Sample Service Group",
+                  "vdom": "",
+                  "after": "",
+                  "color": "",
+                  "proxy": "",
+                  "action": "",
+                  "before": "",
+                  "member": "",
+                  "fabric-object": ""
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "update_firewall_service_group",
+                "operationTitle": "Update Firewall Service Group",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "bbdd9bb1-92a5-4bc2-a9e2-1527b9a50038"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Update Firewall Service Group",
+              "targetStep": "/api/3/workflow_steps/bbdd9bb1-92a5-4bc2-a9e2-1527b9a50038",
+              "sourceStep": "/api/3/workflow_steps/87757429-b9fe-4148-871a-ef02ae8ebc1d",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "bcca2e41-b1f8-4d21-a70b-99d49399fb3c"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Update Firewall Service Group -> Get Firewall Service Group Details",
+              "targetStep": "/api/3/workflow_steps/af0c726b-ca6f-497d-bc92-4d4883a2ea74",
+              "sourceStep": "/api/3/workflow_steps/bbdd9bb1-92a5-4bc2-a9e2-1527b9a50038",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "e78ae0b3-446f-4d6e-95fb-e75773ab0383"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "6dcbe834-5769-40ba-b2b2-24d7a1c69e3d",
+          "id": 3311,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Create Firewall Service Group",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Creates an firewall service group in FortiProxy server based on the input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675838395,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/5b13ce2d-a836-463a-9fd9-17f8c39cdda3",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "748af661-5938-4eef-8545-0d2cba6e719e",
+                "title": "Fortinet FortiProxy: Create Firewall Service Group",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "5b13ce2d-a836-463a-9fd9-17f8c39cdda3"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Firewall Service Group",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "name": "Sample Service Group",
+                  "nkey": "",
+                  "vdom": "",
+                  "color": "",
+                  "proxy": "",
+                  "action": "",
+                  "member": "",
+                  "fabric-object": ""
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "create_firewall_service_group",
+                "operationTitle": "Create Firewall Service Group",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "976406fe-665b-4dd3-83b0-4a4ced194d69"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Create Firewall Service Group",
+              "targetStep": "/api/3/workflow_steps/976406fe-665b-4dd3-83b0-4a4ced194d69",
+              "sourceStep": "/api/3/workflow_steps/5b13ce2d-a836-463a-9fd9-17f8c39cdda3",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "37115bb9-d329-4b39-aed9-9d37988ea442"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "7172c25f-efa9-46ed-a232-91c3dbd8f643",
+          "id": 3312,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Delete Firewall Address",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Deletes a specific firewall address in FortiProxy server based on the address name and other input parameter that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675838314,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/a32318e6-98d9-474a-be47-90333a08f864",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Delete Firewall Address",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "name": "Sample Address",
+                  "vdom": ""
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "delete_firewall_address",
+                "operationTitle": "Delete Firewall Address",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "1c0267c0-d5d6-4ab4-b555-af8f8cb9cefd"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "d94ed33b-b3de-4f06-9951-5fd091e35a1e",
+                "title": "Fortinet FortiProxy: Delete Firewall Address",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "a32318e6-98d9-474a-be47-90333a08f864"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Delete Firewall Address",
+              "targetStep": "/api/3/workflow_steps/1c0267c0-d5d6-4ab4-b555-af8f8cb9cefd",
+              "sourceStep": "/api/3/workflow_steps/a32318e6-98d9-474a-be47-90333a08f864",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "0b433df4-24f6-401b-b8ba-e7f330ff0f70"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "717e0957-4d76-4263-8144-de54aeb49260",
+          "id": 3313,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Firewall Policy",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Retrieves all firewall policy from FortiProxy server based on the input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675836937,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/aa2933cd-8c83-4a60-9cf8-0aa30d697045",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Firewall Policy",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "get_firewall_policy",
+                "operationTitle": "Get Firewall Policy",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "3e7f2a2a-4cd0-4d79-9e5e-eb7c03bcab04"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "bd178638-0095-41fd-8a2e-9bc091aa3f75",
+                "title": "Fortinet FortiProxy: Get Firewall Policy",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "aa2933cd-8c83-4a60-9cf8-0aa30d697045"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Get Firewall Policy",
+              "targetStep": "/api/3/workflow_steps/3e7f2a2a-4cd0-4d79-9e5e-eb7c03bcab04",
+              "sourceStep": "/api/3/workflow_steps/aa2933cd-8c83-4a60-9cf8-0aa30d697045",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "b09e0720-0888-4f20-9faa-e270e3e302a2"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "7fe66ed3-227b-45c1-83b4-0573b20be56b",
+          "id": 3314,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Clear Banned Users List by IP",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Clear list of all banned users by IP's of \"authgrp\" access group from FortiProxy based on the IP addresses that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675839092,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/5414c1c2-af68-427c-a580-4fcdd0120bd9",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "ef3320ec-8397-49f7-9325-70d1f54d1add",
+                "title": "Fortinet FortiProxy: Clear Banned Users List by IP",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "5414c1c2-af68-427c-a580-4fcdd0120bd9"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Clear Banned Users List by IP",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "ip_addresses": "1.1.1.1"
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "clear_banned_users_list_by_ip",
+                "operationTitle": "Clear Banned Users List by IP",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "789f12b0-aea3-42ba-82b5-de8be499d4c3"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Clear Banned Users List by IP",
+              "targetStep": "/api/3/workflow_steps/789f12b0-aea3-42ba-82b5-de8be499d4c3",
+              "sourceStep": "/api/3/workflow_steps/5414c1c2-af68-427c-a580-4fcdd0120bd9",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "05b40c4b-77f3-4733-97fb-65f4d9f0adab"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "8d55e268-27ae-4e69-9dd4-090e02bd68e6",
+          "id": 3315,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Firewall Service Group Details",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Retrieves an specific firewall service group from FortiProxy server based on the address group name and other input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675835522,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/5e2696e6-2b97-45d3-9245-9adc9677cfc4",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Firewall Service Group Details",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "get_firewall_service_group_details",
+                "operationTitle": "Get Firewall Service Group Details",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "06381cb5-134b-4ff1-ba42-1779859d6d4b"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "a68bdccb-38df-4a93-81d2-b3784ab66dce",
+                "title": "Fortinet FortiProxy: Get Firewall Service Group Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "5e2696e6-2b97-45d3-9245-9adc9677cfc4"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Get Firewall Service Group Details",
+              "targetStep": "/api/3/workflow_steps/06381cb5-134b-4ff1-ba42-1779859d6d4b",
+              "sourceStep": "/api/3/workflow_steps/5e2696e6-2b97-45d3-9245-9adc9677cfc4",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "1342db3b-b2eb-45a9-a4ae-b8a0565ccd22"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "8ed346a7-ad2f-48cd-bf7b-3c6a080427a3",
+          "id": 3316,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Firewall Service Group",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Retrieves all firewall service group from FortiProxy server based on the input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675838422,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/ed655b22-6f5c-4215-98a2-f05b77195ef2",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Firewall Service Group",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "get_firewall_service_group",
+                "operationTitle": "Get Firewall Service Group",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "bebcbbe2-421a-4952-83a9-1d718ad23566"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "ccfe18cf-f9be-4641-8f18-62894c92d091",
+                "title": "Fortinet FortiProxy: Get Firewall Service Group",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "ed655b22-6f5c-4215-98a2-f05b77195ef2"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Get Firewall Service Group",
+              "targetStep": "/api/3/workflow_steps/bebcbbe2-421a-4952-83a9-1d718ad23566",
+              "sourceStep": "/api/3/workflow_steps/ed655b22-6f5c-4215-98a2-f05b77195ef2",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "11cc911f-35c4-4263-bf21-e9dc068acbbc"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "913af53d-e369-428d-8774-82d4b3984700",
+          "id": 3317,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Authenticated Firewall Users List",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Retrieves all authenticated firewall users of \"authgrp\" access group from FortiProxy server based on the input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675838976,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/94fbd884-6a8b-481d-84e0-1cfb9d5c21a9",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Authenticated Firewall Users List",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "ipv4": true,
+                  "ipv6": "",
+                  "count": "",
+                  "start": ""
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "get_authenticated_firewall_users_list",
+                "operationTitle": "Get Authenticated Firewall Users List",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "6706561b-dd2c-49a0-aa14-d9eeecdc6538"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "efbd27aa-0a4a-4206-a110-dafc5c8069d4",
+                "title": "Fortinet FortiProxy: Get Authenticated Firewall Users List",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "94fbd884-6a8b-481d-84e0-1cfb9d5c21a9"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Get Authenticated Firewall Users List",
+              "targetStep": "/api/3/workflow_steps/6706561b-dd2c-49a0-aa14-d9eeecdc6538",
+              "sourceStep": "/api/3/workflow_steps/94fbd884-6a8b-481d-84e0-1cfb9d5c21a9",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "5e3dea79-d481-43ab-ba06-10ef7c59c9fa"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "9643cdad-b4dd-4e2d-8477-b862c600d02c",
+          "id": 3318,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "DeAuthenticate Firewall Users",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Retrieves all de-authenticated firewall users of \"authgrp\" access group from FortiProxy server based on the user type, user ID, IP address, and other input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675839810,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/4a653d6b-07f4-4504-bfd6-1bef31e259f2",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "68a98fa9-6013-4deb-8f08-69258ad4628b",
+                "title": "Fortinet FortiProxy: DeAuthenticate Firewall Users",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "4a653d6b-07f4-4504-bfd6-1bef31e259f2"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "DeAuthenticate Firewall Users",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "id": 1,
+                  "ip": "8.8.8.8",
+                  "all": "",
+                  "users": "",
+                  "method": "",
+                  "user_type": "firewall",
+                  "ip_version": ""
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "deauthenticate_firewall_users",
+                "operationTitle": "DeAuthenticate Firewall Users",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "e0f2c8de-0561-42d6-93bc-ac01bfc94437"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> DeAuthenticate Firewall Users",
+              "targetStep": "/api/3/workflow_steps/e0f2c8de-0561-42d6-93bc-ac01bfc94437",
+              "sourceStep": "/api/3/workflow_steps/4a653d6b-07f4-4504-bfd6-1bef31e259f2",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "8a0977f3-8580-4786-a0bd-0585d208ca6a"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "a3242344-2ee5-4929-9f6b-4ea2cec1eb6c",
+          "id": 3319,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Update Firewall Address",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Updates an firewall address in FortiProxy server based on the address name and other input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675837740,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/bc4f0fb5-d4f9-44cd-b059-7c80d7bd4da1",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Update Firewall Address",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "fqdn": "",
+                  "name": "Sample Address",
+                  "nkey": "",
+                  "type": "",
+                  "uuid": "",
+                  "vdom": "",
+                  "after": "",
+                  "action": "",
+                  "before": "",
+                  "end-ip": "",
+                  "subnet": "",
+                  "country": "",
+                  "macaddr": "",
+                  "start-ip": "",
+                  "sub-type": "",
+                  "clearpass-spt": "",
+                  "custom_attributes": ""
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "update_firewall_address",
+                "operationTitle": "Update Firewall Address",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "2c0d1d73-268a-41e5-83dc-d2f44057bab1"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Firewall Address Details",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "name": "{{vars.steps.Update_Firewall_Address.data.mkey}}",
+                  "skip": "",
+                  "vdom": "",
+                  "action": "",
+                  "format": "",
+                  "with_meta": "",
+                  "datasource": ""
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "get_firewall_address_details",
+                "operationTitle": "Get Firewall Address Details",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "300",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "a4b9c2a9-4771-41cd-94af-008e141ddbc9"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "e58d0fd2-edd0-4605-ad33-e360c0ad9085",
+                "title": "Fortinet FortiProxy: Update Firewall Address",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "bc4f0fb5-d4f9-44cd-b059-7c80d7bd4da1"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Update Firewall Address",
+              "targetStep": "/api/3/workflow_steps/2c0d1d73-268a-41e5-83dc-d2f44057bab1",
+              "sourceStep": "/api/3/workflow_steps/bc4f0fb5-d4f9-44cd-b059-7c80d7bd4da1",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "25bd73d6-bbde-463a-a2f3-007dab34be12"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Update Firewall Address -> Get Firewall Address Details",
+              "targetStep": "/api/3/workflow_steps/a4b9c2a9-4771-41cd-94af-008e141ddbc9",
+              "sourceStep": "/api/3/workflow_steps/2c0d1d73-268a-41e5-83dc-d2f44057bab1",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "a0616f9a-bd6f-4b66-af69-f20b323f23f4"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "a5732de9-e85c-4a66-ac44-14f91be87292",
+          "id": 3320,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Update Firewall Policy",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Updates an firewall policy in FortiProxy server based on the policy ID and other input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675837541,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/eaee45ef-bb6d-483a-9e9a-05bae597e872",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Update Firewall Policy",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "name": "",
+                  "nkey": "",
+                  "type": "",
+                  "vdom": "",
+                  "after": "",
+                  "action": "",
+                  "before": "",
+                  "status": "",
+                  "dstaddr": "",
+                  "dstintf": "",
+                  "srcaddr": "",
+                  "srcintf": "",
+                  "dstaddr6": "",
+                  "policyid": 8,
+                  "schedule": "",
+                  "srcaddr6": "",
+                  "force-proxy": "",
+                  "transparent": "",
+                  "access-proxy": "",
+                  "custom_attributes": ""
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "update_firewall_policy",
+                "operationTitle": "Update Firewall Policy",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "020402f3-70e8-49e8-9f0b-94cb41ca7e1d"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Firewall Policy Details",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "skip": "",
+                  "vdom": "",
+                  "action": "",
+                  "format": "",
+                  "policyid": "{{vars.steps.Update_Firewall_Policy.data.mkey}}",
+                  "with_meta": "",
+                  "datasource": ""
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "get_firewall_policy_details",
+                "operationTitle": "Get Firewall Policy Details",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "300",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "9767f3cd-9439-459f-8104-10527917fe71"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "757ceff3-157a-4f8b-9285-8bd1f2582b23",
+                "title": "Fortinet FortiProxy: Update Firewall Policy",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "eaee45ef-bb6d-483a-9e9a-05bae597e872"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Update Firewall Policy",
+              "targetStep": "/api/3/workflow_steps/020402f3-70e8-49e8-9f0b-94cb41ca7e1d",
+              "sourceStep": "/api/3/workflow_steps/eaee45ef-bb6d-483a-9e9a-05bae597e872",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "2920fb34-a248-4d78-a85f-60b80acd2545"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Update Firewall Policy -> Get Firewall Policy Details",
+              "targetStep": "/api/3/workflow_steps/9767f3cd-9439-459f-8104-10527917fe71",
+              "sourceStep": "/api/3/workflow_steps/020402f3-70e8-49e8-9f0b-94cb41ca7e1d",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "6206245b-30a8-4614-a934-8d7a1fe575fe"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "a8456c59-1464-4f1e-aa55-4e920805b908",
+          "id": 3321,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Delete Firewall Policy",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Deletes a specific firewall policy in FortiProxy server based on the policy ID and other input parameter that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675837076,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/ca11f67c-52cc-4ced-bcdb-5b4f51131e0a",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Delete Firewall Policy",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "vdom": "",
+                  "policyid": 8
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "delete_firewall_policy",
+                "operationTitle": "Delete Firewall Policy",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "01ec9152-7ce1-487f-9e39-3482c1e1f41d"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "2ae02e50-1bc0-4557-8c3d-73c10aa81f93",
+                "title": "Fortinet FortiProxy: Delete Firewall Policy",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "ca11f67c-52cc-4ced-bcdb-5b4f51131e0a"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Delete Firewall Policy",
+              "targetStep": "/api/3/workflow_steps/01ec9152-7ce1-487f-9e39-3482c1e1f41d",
+              "sourceStep": "/api/3/workflow_steps/ca11f67c-52cc-4ced-bcdb-5b4f51131e0a",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "92b053d6-3e0f-4654-b1c3-837aac454ff8"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "ae2a82aa-b2fe-4eb6-bb3c-7d215ff4edb8",
+          "id": 3322,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Firewall Address Details",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Retrieves an specific firewall address from FortiProxy server based on the address name and other input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675837393,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/573fb3c2-dec6-41d4-acb2-44602b473c21",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "7c68f87f-8bd3-429b-b854-4cf872fa3d5a",
+                "title": "Fortinet FortiProxy: Get Firewall Address Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "573fb3c2-dec6-41d4-acb2-44602b473c21"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Firewall Address Details",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "name": "Sample Address",
+                  "skip": "",
+                  "vdom": "",
+                  "action": "",
+                  "format": "",
+                  "with_meta": "",
+                  "datasource": ""
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "get_firewall_address_details",
+                "operationTitle": "Get Firewall Address Details",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "97085aee-e9ea-4ac0-b515-cdd5b8d5fbc9"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Get Firewall Address Details",
+              "targetStep": "/api/3/workflow_steps/97085aee-e9ea-4ac0-b515-cdd5b8d5fbc9",
+              "sourceStep": "/api/3/workflow_steps/573fb3c2-dec6-41d4-acb2-44602b473c21",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "a7ad2bc8-5cfc-402f-8e8a-d4c028040ffb"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "baf907c0-acc0-41e4-a6f6-6f171501d779",
+          "id": 3323,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Clear All Banned Users List",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Clear list of all banned users of \"authgrp\" access group from FortiProxy.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675839050,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/146df70c-4d6f-4989-af56-4ddd83adfc96",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "6fd1a6f3-b97c-4c39-bfcc-798aa6dc4de0",
+                "title": "Fortinet FortiProxy: Clear All Banned Users List",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "146df70c-4d6f-4989-af56-4ddd83adfc96"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Clear All Banned Users List",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "clear_all_banned_users_list",
+                "operationTitle": "Clear All Banned Users List",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "f0ee5312-329f-446b-ad55-cd8fddf0868b"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Clear All Banned Users List",
+              "targetStep": "/api/3/workflow_steps/f0ee5312-329f-446b-ad55-cd8fddf0868b",
+              "sourceStep": "/api/3/workflow_steps/146df70c-4d6f-4989-af56-4ddd83adfc96",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "d124b26c-320b-447e-9173-c9baa2d50715"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "bd5bdc16-2da8-4328-b473-9fa45cff5c22",
+          "id": 3324,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Create Firewall Address Group",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Creates an firewall address group in FortiProxy server based on the input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675837848,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/ab7b1dd0-c38c-413e-9dc8-c4c1f7cf9604",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Firewall Address Group",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "name": "Sample Address Group",
+                  "nkey": "",
+                  "type": "",
+                  "uuid": "",
+                  "vdom": "",
+                  "color": "",
+                  "action": "",
+                  "member": "[\n  {\n    \"name\": \"Sample Address\"\n  }\n]",
+                  "comment": "",
+                  "exclude": "",
+                  "tagging": "",
+                  "category": "",
+                  "allow-routing": "",
+                  "fabric-object": "",
+                  "exclude-member": ""
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "create_firewall_address_group",
+                "operationTitle": "Create Firewall Address Group",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "792a0f08-c9c7-49dd-9eb7-521a35f476dc"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "3640e1de-25a8-4fc9-a6ca-a604fb8d3130",
+                "title": "Fortinet FortiProxy: Create Firewall Address Group",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "ab7b1dd0-c38c-413e-9dc8-c4c1f7cf9604"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Create Firewall Address Group",
+              "targetStep": "/api/3/workflow_steps/792a0f08-c9c7-49dd-9eb7-521a35f476dc",
+              "sourceStep": "/api/3/workflow_steps/ab7b1dd0-c38c-413e-9dc8-c4c1f7cf9604",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "24ca5fd4-dec2-4f67-8665-70709ade295a"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "f37ceff9-1255-4100-88cd-303d8ff43a8f",
+          "id": 3325,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Firewall Address Group",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Retrieves all firewall address group from FortiProxy server based on the input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675837897,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/dca6998f-4fd9-4379-9d40-35b884d17803",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Firewall Address Group",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "get_firewall_address_group",
+                "operationTitle": "Get Firewall Address Group",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "6ea20cea-c9c4-409a-8593-a693e0064379"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "ce55205c-9c2c-4611-88b7-f0c999bb4514",
+                "title": "Fortinet FortiProxy: Get Firewall Address Group",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "dca6998f-4fd9-4379-9d40-35b884d17803"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Get Firewall Address Group",
+              "targetStep": "/api/3/workflow_steps/6ea20cea-c9c4-409a-8593-a693e0064379",
+              "sourceStep": "/api/3/workflow_steps/dca6998f-4fd9-4379-9d40-35b884d17803",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "400a47ca-478f-4710-967b-0b716e9a4356"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "f49acb50-40f6-4f2a-93c1-2db097c52c51",
+          "id": 3326,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Update Firewall Address Group",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Updates an firewall address group in FortiProxy server based on the address group name and other input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675838148,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/2a26ac3e-847b-41fe-9ef7-0b6f9faecf37",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "6ab8942b-8a85-4cd9-b223-374b9956f5df",
+                "title": "Fortinet FortiProxy: Update Firewall Address Group",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "2a26ac3e-847b-41fe-9ef7-0b6f9faecf37"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Update Firewall Address Group",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "name": "Sample Address Group",
+                  "type": "",
+                  "uuid": "",
+                  "vdom": "",
+                  "after": "",
+                  "color": "",
+                  "action": "",
+                  "before": "",
+                  "member": "",
+                  "comment": "",
+                  "exclude": "",
+                  "tagging": "",
+                  "category": "",
+                  "allow-routing": "",
+                  "fabric-object": "",
+                  "exclude-member": ""
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "update_firewall_address_group",
+                "operationTitle": "Update Firewall Address Group",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "60e46da4-c516-4018-aedb-774b56c309f8"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Firewall Address Group Details",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "name": "{{vars.steps.Update_Firewall_Address_Group.data.mkey}}",
+                  "skip": "",
+                  "vdom": "",
+                  "action": "",
+                  "format": "",
+                  "with_meta": "",
+                  "datasource": ""
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "get_firewall_address_group_details",
+                "operationTitle": "Get Firewall Address Group Details",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "300",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "7a65e18d-d2e0-437b-8897-5c52985ba5e5"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Update Firewall Address Group",
+              "targetStep": "/api/3/workflow_steps/60e46da4-c516-4018-aedb-774b56c309f8",
+              "sourceStep": "/api/3/workflow_steps/2a26ac3e-847b-41fe-9ef7-0b6f9faecf37",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "86271070-6415-433a-ac93-fbdca13a9fb7"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Update Firewall Address Group -> Get Firewall Address Group Details",
+              "targetStep": "/api/3/workflow_steps/7a65e18d-d2e0-437b-8897-5c52985ba5e5",
+              "sourceStep": "/api/3/workflow_steps/60e46da4-c516-4018-aedb-774b56c309f8",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "b277ce0b-f96f-4475-b265-7de760c8b3a2"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "f9886daf-3c17-40be-b0e0-a7292afb2902",
+          "id": 3327,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get All Banned Users List",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Retrieves list of all banned users of \"authgrp\" access group from FortiProxy.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675839316,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/ede416d1-9a40-4095-920c-5d4def1684af",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get All Banned Users List",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "get_all_banned_users_list",
+                "operationTitle": "Get All Banned Users List",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "a6c28fbd-1151-44f7-af7a-0b3d8d69d60c"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "e9bb2c16-49b5-4b1d-8d6a-852de5d3aec3",
+                "title": "Fortinet FortiProxy: Get All Banned Users List",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "ede416d1-9a40-4095-920c-5d4def1684af"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Get All Banned Users List",
+              "targetStep": "/api/3/workflow_steps/a6c28fbd-1151-44f7-af7a-0b3d8d69d60c",
+              "sourceStep": "/api/3/workflow_steps/ede416d1-9a40-4095-920c-5d4def1684af",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "244ec423-2451-4bbd-bc14-ede0eb30c228"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "fc6d2af5-3865-4be4-bbab-5caf84387309",
+          "id": 3328,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Create Firewall Address",
+          "aliasName": null,
+          "tag": "#Fortinet FortiProxy",
+          "description": "Creates an firewall address in FortiProxy server based on the input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1675837284,
+          "collection": "/api/3/workflow_collections/03db88cf-b3e0-4446-b600-e8929497001e",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/0545af9f-ecf4-4e79-9b03-0128b485188b",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "907d886b-6faa-44d8-94c7-5b1970ad7679",
+                "title": "Fortinet FortiProxy: Create Firewall Address",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "0545af9f-ecf4-4e79-9b03-0128b485188b"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Firewall Address",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiProxy",
+                "config": "",
+                "params": {
+                  "fqdn": "",
+                  "name": "Sample Address",
+                  "nkey": "",
+                  "type": "",
+                  "uuid": "",
+                  "vdom": "",
+                  "action": "",
+                  "end-ip": "",
+                  "subnet": "",
+                  "country": "",
+                  "macaddr": "",
+                  "start-ip": "",
+                  "sub-type": "",
+                  "clearpass-spt": "",
+                  "custom_attributes": ""
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiproxy",
+                "operation": "create_firewall_address",
+                "operationTitle": "Create Firewall Address",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "782df0dc-937f-416f-b46d-52299587fa8d"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Create Firewall Address",
+              "targetStep": "/api/3/workflow_steps/782df0dc-937f-416f-b46d-52299587fa8d",
+              "sourceStep": "/api/3/workflow_steps/0545af9f-ecf4-4e79-9b03-0128b485188b",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "454d1b06-d1ad-4662-a32e-eb565909e698"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "fecdb37d-508b-422d-b95d-fc8c61647a90",
+          "id": 3329,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-fortiproxy"
+          ]
+        }
+      ]
+    }
+  ],
+  "exported_tags": [
+    "Fortinet",
+    "fortinet-fortiproxy"
+  ]
+}

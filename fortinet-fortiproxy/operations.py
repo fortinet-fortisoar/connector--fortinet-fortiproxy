@@ -66,6 +66,19 @@ def check_payload(payload):
     return updated_payload
 
 
+def convert_boolean_parameter_value_to_lower(params):
+    params.update({'action': params.get('action').lower()}) if params.get('action') else ''
+    params.update({'datasource': str(params.get('datasource')).lower()}) if params.get('datasource') else ''
+    params.update({'with_meta': str(params.get('with_meta')).lower()}) if params.get('with_meta') else ''
+    params.update({'with_contents_hash': str(params.get('with_contents_hash')).lower()}) if params.get(
+        'with_contents_hash') else ''
+    params.update({'skip': str(params.get('skip')).lower()}) if params.get('skip') else ''
+    params.update({'exclude-default-values': str(params.get('exclude-default-values')).lower()}) if params.get(
+        'exclude-default-values') else ''
+    params.update({'meta_only': str(params.get('meta_only')).lower()}) if params.get('meta_only') else ''
+    return params
+
+
 def create_firewall_policy(config, params):
     fp = FortiProxy(config)
     endpoint = 'cmdb/firewall/policy'
@@ -88,7 +101,7 @@ def create_firewall_policy(config, params):
 def get_firewall_policy(config, params):
     fp = FortiProxy(config)
     endpoint = 'cmdb/firewall/policy'
-    params.update({'action': params.get('action').lower()}) if params.get('action') else ''
+    convert_boolean_parameter_value_to_lower(params)
     query_parameter = {k: v for k, v in params.items() if v is not None and v != ''}
     response = fp.make_rest_call(endpoint, 'GET', params=query_parameter)
     return response
@@ -98,6 +111,9 @@ def get_firewall_policy_details(config, params):
     fp = FortiProxy(config)
     endpoint = 'cmdb/firewall/policy/{0}'.format(params.pop('policyid'))
     params.update({'action': params.get('action').lower()}) if params.get('action') else ''
+    params.update({'datasource': str(params.get('datasource')).lower()}) if params.get('datasource') else ''
+    params.update({'with_meta': str(params.get('with_meta')).lower()}) if params.get('with_meta') else ''
+    params.update({'skip': str(params.get('skip')).lower()}) if params.get('skip') else ''
     query_parameter = {k: v for k, v in params.items() if v is not None and v != ''}
     response = fp.make_rest_call(endpoint, 'GET', params=query_parameter)
     return response
@@ -154,7 +170,7 @@ def create_firewall_address(config, params):
 def get_firewall_address(config, params):
     fp = FortiProxy(config)
     endpoint = 'cmdb/firewall/address'
-    params.update({'action': params.get('action').lower()}) if params.get('action') else ''
+    convert_boolean_parameter_value_to_lower(params)
     query_parameter = {k: v for k, v in params.items() if v is not None and v != ''}
     response = fp.make_rest_call(endpoint, 'GET', params=query_parameter)
     return response
@@ -164,6 +180,9 @@ def get_firewall_address_details(config, params):
     fp = FortiProxy(config)
     endpoint = 'cmdb/firewall/address/{0}'.format(params.pop('name'))
     params.update({'action': params.get('action').lower()}) if params.get('action') else ''
+    params.update({'datasource': str(params.get('datasource')).lower()}) if params.get('datasource') else ''
+    params.update({'with_meta': str(params.get('with_meta')).lower()}) if params.get('with_meta') else ''
+    params.update({'skip': str(params.get('skip')).lower()}) if params.get('skip') else ''
     query_parameter = {k: v for k, v in params.items() if v is not None and v != ''}
     response = fp.make_rest_call(endpoint, 'GET', params=query_parameter)
     return response
@@ -217,7 +236,7 @@ def create_firewall_address_group(config, params):
 def get_firewall_address_group(config, params):
     fp = FortiProxy(config)
     endpoint = 'cmdb/firewall/addrgrp'
-    params.update({'action': params.get('action').lower()}) if params.get('action') else ''
+    convert_boolean_parameter_value_to_lower(params)
     query_parameter = {k: v for k, v in params.items() if v is not None and v != ''}
     response = fp.make_rest_call(endpoint, 'GET', params=query_parameter)
     return response
@@ -227,6 +246,9 @@ def get_firewall_address_group_details(config, params):
     fp = FortiProxy(config)
     endpoint = 'cmdb/firewall/addrgrp/{0}'.format(params.pop('name'))
     params.update({'action': params.get('action').lower()}) if params.get('action') else ''
+    params.update({'datasource': str(params.get('datasource')).lower()}) if params.get('datasource') else ''
+    params.update({'with_meta': str(params.get('with_meta')).lower()}) if params.get('with_meta') else ''
+    params.update({'skip': str(params.get('skip')).lower()}) if params.get('skip') else ''
     query_parameter = {k: v for k, v in params.items() if v is not None and v != ''}
     response = fp.make_rest_call(endpoint, 'GET', params=query_parameter)
     return response
@@ -274,7 +296,7 @@ def create_firewall_service_group(config, params):
 def get_firewall_service_group(config, params):
     fp = FortiProxy(config)
     endpoint = 'cmdb/firewall.service/group'
-    params.update({'action': params.get('action').lower()}) if params.get('action') else ''
+    convert_boolean_parameter_value_to_lower(params)
     query_parameter = {k: v for k, v in params.items() if v is not None and v != ''}
     response = fp.make_rest_call(endpoint, 'GET', params=query_parameter)
     return response
@@ -284,6 +306,9 @@ def get_firewall_service_group_details(config, params):
     fp = FortiProxy(config)
     endpoint = 'cmdb/firewall.service/group/{0}'.format(params.pop('name'))
     params.update({'action': params.get('action').lower()}) if params.get('action') else ''
+    params.update({'datasource': str(params.get('datasource')).lower()}) if params.get('datasource') else ''
+    params.update({'with_meta': str(params.get('with_meta')).lower()}) if params.get('with_meta') else ''
+    params.update({'skip': str(params.get('skip')).lower()}) if params.get('skip') else ''
     query_parameter = {k: v for k, v in params.items() if v is not None and v != ''}
     response = fp.make_rest_call(endpoint, 'GET', params=query_parameter)
     return response
@@ -315,6 +340,8 @@ def delete_firewall_service_group(config, params):
 def get_authenticated_firewall_users_list(config, params):
     fp = FortiProxy(config)
     endpoint = 'monitor/user/firewall'
+    params.update({'ipv4': str(params.get('ipv4')).lower()}) if params.get('ipv4') else ''
+    params.update({'ipv6': str(params.get('ipv6')).lower()}) if params.get('ipv6') else ''
     query_parameter = {k: v for k, v in params.items() if v is not None and v != ''}
     response = fp.make_rest_call(endpoint, 'GET', params=query_parameter)
     return response
@@ -323,6 +350,7 @@ def get_authenticated_firewall_users_list(config, params):
 def deauthenticate_firewall_users(config, params):
     fp = FortiProxy(config)
     endpoint = 'monitor/firewall/deauth'
+    params.update({'all': str(params.get('all')).lower()}) if params.get('all') else ''
     payload = check_payload(params)
     response = fp.make_rest_call(endpoint, 'POST', params={}, data=json.dumps(payload))
     return response

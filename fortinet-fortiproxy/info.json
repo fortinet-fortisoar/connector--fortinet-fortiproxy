@@ -237,7 +237,7 @@
           "editable": true,
           "visible": true,
           "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned. The URL parameter is one of: vdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
-          "type": "json"
+          "type": "text"
         },
         {
           "title": "Action",
@@ -362,7 +362,7 @@
           "editable": true,
           "visible": true,
           "tooltip": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
-          "type": "json"
+          "type": "text"
         },
         {
           "title": "Filter",
@@ -371,7 +371,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "text"
         },
         {
           "title": "Key",
@@ -444,7 +444,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],
@@ -623,7 +623,7 @@
           "editable": true,
           "visible": true,
           "tooltip": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
-          "type": "json"
+          "type": "text"
         },
         {
           "title": "Action",
@@ -647,7 +647,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],
@@ -960,7 +960,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         },
         {
@@ -1053,7 +1053,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],
@@ -1223,7 +1223,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         },
         {
@@ -1348,7 +1348,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "List of property names to include in results, separated by | (i.e. policyid|srcintf)."
         },
         {
@@ -1358,7 +1358,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "text"
         },
         {
           "title": "Filter on Property",
@@ -1391,7 +1391,7 @@
           "tooltip": "Specify the scope based on which you want to retrieve firewall address from FortiProxy server. [global|vdom|both*]"
         },
         {
-          "title": "Exclude Properties",
+          "title": "Exclude Default Properties",
           "description": "Exclude properties/objects with default value",
           "name": "exclude-default-values",
           "required": false,
@@ -1431,7 +1431,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],
@@ -1539,7 +1539,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "List of property names to include in results, separated by | (i.e. policyid|srcintf)."
         },
         {
@@ -1564,7 +1564,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],
@@ -1765,7 +1765,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         },
         {
@@ -1858,7 +1858,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],
@@ -2034,7 +2034,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         },
         {
@@ -2149,7 +2149,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "List of property names to include in results, separated by | (i.e. policyid|srcintf)."
         },
         {
@@ -2159,7 +2159,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "text"
         },
         {
           "title": "Filter on Property",
@@ -2192,7 +2192,7 @@
           "tooltip": "Specify the scope based on which you want to retrieve firewall policy from FortiProxy server. [global|vdom|both*]"
         },
         {
-          "title": "Exclude Properties",
+          "title": "Exclude Default Properties",
           "description": "Exclude properties/objects with default value",
           "name": "exclude-default-values",
           "required": false,
@@ -2232,7 +2232,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],
@@ -2330,7 +2330,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "List of property names to include in results, separated by | (i.e. policyid|srcintf)."
         },
         {
@@ -2355,7 +2355,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "text"
         }
       ],
       "output_schema": {
@@ -2550,7 +2550,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         },
         {
@@ -2624,7 +2624,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],
@@ -2717,7 +2717,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         },
         {
@@ -2832,7 +2832,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "List of property names to include in results, separated by | (i.e. policyid|srcintf)."
         },
         {
@@ -2842,7 +2842,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json"
+          "type": "text"
         },
         {
           "title": "Filter on Property",
@@ -2875,7 +2875,7 @@
           "tooltip": "Specify the scope based on which you want to retrieve firewall policy from FortiProxy server [global|vdom|both*]"
         },
         {
-          "title": "Exclude Properties",
+          "title": "Exclude Default Properties",
           "description": "Specify the exclude properties/objects with default value based on which you want to retrieve firewall policy from FortiProxy server.",
           "name": "exclude-default-values",
           "required": false,
@@ -2915,7 +2915,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],
@@ -3007,7 +3007,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "List of property names to include in results, separated by | (i.e. policyid|srcintf)."
         },
         {
@@ -3032,7 +3032,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],
@@ -3139,7 +3139,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         },
         {
@@ -3214,7 +3214,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "json",
+          "type": "text",
           "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
         }
       ],

@@ -60,7 +60,7 @@
           "editable": true,
           "visible": true,
           "type": "text",
-          "tooltip": "Specify the name of the policy whose firewall policy that you want to create in FortiProxy server."
+          "tooltip": "Specify the name of the policy whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 35."
         },
         {
           "title": "Schedule Name",
@@ -70,7 +70,7 @@
           "editable": true,
           "visible": true,
           "type": "text",
-          "tooltip": "Specify the name of the schedule whose firewall policy that you want to create in FortiProxy server."
+          "tooltip": "Specify the name of the schedule whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 35."
         },
         {
           "title": "Source Interface",
@@ -79,7 +79,7 @@
           "required": true,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the Incoming (ingress) interface whose firewall policy that you want to create in FortiProxy server.",
+          "tooltip": "Specify the Incoming (ingress) interface whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
@@ -89,7 +89,7 @@
           "required": true,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the Outgoing (egress) interface whose firewall policy that you want to create in FortiProxy server.",
+          "tooltip": "Specify the Outgoing (egress) interface whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
@@ -99,7 +99,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the ID of the policy whose firewall policy that you want to create in FortiProxy server.",
+          "tooltip": "Specify the ID of the policy whose firewall policy that you want to create in FortiProxy server. Note: Size should be between 0 to 4294967294.",
           "type": "integer"
         },
         {
@@ -156,7 +156,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the source address and address group names whose firewall policy that you want to create in FortiProxy server.",
+          "tooltip": "Specify the source address and address group names whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
@@ -166,7 +166,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the destination address and address group names whose firewall policy that you want to create in FortiProxy server.",
+          "tooltip": "Specify the destination address and address group names whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
@@ -176,7 +176,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the IPv6 source address (web proxy only) whose firewall policy that you want to create in FortiProxy server.",
+          "tooltip": "Specify the IPv6 source address (web proxy only) whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
@@ -186,7 +186,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the IPv6 destination address (web proxy only) whose firewall policy that you want to create in FortiProxy server.",
+          "tooltip": "Specify the IPv6 destination address (web proxy only) whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
@@ -226,7 +226,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the access proxy whose firewall policy that you want to create in FortiProxy server.",
+          "tooltip": "Specify the access proxy whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
@@ -355,7 +355,7 @@
           "tooltip": "Enable to call CLI skip operator to hide skipped properties."
         },
         {
-          "title": "Format",
+          "title": "Include Properties",
           "name": "format",
           "description": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
           "required": false,
@@ -449,122 +449,143 @@
         }
       ],
       "output_schema": {
-        "http_method": "",
-        "size": "",
-        "matched_count": "",
-        "next_idx": "",
-        "revision": "",
-        "results": [
+        "policyid": "",
+        "q_origin_key": "",
+        "type": "",
+        "status": "",
+        "name": "",
+        "uuid": "",
+        "uuid-idx": "",
+        "force-proxy": "",
+        "dynamic-bypass": "",
+        "srcintf": [
           {
-            "policyid": "",
-            "q_origin_key": "",
-            "type": "",
-            "status": "",
+            "datasource": "",
             "name": "",
-            "uuid": "",
-            "uuid-idx": "",
-            "force-proxy": "",
-            "dynamic-bypass": "",
-            "srcintf": [],
-            "dstintf": [
-              {
-                "name": "",
-                "q_origin_key": ""
-              }
-            ],
-            "srcaddr": [
-              {
-                "name": "",
-                "q_origin_key": ""
-              }
-            ],
-            "dstaddr": [
-              {
-                "name": "",
-                "q_origin_key": ""
-              }
-            ],
-            "srcaddr6": [],
-            "dstaddr6": [],
-            "action": "",
-            "schedule": "",
-            "service": [
-              {
-                "name": "",
-                "q_origin_key": ""
-              }
-            ],
-            "explicit-web-proxy": "",
-            "transparent": "",
-            "access-proxy": [],
-            "ztna-ems-tag": [],
-            "ztna-tags-match-logic": "",
-            "device-ownership": "",
-            "internet-service": "",
-            "pass-through": "",
-            "internet-service-name": [],
-            "internet-service-custom": [],
-            "utm-status": "",
-            "webproxy-profile": "",
-            "logtraffic": "",
-            "logtraffic-start": "",
-            "log-http-transaction": "",
-            "wanopt": "",
-            "wanopt-detection": "",
-            "wanopt-passive-opt": "",
-            "wanopt-profile": "",
-            "wanopt-peer": "",
-            "webcache": "",
-            "webcache-https": "",
-            "reverse-cache": "",
-            "http-tunnel-auth": "",
-            "ssh-policy-check": "",
-            "webproxy-forward-server": "",
-            "isolator-server": "",
-            "poolname": [],
-            "groups": [],
-            "users": [],
-            "disclaimer": "",
-            "comments": "",
-            "label": "",
-            "global-label": "",
-            "redirect-url": "",
-            "custom-log-fields": [],
-            "replacemsg-override-group": "",
-            "srcaddr-negate": "",
-            "dstaddr-negate": "",
-            "service-negate": "",
-            "internet-service-negate": "",
-            "decrypted-traffic-mirror": "",
-            "max-session-per-user": "",
-            "profile-type": "",
-            "profile-group": "",
-            "profile-protocol-options": "",
-            "ssl-ssh-profile": "",
-            "av-profile": "",
-            "ia-profile": "",
-            "webfilter-profile": "",
-            "dnsfilter-profile": "",
-            "emailfilter-profile": "",
-            "dlp-sensor": "",
-            "file-filter-profile": "",
-            "ips-sensor": "",
-            "application-list": "",
-            "icap-profile": "",
-            "cifs-profile": "",
-            "videofilter-profile": "",
-            "isolator-profile": "",
-            "ssh-filter-profile": ""
+            "q_origin_key": ""
           }
         ],
-        "vdom": "",
-        "path": "",
-        "name": "",
-        "status": "",
-        "http_status": "",
-        "serial": "",
-        "version": "",
-        "build": ""
+        "dstintf": [
+          {
+            "datasource": "",
+            "name": "",
+            "q_origin_key": ""
+          }
+        ],
+        "srcaddr": [
+          {
+            "datasource": "",
+            "css-class": "",
+            "name": "",
+            "q_origin_key": ""
+          }
+        ],
+        "dstaddr": [
+          {
+            "datasource": "",
+            "css-class": "",
+            "name": "",
+            "q_origin_key": ""
+          }
+        ],
+        "srcaddr6": [],
+        "dstaddr6": [],
+        "action": "",
+        "schedule": {
+          "q_origin_key": "",
+          "name": "",
+          "datasource": "",
+          "css-class": ""
+        },
+        "service": [
+          {
+            "datasource": "",
+            "css-class": "",
+            "name": "",
+            "q_origin_key": ""
+          }
+        ],
+        "explicit-web-proxy": "",
+        "transparent": "",
+        "access-proxy": [],
+        "ztna-ems-tag": [],
+        "ztna-tags-match-logic": "",
+        "device-ownership": "",
+        "internet-service": "",
+        "pass-through": "",
+        "internet-service-name": [],
+        "internet-service-custom": [],
+        "utm-status": "",
+        "webproxy-profile": "",
+        "logtraffic": "",
+        "logtraffic-start": "",
+        "log-http-transaction": "",
+        "wanopt": "",
+        "wanopt-detection": "",
+        "wanopt-passive-opt": "",
+        "wanopt-profile": "",
+        "wanopt-peer": "",
+        "webcache": "",
+        "webcache-https": "",
+        "reverse-cache": "",
+        "http-tunnel-auth": "",
+        "ssh-policy-check": "",
+        "webproxy-forward-server": "",
+        "isolator-server": "",
+        "poolname": [],
+        "groups": [],
+        "users": [],
+        "disclaimer": "",
+        "comments": "",
+        "label": "",
+        "global-label": "",
+        "redirect-url": "",
+        "custom-log-fields": [],
+        "replacemsg-override-group": "",
+        "srcaddr-negate": "",
+        "dstaddr-negate": "",
+        "service-negate": "",
+        "internet-service-negate": "",
+        "decrypted-traffic-mirror": "",
+        "max-session-per-user": "",
+        "profile-type": "",
+        "profile-group": "",
+        "profile-protocol-options": {
+          "q_origin_key": "",
+          "name": "",
+          "datasource": "",
+          "css-class": ""
+        },
+        "ssl-ssh-profile": {
+          "q_origin_key": "",
+          "name": "",
+          "datasource": "",
+          "css-class": ""
+        },
+        "av-profile": "",
+        "ia-profile": "",
+        "webfilter-profile": "",
+        "dnsfilter-profile": "",
+        "emailfilter-profile": "",
+        "dlp-sensor": "",
+        "file-filter-profile": "",
+        "ips-sensor": "",
+        "application-list": "",
+        "icap-profile": "",
+        "cifs-profile": "",
+        "videofilter-profile": "",
+        "isolator-profile": "",
+        "ssh-filter-profile": "",
+        "q_contents_checksum": "",
+        "q_ref": "",
+        "q_static": "",
+        "q_no_rename": "",
+        "q_global_entry": "",
+        "q_type": "",
+        "q_path": "",
+        "q_name": "",
+        "q_mkey_type": "",
+        "q_no_edit": ""
       }
     },
     {
@@ -616,7 +637,7 @@
           "tooltip": "Enable to call CLI skip operator to hide skipped properties."
         },
         {
-          "title": "Format",
+          "title": "Include Properties",
           "name": "format",
           "description": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
           "required": false,
@@ -665,21 +686,32 @@
             "uuid-idx": "",
             "force-proxy": "",
             "dynamic-bypass": "",
-            "srcintf": [],
+            "srcintf": [
+              {
+                "datasource": "",
+                "name": "",
+                "q_origin_key": ""
+              }
+            ],
             "dstintf": [
               {
+                "datasource": "",
                 "name": "",
                 "q_origin_key": ""
               }
             ],
             "srcaddr": [
               {
+                "datasource": "",
+                "css-class": "",
                 "name": "",
                 "q_origin_key": ""
               }
             ],
             "dstaddr": [
               {
+                "datasource": "",
+                "css-class": "",
                 "name": "",
                 "q_origin_key": ""
               }
@@ -687,9 +719,16 @@
             "srcaddr6": [],
             "dstaddr6": [],
             "action": "",
-            "schedule": "",
+            "schedule": {
+              "q_origin_key": "",
+              "name": "",
+              "datasource": "",
+              "css-class": ""
+            },
             "service": [
               {
+                "datasource": "",
+                "css-class": "",
                 "name": "",
                 "q_origin_key": ""
               }
@@ -739,8 +778,18 @@
             "max-session-per-user": "",
             "profile-type": "",
             "profile-group": "",
-            "profile-protocol-options": "",
-            "ssl-ssh-profile": "",
+            "profile-protocol-options": {
+              "q_origin_key": "",
+              "name": "",
+              "datasource": "",
+              "css-class": ""
+            },
+            "ssl-ssh-profile": {
+              "q_origin_key": "",
+              "name": "",
+              "datasource": "",
+              "css-class": ""
+            },
             "av-profile": "",
             "ia-profile": "",
             "webfilter-profile": "",
@@ -754,7 +803,16 @@
             "cifs-profile": "",
             "videofilter-profile": "",
             "isolator-profile": "",
-            "ssh-filter-profile": ""
+            "ssh-filter-profile": "",
+            "q_ref": "",
+            "q_static": "",
+            "q_no_rename": "",
+            "q_global_entry": "",
+            "q_type": "",
+            "q_path": "",
+            "q_name": "",
+            "q_mkey_type": "",
+            "q_no_edit": ""
           }
         ],
         "vdom": "",
@@ -784,7 +842,7 @@
           "editable": true,
           "visible": true,
           "type": "integer",
-          "tooltip": "Specify the ID of the policy whose firewall policy that you want to update in FortiProxy server."
+          "tooltip": "Specify the ID of the policy whose firewall policy that you want to update in FortiProxy server. Note: Size should be between 0 to 4294967294."
         },
         {
           "title": "Policy Name",
@@ -794,7 +852,7 @@
           "editable": true,
           "visible": true,
           "type": "text",
-          "tooltip": "Specify the name of the policy whose firewall policy you want to update in FortiProxy server."
+          "tooltip": "Specify the name of the policy whose firewall policy you want to update in FortiProxy server. Note: Maximum length should be 35."
         },
         {
           "title": "Schedule Name",
@@ -804,7 +862,7 @@
           "editable": true,
           "visible": true,
           "type": "text",
-          "tooltip": "Specify the name of the schedule whose firewall policy you want to update in FortiProxy server."
+          "tooltip": "Specify the name of the schedule whose firewall policy you want to update in FortiProxy server. Note: Maximum length should be 35."
         },
         {
           "title": "Source Interface",
@@ -813,7 +871,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the Incoming (ingress) interface whose firewall policy you want to update in FortiProxy server.",
+          "tooltip": "Specify the Incoming (ingress) interface whose firewall policy you want to update in FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
@@ -823,7 +881,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the Outgoing (egress) interface whose firewall policy you want to update in FortiProxy server.",
+          "tooltip": "Specify the Outgoing (egress) interface whose firewall policy you want to update in FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
@@ -880,7 +938,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the source address and address group names whose firewall policy you want to update in FortiProxy server.",
+          "tooltip": "Specify the source address and address group names whose firewall policy you want to update in FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
@@ -890,7 +948,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the destination address and address group names whose firewall policy you want to update in FortiProxy server.",
+          "tooltip": "Specify the destination address and address group names whose firewall policy you want to update in FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
@@ -900,7 +958,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the IPv6 source address (web proxy only) whose firewall policy you want to update in FortiProxy server.",
+          "tooltip": "Specify the IPv6 source address (web proxy only) whose firewall policy you want to update in FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
@@ -910,7 +968,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the IPv6 destination address (web proxy only) whose firewall policy you want to update in FortiProxy server.",
+          "tooltip": "Specify the IPv6 destination address (web proxy only) whose firewall policy you want to update in FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
@@ -950,7 +1008,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the access proxy whose firewall policy you want to update in FortiProxy server.",
+          "tooltip": "Specify the access proxy whose firewall policy you want to update in FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
@@ -1089,7 +1147,7 @@
           "editable": true,
           "visible": true,
           "type": "text",
-          "tooltip": "Specify the address name based on which you want to create an firewall address in FortiProxy server."
+          "tooltip": "Specify the address name based on which you want to create an firewall address in FortiProxy server. Note: Maximum length should be 79."
         },
         {
           "title": "UUID",
@@ -1174,7 +1232,7 @@
           "editable": true,
           "visible": true,
           "type": "json",
-          "tooltip": "Specify the multiple MAC address ranges based on which you want to create an firewall address in FortiProxy server."
+          "tooltip": "Specify the multiple MAC address ranges based on which you want to create an firewall address in FortiProxy server. Note: Maximum length should be 127."
         },
         {
           "title": "Start IPV4 Address",
@@ -1204,17 +1262,17 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the Fully Qualified Domain Name address based on which you want to create an firewall address in FortiProxy server."
+          "tooltip": "Specify the Fully Qualified Domain Name address based on which you want to create an firewall address in FortiProxy server. Note: Maximum length should be 255."
         },
         {
           "title": "Country",
-          "description": "Specify the IP addresses associated to a specific country based on which you want to create an firewall address in FortiProxy server.",
+          "description": "IP addresses associated to a specific country. based on which you want to create an firewall address in FortiProxy server.",
           "name": "country",
           "type": "text",
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the IP addresses associated to a specific country based on which you want to create an firewall address in FortiProxy server."
+          "tooltip": "IP addresses associated to a specific country. based on which you want to create an firewall address in FortiProxy server. Note: Maximum length should be 2."
         },
         {
           "title": "VDOM",
@@ -1342,7 +1400,7 @@
           "tooltip": "Enable to call CLI skip operator to hide skipped properties."
         },
         {
-          "title": "Format",
+          "title": "Include Properties",
           "name": "format",
           "description": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
           "required": false,
@@ -1445,6 +1503,7 @@
           {
             "name": "",
             "q_origin_key": "",
+            "css-class": "",
             "uuid": "",
             "subnet": "",
             "type": "",
@@ -1471,7 +1530,18 @@
             "list": [],
             "tagging": [],
             "allow-routing": "",
-            "fabric-object": ""
+            "fabric-object": "",
+            "q_contents_checksum": "",
+            "q_ref": "",
+            "q_static": "",
+            "q_no_rename": "",
+            "q_global_entry": "",
+            "q_type": "",
+            "q_path": "",
+            "q_name": "",
+            "q_mkey_type": "",
+            "q_no_edit": "",
+            "q_class": ""
           }
         ],
         "vdom": "",
@@ -1533,7 +1603,7 @@
           "tooltip": "Enable to call CLI skip operator to hide skipped properties."
         },
         {
-          "title": "Format",
+          "title": "Include Properties",
           "name": "format",
           "description": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
           "required": false,
@@ -1575,8 +1645,8 @@
           {
             "name": "",
             "q_origin_key": "",
+            "css-class": "",
             "uuid": "",
-            "subnet": "",
             "type": "",
             "sub-type": "",
             "clearpass-spt": "",
@@ -1587,6 +1657,7 @@
             "sdn": "",
             "fsso-group": [],
             "interface": "",
+            "obj-tag": "",
             "obj-type": "",
             "tag-detection-level": "",
             "tag-type": "",
@@ -1601,7 +1672,17 @@
             "list": [],
             "tagging": [],
             "allow-routing": "",
-            "fabric-object": ""
+            "fabric-object": "",
+            "q_ref": "",
+            "q_static": "",
+            "q_no_rename": "",
+            "q_global_entry": "",
+            "q_type": "",
+            "q_path": "",
+            "q_name": "",
+            "q_mkey_type": "",
+            "q_no_edit": "",
+            "q_class": ""
           }
         ],
         "vdom": "",
@@ -1631,7 +1712,7 @@
           "editable": true,
           "visible": true,
           "type": "text",
-          "tooltip": "Specify the address name based on which you want to update the firewall address in FortiProxy server."
+          "tooltip": "Specify the address name based on which you want to update the firewall address in FortiProxy server. Note: Maximum length should be 79."
         },
         {
           "title": "UUID",
@@ -1716,7 +1797,7 @@
           "editable": true,
           "visible": true,
           "type": "json",
-          "tooltip": "Specify the multiple MAC address ranges based on which you want to update the firewall address in FortiProxy server."
+          "tooltip": "Specify the multiple MAC address ranges based on which you want to update the firewall address in FortiProxy server. Note: Maximum length should be 127."
         },
         {
           "title": "Start IPV4 Address",
@@ -1746,17 +1827,17 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the Fully Qualified Domain Name address based on which you want to update the firewall address in FortiProxy server."
+          "tooltip": "Specify the Fully Qualified Domain Name address based on which you want to update the firewall address in FortiProxy server. Note: Maximum length should be 255."
         },
         {
           "title": "Country",
-          "description": "Specify the IP addresses associated to a specific country based on which you want to update the firewall address in FortiProxy server.",
+          "description": "IP addresses associated to a specific country. based on which you want to update the firewall address in FortiProxy server.",
           "name": "country",
           "type": "text",
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the IP addresses associated to a specific country based on which you want to update the firewall address in FortiProxy server."
+          "tooltip": "IP addresses associated to a specific country. on which you want to update the firewall address in FortiProxy server. Note: Maximum length should be 2."
         },
         {
           "title": "VDOM",
@@ -1894,7 +1975,7 @@
           "editable": true,
           "visible": true,
           "type": "text",
-          "tooltip": "Specify the address group name based on which you want to create an firewall address group in FortiProxy server."
+          "tooltip": "Specify the address group name based on which you want to create an firewall address group in FortiProxy server. Note: Maximum length should be 79."
         },
         {
           "title": "Member",
@@ -1904,7 +1985,7 @@
           "editable": true,
           "visible": true,
           "type": "json",
-          "tooltip": "Specify the address objects contained within the group based on which you want to create an firewall address group in FortiProxy server."
+          "tooltip": "Specify the address objects contained within the group based on which you want to create an firewall address group in FortiProxy server. Note: Maximum length should be 79."
         },
         {
           "title": "Address Group Type",
@@ -1953,7 +2034,7 @@
           "editable": true,
           "visible": true,
           "type": "text",
-          "tooltip": "Specify the comment based on which you want to create you want to create an firewall address group in FortiProxy server."
+          "tooltip": "Specify the comment based on which you want to create you want to create an firewall address group in FortiProxy server. Note: Maximum length should be 255."
         },
         {
           "title": "Exclude Address",
@@ -1977,7 +2058,7 @@
           "editable": true,
           "visible": true,
           "type": "json",
-          "tooltip": "Specify the address exclusion member based on which you want to create you want to create an firewall address group in FortiProxy server."
+          "tooltip": "Specify the address exclusion member based on which you want to create you want to create an firewall address group in FortiProxy server. Note: Maximum length should be 79."
         },
         {
           "title": "Color",
@@ -1987,7 +2068,7 @@
           "editable": true,
           "visible": true,
           "type": "integer",
-          "tooltip": "Specify the color of icon on the GUI based on which you want to create you want to create an firewall address group in FortiProxy server."
+          "tooltip": "Specify the color of icon on the GUI based on which you want to create you want to create an firewall address group in FortiProxy server. Note: Maximum length should be between 0 to 32"
         },
         {
           "title": "Tagging",
@@ -1997,7 +2078,7 @@
           "editable": true,
           "visible": true,
           "type": "json",
-          "tooltip": "Specify the config object tagging based on which you want to create you want to create an firewall address group in FortiProxy server."
+          "tooltip": "Specify the config object tagging based on which you want to create you want to create an firewall address group in FortiProxy server. Note: Maximum length should be 63."
         },
         {
           "title": "Allow Routing",
@@ -2143,7 +2224,7 @@
           "tooltip": "Enable to call CLI skip operator to hide skipped properties."
         },
         {
-          "title": "Include Property",
+          "title": "Include Properties",
           "name": "format",
           "description": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
           "required": false,
@@ -2246,11 +2327,14 @@
           {
             "name": "",
             "q_origin_key": "",
+            "css-class": "",
             "type": "",
             "category": "",
             "uuid": "",
             "member": [
               {
+                "datasource": "",
+                "css-class": "",
                 "name": "",
                 "q_origin_key": ""
               }
@@ -2261,7 +2345,18 @@
             "color": "",
             "tagging": [],
             "allow-routing": "",
-            "fabric-object": ""
+            "fabric-object": "",
+            "q_contents_checksum": "",
+            "q_ref": "",
+            "q_static": "",
+            "q_no_rename": "",
+            "q_global_entry": "",
+            "q_type": "",
+            "q_path": "",
+            "q_name": "",
+            "q_mkey_type": "",
+            "q_no_edit": "",
+            "q_class": ""
           }
         ],
         "vdom": "",
@@ -2324,7 +2419,7 @@
           "tooltip": "Enable to call CLI skip operator to hide skipped properties."
         },
         {
-          "title": "Format",
+          "title": "Include Properties",
           "name": "format",
           "description": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
           "required": false,
@@ -2365,11 +2460,14 @@
           {
             "name": "",
             "q_origin_key": "",
+            "css-class": "",
             "type": "",
             "category": "",
             "uuid": "",
             "member": [
               {
+                "datasource": "",
+                "css-class": "",
                 "name": "",
                 "q_origin_key": ""
               }
@@ -2380,7 +2478,17 @@
             "color": "",
             "tagging": [],
             "allow-routing": "",
-            "fabric-object": ""
+            "fabric-object": "",
+            "q_ref": "",
+            "q_static": "",
+            "q_no_rename": "",
+            "q_global_entry": "",
+            "q_type": "",
+            "q_path": "",
+            "q_name": "",
+            "q_mkey_type": "",
+            "q_no_edit": "",
+            "q_class": ""
           }
         ],
         "vdom": "",
@@ -2410,7 +2518,7 @@
           "editable": true,
           "visible": true,
           "type": "text",
-          "tooltip": "Specify the address group name based on which you want to update the firewall address group in FortiProxy server."
+          "tooltip": "Specify the address group name based on which you want to update the firewall address group in FortiProxy server. Note: Maximum length should be 79."
         },
         {
           "title": "Address Group Type",
@@ -2459,7 +2567,7 @@
           "editable": true,
           "visible": true,
           "type": "json",
-          "tooltip": "Specify the address objects contained within the group based on which you want to update the firewall address group in FortiProxy server."
+          "tooltip": "Specify the address objects contained within the group based on which you want to update the firewall address group in FortiProxy server. Note: Maximum length should be between 79."
         },
         {
           "title": "Comment",
@@ -2469,7 +2577,7 @@
           "editable": true,
           "visible": true,
           "type": "text",
-          "tooltip": "Specify the comment based on which you want to update the firewall address group in FortiProxy server."
+          "tooltip": "Specify the comment based on which you want to update the firewall address group in FortiProxy server. Note: Maximum length should be 255."
         },
         {
           "title": "Exclude Address",
@@ -2503,7 +2611,7 @@
           "editable": true,
           "visible": true,
           "type": "integer",
-          "description": "Specify the color of icon on the GUI based on which you want to update the firewall address group in FortiProxy server."
+          "description": "Specify the color of icon on the GUI based on which you want to update the firewall address group in FortiProxy server. Note: Maximum length should be between 0 to 32"
         },
         {
           "title": "Tagging",
@@ -2513,7 +2621,7 @@
           "editable": true,
           "visible": true,
           "type": "json",
-          "tooltip": "Specify the config object tagging based on which you want to update the firewall address group in FortiProxy server."
+          "tooltip": "Specify the config object tagging based on which you want to update the firewall address group in FortiProxy server. Note: Maximum length should be 63."
         },
         {
           "title": "Allow Routing",
@@ -2660,7 +2768,7 @@
           "editable": true,
           "visible": true,
           "type": "text",
-          "tooltip": "Specify the address group name based on which you want to create an firewall service group from FortiProxy server."
+          "tooltip": "Specify the address group name based on which you want to create an firewall service group from FortiProxy server. Note: Maximum length should be 79."
         },
         {
           "title": "Proxy",
@@ -2684,7 +2792,7 @@
           "editable": true,
           "visible": true,
           "type": "json",
-          "tooltip": "Specify the address objects contained within the group based on which you want to create an firewall service group from FortiProxy server."
+          "tooltip": "Specify the address objects contained within the group based on which you want to create an firewall service group from FortiProxy server. Note: Maximum length should be 300."
         },
         {
           "title": "Color",
@@ -2694,7 +2802,7 @@
           "editable": true,
           "visible": true,
           "type": "integer",
-          "tooltip": "Color of icon on the GUI based on which you want to create an firewall service group from FortiProxy server."
+          "tooltip": "Color of icon on the GUI based on which you want to create an firewall service group from FortiProxy server. Note: Maximum length should be between 0 to 32"
         },
         {
           "title": "Security Fabric Object",
@@ -2826,7 +2934,7 @@
           "tooltip": "Enable to call CLI skip operator to hide skipped properties."
         },
         {
-          "title": "Include Property",
+          "title": "Include Properties",
           "name": "format",
           "description": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
           "required": false,
@@ -2929,16 +3037,30 @@
           {
             "name": "",
             "q_origin_key": "",
+            "css-class": "",
             "proxy": "",
             "member": [
               {
+                "datasource": "",
+                "css-class": "",
                 "name": "",
                 "q_origin_key": ""
               }
             ],
             "comment": "",
             "color": "",
-            "fabric-object": ""
+            "fabric-object": "",
+            "q_contents_checksum": "",
+            "q_ref": "",
+            "q_static": "",
+            "q_no_rename": "",
+            "q_global_entry": "",
+            "q_type": "",
+            "q_path": "",
+            "q_name": "",
+            "q_mkey_type": "",
+            "q_no_edit": "",
+            "q_class": ""
           }
         ],
         "vdom": "",
@@ -3001,7 +3123,7 @@
           "tooltip": "Enable to call CLI skip operator to hide skipped properties."
         },
         {
-          "title": "Format",
+          "title": "Include Properties",
           "name": "format",
           "description": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
           "required": false,
@@ -3043,16 +3165,29 @@
           {
             "name": "",
             "q_origin_key": "",
+            "css-class": "",
             "proxy": "",
             "member": [
               {
+                "datasource": "",
+                "css-class": "",
                 "name": "",
                 "q_origin_key": ""
               }
             ],
             "comment": "",
             "color": "",
-            "fabric-object": ""
+            "fabric-object": "",
+            "q_ref": "",
+            "q_static": "",
+            "q_no_rename": "",
+            "q_global_entry": "",
+            "q_type": "",
+            "q_path": "",
+            "q_name": "",
+            "q_mkey_type": "",
+            "q_no_edit": "",
+            "q_class": ""
           }
         ],
         "vdom": "",
@@ -3082,7 +3217,7 @@
           "editable": true,
           "visible": true,
           "type": "text",
-          "tooltip": "Specify the address group name based on which you want to update an firewall service group in FortiProxy server."
+          "tooltip": "Specify the address group name based on which you want to update an firewall service group in FortiProxy server. Note: Maximum length should be 79."
         },
         {
           "title": "Proxy",
@@ -3106,7 +3241,7 @@
           "editable": true,
           "visible": true,
           "type": "json",
-          "tooltip": "Specify the address objects contained within the group based on which you want to update an firewall service group in FortiProxy server."
+          "tooltip": "Specify the address objects contained within the group based on which you want to update an firewall service group in FortiProxy server. Note: Maximum length should be 300."
         },
         {
           "title": "Color",
@@ -3116,7 +3251,7 @@
           "editable": true,
           "visible": true,
           "type": "integer",
-          "dtooltip": "Specify the color of icon on the GUI based on which you want to update an firewall service group in FortiProxy server."
+          "dtooltip": "Specify the color of icon on the GUI based on which you want to update an firewall service group in FortiProxy server. Note: Maximum length should be between 0 to 32"
         },
         {
           "title": "Security Fabric Object",

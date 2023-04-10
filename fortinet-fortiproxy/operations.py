@@ -223,7 +223,9 @@ def create_firewall_address_group(config, params):
         'nkey': params.pop('nkey', '')
     }
     params.update({'type': params.get('type').lower() if params.get('type') else ''})
-    params.update({'category': Category.get(params.get('category')) if params.get('category') else ''})
+    custom_attributes = params.pop('custom_attributes', '')
+    if custom_attributes:
+        params.update(custom_attributes)
     query_parameter = {k: v for k, v in query_parameter.items() if v is not None and v != ''}
     data = check_payload(params)
     response = fp.make_rest_call(endpoint, 'POST', params=query_parameter, data=json.dumps(data))
@@ -256,7 +258,9 @@ def update_firewall_address_group(config, params):
         'after': params.get('after', '')
     }
     params.update({'type': params.get('type').lower() if params.get('type') else ''})
-    params.update({'category': Category.get(params.get('category')) if params.get('category') else ''})
+    custom_attributes = params.pop('custom_attributes', '')
+    if custom_attributes:
+        params.update(custom_attributes)
     query_parameter = {k: v for k, v in query_parameter.items() if v is not None and v != ''}
     data = check_payload(params)
     response = fp.make_rest_call(endpoint, 'PUT', params=query_parameter, data=json.dumps(data))
@@ -336,7 +340,7 @@ def get_authenticated_firewall_users_list(config, params):
 
 def deauthenticate_firewall_users(config, params):
     fp = FortiProxy(config)
-    endpoint = 'monitor/firewall/deauth'
+    endpoint = 'monitor/user/firewall/deauth'
     params.update({'all': str(params.get('all')).lower() if params.get('all') else ''})
     payload = check_payload(params)
     response = fp.make_rest_call(endpoint, 'POST', params={}, data=json.dumps(payload))

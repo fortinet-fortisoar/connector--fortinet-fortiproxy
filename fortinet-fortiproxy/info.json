@@ -10,12 +10,12 @@
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
   "ingestion_supported": false,
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/fortinet-fortiproxy/544/fortinet-fortiproxy-v1-0-0",
   "configuration": {
     "fields": [
       {
         "title": "Server URL",
-        "description": "Specify the URL of the FortiProxy server to which you will connect and perform automated operations.",
+        "description": "Specify the URL of the FortiProxy server to connect and perform automated operations.",
         "type": "text",
         "name": "server_url",
         "required": true,
@@ -24,7 +24,7 @@
       },
       {
         "title": "API Key",
-        "description": "Specify the API key used to access the FortiProxy server to which you will connect and perform the automated operations.",
+        "description": "Specify the API key configured for your account for using the FortiProxy APIs.",
         "type": "password",
         "name": "api_key",
         "required": true,
@@ -33,7 +33,7 @@
       },
       {
         "title": "Verify SSL",
-        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True.",
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not.",
         "name": "verify_ssl",
         "type": "checkbox",
         "required": false,
@@ -47,70 +47,40 @@
     {
       "operation": "create_firewall_policy",
       "title": "Create Firewall Policy",
-      "description": "Creates an firewall policy in FortiProxy server based on the input parameters that you have specified.",
+      "description": "Creates a firewall policy in the FortiProxy server based on Policy Name, Schedule Name, Source Interface, and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "create_firewall_policy",
       "enabled": true,
       "parameters": [
         {
           "title": "Policy Name",
-          "description": "Specify the name of the policy whose firewall policy that you want to create in FortiProxy server.",
+          "description": "Specify the name of the firewall policy that you want to create in the FortiProxy server.",
           "name": "name",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
-          "tooltip": "Specify the name of the policy whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 35."
+          "tooltip": "Specify the name of the firewall policy that you want to create in the FortiProxy server. Note: Maximum length should be 35."
         },
         {
           "title": "Schedule Name",
-          "description": "Specify the name of the schedule whose firewall policy that you want to create in FortiProxy server.",
+          "description": "Specify the name of the schedule associated with the firewall policy you want to create in the FortiProxy server.",
           "name": "schedule",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
-          "tooltip": "Specify the name of the schedule whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 35."
-        },
-        {
-          "title": "Source Interface",
-          "description": "Specify the Incoming (ingress) interface whose firewall policy that you want to create in FortiProxy server.",
-          "name": "srcintf",
-          "required": true,
-          "editable": true,
-          "visible": true,
-          "tooltip": "Specify the Incoming (ingress) interface whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
-          "type": "json"
-        },
-        {
-          "title": "Destination Interface",
-          "description": "Specify the Outgoing (egress) interface whose firewall policy that you want to create in FortiProxy server.",
-          "name": "dstintf",
-          "required": true,
-          "editable": true,
-          "visible": true,
-          "tooltip": "Specify the Outgoing (egress) interface whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
-          "type": "json"
-        },
-        {
-          "title": "Policy ID",
-          "description": "Specify the ID of the policy whose firewall policy that you want to create in FortiProxy server.",
-          "name": "policyid",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "tooltip": "Specify the ID of the policy whose firewall policy that you want to create in FortiProxy server. Note: Size should be between 0 to 4294967294.",
-          "type": "integer"
+          "tooltip": "Specify the name of the schedule associated with the firewall policy you want to create in the FortiProxy server. Note: Maximum length should be 35."
         },
         {
           "title": "Policy Type",
-          "description": "Specify the type of the policy, from the following available options: Explicit Web: Explicit Web Proxy policy, Transparent: Transparent firewall policy, Explicit FTP: Explicit FTP Proxy policy, SSH Tunnel: SSH Tunnel policy, SSH: SSH policy, Access Proxy: Access Proxy, or WanOpt: WANopt Tunnel",
+          "description": "(Optional) Select the type of firewall policy that you want to create in the FortiProxy server. You can choose from the available options such as Explicit Web, Transparent, SSH, WanOpt, etc.",
           "name": "type",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "select",
-          "tooltip": "Specify the type of the policy, from the following available options: Explicit Web: Explicit Web Proxy policy, Transparent: Transparent firewall policy, Explicit FTP: Explicit FTP Proxy policy, SSH Tunnel: SSH Tunnel policy, SSH: SSH policy, Access Proxy: Access Proxy, or WanOpt: WANopt Tunnel",
+          "tooltip": "(Optional) Select the type of firewall policy that you want to create in the FortiProxy server. You can choose from the available options such as Explicit Web, Transparent, SSH, WanOpt, etc.",
           "options": [
             "Explicit Web",
             "Transparent",
@@ -119,85 +89,235 @@
             "SSH",
             "Access Proxy",
             "WanOpt"
-          ]
+          ],
+          "onchange": {
+            "Explicit Web": [
+              {
+                "title": "Destination Interface",
+                "description": "Specify the outgoing (egress) interface of the firewall policy that you want to create in the FortiProxy server.",
+                "name": "dstintf",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the outgoing (egress) interface of the firewall policy that you want to create in the FortiProxy server. Note: Maximum length should be 79.",
+                "type": "json"
+              },
+              {
+                "title": "Transparent",
+                "description": "(Optional) Select enable if you want the web proxy to use the original client address; else select disable.",
+                "name": "transparent",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "tooltip": "(Optional) Select enable if you want the web proxy to use the original client address; else select disable.",
+                "options": [
+                  "enable",
+                  "disable"
+                ]
+              }
+            ],
+            "Transparent": [
+              {
+                "title": "Source Interface",
+                "description": "Specify the incoming (ingress) interface of the firewall policy that you want to create in the FortiProxy server.",
+                "name": "srcintf",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the incoming (ingress) interface of the firewall policy that you want to create in the FortiProxy server. Note: Maximum length should be 79.",
+                "type": "json"
+              },
+              {
+                "title": "Destination Interface",
+                "description": "Specify the outgoing (egress) interface of the firewall policy that you want to create in the FortiProxy server.",
+                "name": "dstintf",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the outgoing (egress) interface of the firewall policy that you want to create in the FortiProxy server. Note: Maximum length should be 79.",
+                "type": "json"
+              },
+              {
+                "title": "Status",
+                "description": "(Optional) Select the status to be set for the firewall policy that you want to create in the FortiProxy server. You can choose between enable or disable.",
+                "name": "status",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "tooltip": "(Optional) Select the status to be set for the firewall policy that you want to create in the FortiProxy server. You can choose between enable or disable.",
+                "options": [
+                  "enable",
+                  "disable"
+                ]
+              },
+              {
+                "title": "Force Proxy",
+                "description": "(Optional) Specify the setting that you want to apply for the 'Force Proxy' parameter in the firewall policy that you want to create in the FortiProxy server. You can choose between enable or disable. If you select enable, then all TCP transparent traffic is forced through the proxy; if you select disable, then the TCP transparent traffic is not forced through the proxy.",
+                "name": "force-proxy",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "tooltip": "(Optional) Specify the setting that you want to apply for the 'Force Proxy' parameter in the firewall policy that you want to create in the FortiProxy server. You can choose between enable or disable. If you select enable, then all TCP transparent traffic is forced through the proxy; if you select disable, then the TCP transparent traffic is not forced through the proxy.",
+                "options": [
+                  "enable",
+                  "disable"
+                ]
+              }
+            ],
+            "Explicit FTP": [
+              {
+                "title": "Destination Interface",
+                "description": "Specify the outgoing (egress) interface of the firewall policy that you want to create in the FortiProxy server.",
+                "name": "dstintf",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the outgoing (egress) interface of the firewall policy that you want to create in the FortiProxy server. Note: Maximum length should be 79.",
+                "type": "json"
+              }
+            ],
+            "SSH Tunnel": [
+              {
+                "title": "Source Interface",
+                "description": "Specify the incoming (ingress) interface of the firewall policy that you want to create in the FortiProxy server.",
+                "name": "srcintf",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the incoming (ingress) interface of the firewall policy that you want to create in the FortiProxy server. Note: Maximum length should be 79.",
+                "type": "json"
+              },
+              {
+                "title": "Destination Interface",
+                "description": "Specify the outgoing (egress) interface of the firewall policy that you want to create in the FortiProxy server.",
+                "name": "dstintf",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the outgoing (egress) interface of the firewall policy that you want to create in the FortiProxy server. Note: Maximum length should be 79.",
+                "type": "json"
+              }
+            ],
+            "SSH": [
+              {
+                "title": "Source Interface",
+                "description": "Specify the incoming (ingress) interface of the firewall policy that you want to create in the FortiProxy server.",
+                "name": "srcintf",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the incoming (ingress) interface of the firewall policy that you want to create in the FortiProxy server. Note: Maximum length should be 79.",
+                "type": "json"
+              },
+              {
+                "title": "Destination Interface",
+                "description": "Specify the outgoing (egress) interface of the firewall policy that you want to create in the FortiProxy server.",
+                "name": "dstintf",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the outgoing (egress) interface of the firewall policy that you want to create in the FortiProxy server. Note: Maximum length should be 79.",
+                "type": "json"
+              }
+            ],
+            "Access Proxy": [
+              {
+                "title": "Destination Interface",
+                "description": "Specify the outgoing (egress) interface of the firewall policy that you want to create in the FortiProxy server.",
+                "name": "dstintf",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the outgoing (egress) interface of the firewall policy that you want to create in the FortiProxy server. Note: Maximum length should be 79.",
+                "type": "json"
+              },
+              {
+                "title": "Access Proxy",
+                "description": "(Optional) Specify the access proxy of the firewall policy that you want to create in the FortiProxy server. Note: The maximum length that can be set is 79.",
+                "name": "access-proxy",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "tooltip": "(Optional) Specify the access proxy of the firewall policy that you want to create in the FortiProxy server. Note: The maximum length that can be set is 79.",
+                "type": "json"
+              }
+            ],
+            "WanOpt": [
+              {
+                "title": "Destination Interface",
+                "description": "Specify the outgoing (egress) interface of the firewall policy that you want to create in the FortiProxy server.",
+                "name": "dstintf",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the outgoing (egress) interface of the firewall policy that you want to create in the FortiProxy server. Note: Maximum length should be 79.",
+                "type": "json"
+              }
+            ]
+          }
         },
         {
-          "title": "Status",
-          "description": "Specify the status for the policy, from the following available options: enable: Enable setting for this policy or disable: Disable setting for this policy.",
-          "name": "status",
+          "title": "Policy ID",
+          "description": "(Optional) Specify the ID of the firewall policy that you want to create in the FortiProxy server.",
+          "name": "policyid",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "select",
-          "tooltip": "Specify the status for the policy, from the following available options: enable: Enable setting for this policy or disable: Disable setting for this policy.",
-          "options": [
-            "enable",
-            "disable"
-          ]
-        },
-        {
-          "title": "Force Proxy",
-          "description": "Specify the force proxy for the policy, from the following available options: enable: Force all TCP transparent traffic to proxy or disable: Do not force TCP transparent traffic to proxy.",
-          "name": "force-proxy",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "select",
-          "tooltip": "Specify the force proxy for the policy, from the following available options: enable: Force all TCP transparent traffic to proxy or disable: Do not force TCP transparent traffic to proxy.",
-          "options": [
-            "enable",
-            "disable"
-          ]
+          "tooltip": "(Optional) Specify the ID of the firewall policy that you want to create in the FortiProxy server. Note: Size should be between 0 to 4294967294.",
+          "type": "integer"
         },
         {
           "title": "Source Address",
-          "description": "Specify the source address and address group names whose firewall policy that you want to create in FortiProxy server.",
+          "description": "(Optional) Specify the source address and address group names to be associated with the firewall policy you want to create in the FortiProxy server.",
           "name": "srcaddr",
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the source address and address group names whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
+          "tooltip": "(Optional) Specify the source address and address group names to be associated with the firewall policy you want to create in the FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
           "title": "Destination Address",
-          "description": "Specify the destination address and address group names whose firewall policy that you want to create in FortiProxy server.",
+          "description": "(Optional) Specify the destination address and address group names to be associated with the firewall policy you want to create in the FortiProxy server.",
           "name": "dstaddr",
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the destination address and address group names whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
+          "tooltip": "(Optional) Specify the destination address and address group names to be associated with the firewall policy you want to create in the FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
           "title": "IPV6 Source Address",
-          "description": "Specify the IPv6 source address (web proxy only) whose firewall policy that you want to create in FortiProxy server.",
+          "description": "(Optional) Specify the IPv6 source address (web proxy only) of the firewall policy you want to create in the FortiProxy server.",
           "name": "srcaddr6",
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the IPv6 source address (web proxy only) whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
+          "tooltip": "(Optional) Specify the IPv6 source address (web proxy only) of the firewall policy you want to create in the FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
           "title": "IPV6 Destination Address",
-          "description": "Specify the IPv6 destination address (web proxy only) whose firewall policy that you want to create in FortiProxy server.",
+          "description": "(Optional) Specify the IPv6 destination address (web proxy only) of the firewall policy that you want to create in the FortiProxy server.",
           "name": "dstaddr6",
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the IPv6 destination address (web proxy only) whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
+          "tooltip": "(Optional) Specify the IPv6 destination address (web proxy only) of the firewall policy that you want to create in the FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
           "title": "Policy Action",
-          "description": "Specify the policy action for this policy, from the following available options: Accept: Allows session that match the firewall policy, Deny: Blocks sessions that match the firewall policy, Redirect: Redirect sessions that match the firewall policy to a url, or Isolate: Isolate sessions that match the firewall policy with isolator.",
+          "description": "(Optional) Select an action to be applied to the firewall policy you want to create in the FortiProxy server. You can choose from the following available options: Accept, Deny, Redirect, or Isolate",
           "name": "policy_action",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "select",
-          "tooltip": "Specify the policy action for this policy, from the following available options: Accept: Allows session that match the firewall policy, Deny: Blocks sessions that match the firewall policy, Redirect: Redirect sessions that match the firewall policy to a url, or Isolate: Isolate sessions that match the firewall policy with isolator.",
+          "tooltip": "(Optional) Select an action to be applied to the firewall policy you want to create in the FortiProxy server. You can choose from the following available options: Accept, Deny, Redirect, or Isolate",
           "options": [
             "Accept",
             "Deny",
@@ -206,65 +326,41 @@
           ]
         },
         {
-          "title": "Transparent",
-          "description": "Specify the set webproxy to use original client address, from the following available options: enable:Enable using original client address for webproxy or disable: Disable using original client address for webproxy.",
-          "name": "transparent",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "select",
-          "tooltip": "Specify the set webproxy to use original client address, from the following available options: enable:Enable using original client address for webproxy or disable: Disable using original client address for webproxy.",
-          "options": [
-            "enable",
-            "disable"
-          ]
-        },
-        {
-          "title": "Access Proxy",
-          "description": "Specify the access proxy whose firewall policy that you want to create in FortiProxy server.",
-          "name": "access-proxy",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "tooltip": "Specify the access proxy whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
-          "type": "json"
-        },
-        {
           "title": "VDOM",
-          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned. The URL parameter is one of: vdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "description": "(Optional) Specify the Virtual Domain(s) from which results are returned or changes are applied. If this parameter is not provided, then the management VDOM is used. If the admin does not have access to the VDOM, a permission error is returned. The URL parameter must be one of the following: vdom=root (Single VDOM), vdom=vdom1,vdom2 (Multiple VDOMs), or vdom=* (All VDOMs)",
           "name": "vdom",
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned. The URL parameter is one of: vdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "tooltip": "(Optional) Specify the Virtual Domain(s) from which results are returned or changes are applied. If this parameter is not provided, then the management VDOM is used. If the admin does not have access to the VDOM, a permission error is returned. The URL parameter must be one of the following: vdom=root (Single VDOM), vdom=vdom1,vdom2 (Multiple VDOMs), or vdom=* (All VDOMs)",
           "type": "text"
         },
         {
           "title": "Action",
           "name": "action",
-          "description": "If supported, an action can be specified. _clone_: Clone this specific resource. When \"clone\" is set, the parameter \"New Resource ID\" must be provided. Note: If this parameter is provided when not supported, the action will be ignored and an invalid request error will be returned.",
+          "description": "(Optional) If supported, the clone action can be specified. clone clones the specific resource, and when clone is set the \"New Resource ID\" parameter must be provided. Note: If this parameter is provided when it is not supported, the action will be ignored and an invalid request error will be returned.",
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "If supported, an action can be specified. _clone_: Clone this specific resource. When \"clone\" is set, the parameter \"New Resource ID\" must be provided. Note: If this parameter is provided when not supported, the action will be ignored and an invalid request error will be returned.",
+          "tooltip": "(Optional) If supported, the clone action can be specified. clone clones the specific resource, and when clone is set the \"New Resource ID\" parameter must be provided. Note: If this parameter is provided when it is not supported, the action will be ignored and an invalid request error will be returned.",
           "type": "text"
         },
         {
           "title": "New Resource ID",
           "name": "nkey",
-          "description": "If \"Action\" parameter value is specified as \"clone\", use ID for the new resource to be created. For example, to clone `address1` to `address1_clone`, use: \"Action\" parameter as \"clone\" and \"New Resource ID\" parameter as \"address1_clone\". Note: This parameter can only be used when the \"Action\" parameter is set to \"clone\".",
+          "description": "(Optional) If the \"Action\" parameter value is specified as \"clone\", then specify the ID for the new resource to be created. For example, to clone `address1` to `address1_clone`, specify the \"Action\" parameter as \"clone\" and \"New Resource ID\" parameter as \"address1_clone\".\nNote: This parameter can only be used when the \"Action\" parameter is set to \"clone\".",
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "If \"Action\" parameter value is specified as \"clone\", use ID for the new resource to be created. For example, to clone `address1` to `address1_clone`, use: \"Action\" parameter as \"clone\" and \"New Resource ID\" parameter as \"address1_clone\". Note: This parameter can only be used when the \"Action\" parameter is set to \"clone\".",
+          "tooltip": "(Optional) If the \"Action\" parameter value is specified as \"clone\", then specify the ID for the new resource to be created. For example, to clone `address1` to `address1_clone`, specify the \"Action\" parameter as \"clone\" and \"New Resource ID\" parameter as \"address1_clone\".\nNote: This parameter can only be used when the \"Action\" parameter is set to \"clone\".",
           "type": "text"
         },
         {
           "title": "Custom Properties",
           "name": "custom_attributes",
           "type": "json",
-          "description": "Additional properties (fields), in the JSON format, based on which you want to create an firewall policy in Fortinet FortiProxy.",
-          "tooltip": "Additional properties (fields), in the JSON format, based on which you want to create an firewall policy in Fortinet FortiProxy.",
+          "description": "(Optional) Additional properties (fields), in the JSON format, based on which you want to create the firewall policy in the FortiProxy server.",
+          "tooltip": "(Optional) Additional properties (fields), in the JSON format, based on which you want to create the firewall policy in the FortiProxy server.",
           "visible": true,
           "required": false,
           "editable": true
@@ -289,85 +385,85 @@
     {
       "operation": "get_firewall_policy",
       "title": "Get Firewall Policy",
-      "description": "Retrieves all firewall policy from FortiProxy server based on the input parameters that you have specified.",
+      "description": "Retrieves all firewall policies or specific firewall policies from the FortiProxy server based on Properties, Start index, Count, and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "get_firewall_policy",
       "enabled": true,
       "parameters": [
         {
           "title": "Data Source",
-          "description": "Enable to include datasource information for each linked object.",
+          "description": "Select this option if you want to include the data source information for each linked object.",
           "name": "datasource",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "tooltip": "Enable to include datasource information for each linked object."
+          "tooltip": "Select this option if you want to include the data source information for each linked object."
         },
         {
           "title": "Start",
-          "description": "Specify the starting entry index from which you want this operation to fetch from FortiProxy server.",
+          "description": "Specify the starting entry index from which you want this operation to fetch firewall policies from the FortiProxy server.",
           "name": "start",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
-          "tooltip": "Specify the starting entry index from which you want this operation to fetch from FortiProxy server."
+          "tooltip": "Specify the starting entry index from which you want this operation to fetch firewall policies from the FortiProxy server."
         },
         {
           "title": "Count",
-          "description": "Specify the maximum count of records that you want this operation to fetch from FortiProxy server.",
+          "description": "Specify the maximum count of records that you want this operation to fetch from the FortiProxy server.",
           "name": "count",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
-          "tooltip": "Specify the maximum count of records that you want this operation to fetch from FortiProxy server."
+          "tooltip": "Specify the maximum count of records that you want this operation to fetch from the FortiProxy server."
         },
         {
           "title": "With Meta",
-          "description": "Enable to include meta information about each object (type id, references, etc).",
+          "description": "Select this option if you want to include meta information such as type ID, references, etc. about each object.",
           "name": "with_meta",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "tooltip": "Enable to include meta information about each object (type id, references, etc)."
+          "tooltip": "Select this option if you want to include meta information such as type ID, references, etc. about each object."
         },
         {
           "title": "Contents Hash",
-          "description": "Enable to include a checksum of each object's contents.",
+          "description": "Select this option if you want to include a checksum of each object's contents.",
           "name": "with_contents_hash",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "tooltip": "Enable to include a checksum of each object's contents."
+          "tooltip": "Select this option if you want to include a checksum of each object's contents."
         },
         {
           "title": "Skip",
-          "description": "Enable to call CLI skip operator to hide skipped properties.",
+          "description": "Select this option if you want to call the 'CLI skip' operator used to hide skipped properties.",
           "name": "skip",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "tooltip": "Enable to call CLI skip operator to hide skipped properties."
+          "tooltip": "Select this option if you want to call the 'CLI skip' operator used to hide skipped properties."
         },
         {
           "title": "Include Properties",
           "name": "format",
-          "description": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
+          "description": "Specify the list of property names separated by | that you want to include in the results of this operation. For example, policyid|srcintf",
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
+          "tooltip": "Specify the list of property names separated by | that you want to include in the results of this operation. For example, policyid|srcintf",
           "type": "text"
         },
         {
           "title": "Filter",
           "name": "filter",
-          "description": "Filtering multiple key/value pairs\nOperator     |   Description\n==     |   Case insensitive match with pattern.\n!=     |    Does not match with pattern (case insensitive).\n=@     |    Pattern found in object value (case insensitive).\n!@     |    \ufeffPattern not\ufeff found in object value (case insensitive).\n<=     |    Value must be less than or equal to \ufeffpattern\ufeff.\n<     |    Value must be less than pattern\ufeff.\n.>=    |    Value must be greater than or equal to \ufeffpattern\ufeff.\n.>     |    Value must be greater than \ufeffpattern\ufeff.\nLogical OR    |    Separate filters using commas ','\nLogical AND    |    Filter strings can be combined to create logical AND queries by including multiple filters in the request.\nCombining AND and OR    |    You can combine AND and OR filters together to create more complex filters.\n",
+          "description": "Specify multiple key/value pairs used to filter firewall policies retrieved from the FortiProxy server.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -375,58 +471,58 @@
         },
         {
           "title": "Key",
-          "description": "If present, objects will be filtered on property with this name.",
+          "description": "Specify the key, i.e, the name of a property, using which you want to filter objects retrieved by this operation.",
           "name": "key",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "tooltip": "If present, objects will be filtered on property with this name."
+          "tooltip": "Specify the key, i.e, the name of a property, using which you want to filter objects retrieved by this operation."
         },
         {
           "title": "Pattern",
-          "description": "If present, objects will be filtered on property with this value.",
+          "description": "Specify the pattern i.e, the value of a property, using which you want to filter objects retrieved by this operation.",
           "name": "pattern",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "tooltip": "If present, objects will be filtered on property with this value."
+          "tooltip": "Specify the pattern i.e, the value of a property, using which you want to filter objects retrieved by this operation."
         },
         {
           "title": "Scope",
-          "description": "Specify the scope based on which you want to retrieve firewall policy from FortiProxy server.",
+          "description": "Specify the scope using which you want to retrieve firewall policies from the FortiProxy server. For example, [global,vdom,both*]",
           "name": "scope",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "tooltip": "Specify the scope based on which you want to retrieve firewall policy from FortiProxy server. [global|vdom|both*]"
+          "tooltip": "Specify the scope using which you want to retrieve firewall policies from the FortiProxy server. For example, [global,vdom,both*]"
         },
         {
           "title": "Exclude Default Values",
-          "description": "Exclude properties/objects with default value",
+          "description": "Select this option if you want to exclude properties/objects with a default value.",
           "name": "exclude-default-values",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "tooltip": "Exclude properties/objects with default value"
+          "tooltip": "Select this option if you want to exclude properties/objects with a default value."
         },
         {
           "title": "Meta Only",
-          "description": "When turned on, the total filtered count (based on the filter params) and table size will be returned, and table entries won't be emitted to results. The flag should only be used when fetching table type datasource and the filter isn't on masterkey.",
+          "description": "Select this option if you want this operation to return only the total filtered count (based on the filter parameters) and table size, and table entries will not be emitted to results. Note: You should enable this option only when you are fetching the 'datasouce' table type and the filter is not on 'masterkey'.",
           "name": "meta_only",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "tooltip": "When turned on, the total filtered count (based on the filter params) and table size will be returned, and table entries won't be emitted to results. The flag should only be used when fetching table type datasource and the filter isn't on masterkey."
+          "tooltip": "Select this option if you want this operation to return only the total filtered count (based on the filter parameters) and table size, and table entries will not be emitted to results. Note: You should enable this option only when you are fetching the 'datasouce' table type and the filter is not on 'masterkey'."
         },
         {
           "title": "Action",
           "name": "action",
-          "description": "Specify the action of the policy returned, from the following available options: default: (Return the CLI default values for entire CLI tree or meta: Return meta data for a specific object, table, the entire CLI tree) or schema: Return schema for entire CLI tree.",
+          "description": "Specify the action of the firewall policies that this operation returns. You can choose from the following options: Default or Schema",
           "required": false,
           "editable": true,
           "visible": true,
@@ -435,17 +531,17 @@
             "Default",
             "Schema"
           ],
-          "tooltip": "Specify the action of the policy returned, from the following available options: default: (Return the CLI default values for entire CLI tree or meta: Return meta data for a specific object, table, the entire CLI tree) or schema: Return schema for entire CLI tree."
+          "tooltip": "Specify the action of the firewall policies that this operation returns. You can choose from the following options: Default or Schema"
         },
         {
           "title": "VDOM",
           "name": "vdom",
-          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied. If this parameter is not provided, then the management VDOM is used. If the admin does not have access to the VDOM, a permission error is returned. The URL parameter must be one of the following: vdom=root (Single VDOM), vdom=vdom1,vdom2 (Multiple VDOMs), or vdom=* (All VDOMs)",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
+          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied. If this parameter is not provided, then the management VDOM is used. If the admin does not have access to the VDOM, a permission error is returned. The URL parameter must be one of the following: vdom=root (Single VDOM), vdom=vdom1,vdom2 (Multiple VDOMs), or vdom=* (All VDOMs)"
         }
       ],
       "output_schema": {
@@ -591,65 +687,65 @@
     {
       "operation": "get_firewall_policy_details",
       "title": "Get Firewall Policy Details",
-      "description": "Retrieves an specific firewall policy from FortiProxy server based on the policy ID and other input parameters that you have specified.",
+      "description": "Retrieves details of a specific firewall policy from the FortiProxy server based on Policy ID, Properties, and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "get_firewall_policy_details",
       "enabled": true,
       "parameters": [
         {
           "title": "Policy ID",
-          "description": "Specify the ID of the policy whose firewall policy details you want to retrieve from FortiProxy server.",
+          "description": "Specify the ID of the firewall policy whose details you want to retrieve from the FortiProxy server.",
           "name": "policyid",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "integer",
-          "tooltip": "Specify the ID of the policy whose firewall policy details you want to retrieve from FortiProxy server."
+          "tooltip": "Specify the ID of the firewall policy whose details you want to retrieve from the FortiProxy server."
         },
         {
           "title": "Data Source",
-          "description": "Enable to include datasource information for each linked object.",
+          "description": "(Optional) Select this option if you want to include the data source information for each linked object.",
           "name": "datasource",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "tooltip": "Enable to include datasource information for each linked object."
+          "tooltip": "(Optional) Select this option if you want to include the data source information for each linked object."
         },
         {
           "title": "Include Meta Information",
-          "description": "Enable to include meta information about each object (type id, references, etc).",
+          "description": "(Optional) Select this option if you want to include meta information such as type ID, references, etc. about each object.",
           "name": "with_meta",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "tooltip": "Enable to include meta information about each object (type id, references, etc)."
+          "tooltip": "(Optional) Select this option if you want to include meta information such as type ID, references, etc. about each object."
         },
         {
           "title": "Skip",
-          "description": "Enable to call CLI skip operator to hide skipped properties.",
+          "description": "(Optional) Select this option if you want to call the 'CLI skip' operator used to hide skipped properties.",
           "name": "skip",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
-          "tooltip": "Enable to call CLI skip operator to hide skipped properties."
+          "tooltip": "(Optional) Select this option if you want to call the 'CLI skip' operator used to hide skipped properties."
         },
         {
           "title": "Include Properties",
           "name": "format",
-          "description": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
+          "description": "(Optional) Specify the list of property names separated by | that you want to include in the results of this operation. For example, policyid|srcintf",
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "List of property names to include in results, separated by | (i.e. policyid|srcintf).",
+          "tooltip": "(Optional) Specify the list of property names separated by | that you want to include in the results of this operation. For example, policyid|srcintf",
           "type": "text"
         },
         {
           "title": "Action",
           "name": "action",
-          "description": "Specify the action of the policy, from the following available options: Default: Return the CLI default values for this object type, Schema: Return the CLI schema for this object type or Revision: (Return the CMDB revision for this object type or Transaction List: List all configuration transaction(s)).",
+          "description": "(Optional) Specify the action of the firewall policies that this operation returns. You can choose from the following options: Default, Schema, or Revision",
           "required": false,
           "editable": true,
           "visible": true,
@@ -659,17 +755,17 @@
             "Schema",
             "Revision"
           ],
-          "tooltip": "Specify the action of the policy, from the following available options: Default: Return the CLI default values for this object type, Schema: Return the CLI schema for this object type or Revision: (Return the CMDB revision for this object type or Transaction List: List all configuration transaction(s))."
+          "tooltip": "(Optional) Specify the action of the firewall policies that this operation returns. You can choose from the following options: Default, Schema, or Revision"
         },
         {
           "title": "VDOM",
           "name": "vdom",
-          "description": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n",
+          "description": "(Optional) Specify the Virtual Domain(s) from which results are returned or changes are applied. If this parameter is not provided, then the management VDOM is used. If the admin does not have access to the VDOM, a permission error is returned. The URL parameter must be one of the following: vdom=root (Single VDOM), vdom=vdom1,vdom2 (Multiple VDOMs), or vdom=* (All VDOMs)",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "tooltip": "Specify the Virtual Domain(s) from which results are returned or changes are applied to. If this parameter is not provided, the management VDOM will be used. If the admin does not have access to the VDOM, a permission error will be returned.\nThe URL parameter is one of:\nvdom=root (Single VDOM)\nvdom=vdom1,vdom2 (Multiple VDOMs)\nvdom=* (All VDOMs)\n"
+          "tooltip": "(Optional) Specify the Virtual Domain(s) from which results are returned or changes are applied. If this parameter is not provided, then the management VDOM is used. If the admin does not have access to the VDOM, a permission error is returned. The URL parameter must be one of the following: vdom=root (Single VDOM), vdom=vdom1,vdom2 (Multiple VDOMs), or vdom=* (All VDOMs)"
         }
       ],
       "output_schema": {
@@ -829,7 +925,7 @@
     {
       "operation": "update_firewall_policy",
       "title": "Update Firewall Policy",
-      "description": "Updates an firewall policy in FortiProxy server based on the policy ID and other input parameters that you have specified.",
+      "description": "Updates a specific firewall policy in the FortiProxy server based on the Policy ID, type, and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "update_firewall_policy",
       "enabled": true,
@@ -846,52 +942,33 @@
         },
         {
           "title": "Policy Name",
-          "description": "Specify the name of the policy whose firewall policy you want to update in FortiProxy server.",
+          "description": "Specify the name of the policy whose firewall policy that you want to create in FortiProxy server.",
           "name": "name",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "tooltip": "Specify the name of the policy whose firewall policy you want to update in FortiProxy server. Note: Maximum length should be 35."
+          "tooltip": "Specify the name of the policy whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 35."
         },
         {
           "title": "Schedule Name",
-          "description": "Specify the name of the schedule whose firewall policy you want to update in FortiProxy server.",
+          "description": "Specify the name of the schedule whose firewall policy that you want to create in FortiProxy server.",
           "name": "schedule",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
-          "tooltip": "Specify the name of the schedule whose firewall policy you want to update in FortiProxy server. Note: Maximum length should be 35."
-        },
-        {
-          "title": "Source Interface",
-          "description": "Specify the Incoming (ingress) interface whose firewall policy you want to update in FortiProxy server.",
-          "name": "srcintf",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "tooltip": "Specify the Incoming (ingress) interface whose firewall policy you want to update in FortiProxy server. Note: Maximum length should be 79.",
-          "type": "json"
-        },
-        {
-          "title": "Destination Interface",
-          "description": "Specify the Outgoing (egress) interface whose firewall policy you want to update in FortiProxy server.",
-          "name": "dstintf",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "tooltip": "Specify the Outgoing (egress) interface whose firewall policy you want to update in FortiProxy server. Note: Maximum length should be 79.",
-          "type": "json"
+          "tooltip": "Specify the name of the schedule whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 35."
         },
         {
           "title": "Policy Type",
+          "description": "Specify the type of the policy, from the following available options: Explicit Web: Explicit Web Proxy policy, Transparent: Transparent firewall policy, Explicit FTP: Explicit FTP Proxy policy, SSH Tunnel: SSH Tunnel policy, SSH: SSH policy, Access Proxy: Access Proxy, or WanOpt: WANopt Tunnel",
           "name": "type",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Specify the type of the policy returned, from the following available options: Explicit Web: Explicit Web Proxy policy, Transparent: Transparent firewall policy, Explicit FTP: Explicit FTP Proxy policy, SSH Tunnel: SSH Tunnel policy, SSH: SSH policy, Access Proxy: Access Proxy, or WanOpt: WANopt Tunnel",
+          "tooltip": "Specify the type of the policy, from the following available options: Explicit Web: Explicit Web Proxy policy, Transparent: Transparent firewall policy, Explicit FTP: Explicit FTP Proxy policy, SSH Tunnel: SSH Tunnel policy, SSH: SSH policy, Access Proxy: Access Proxy, or WanOpt: WANopt Tunnel",
           "options": [
             "Explicit Web",
             "Transparent",
@@ -901,115 +978,240 @@
             "Access Proxy",
             "WanOpt"
           ],
-          "tooltip": "Specify the type of the policy returned, from the following available options: Explicit Web: Explicit Web Proxy policy, Transparent: Transparent firewall policy, Explicit FTP: Explicit FTP Proxy policy, SSH Tunnel: SSH Tunnel policy, SSH: SSH policy, Access Proxy: Access Proxy, or WanOpt: WANopt Tunnel"
+          "onchange": {
+            "Explicit Web": [
+              {
+                "title": "Destination Interface",
+                "description": "Specify the Outgoing (egress) interface whose firewall policy that you want to create in FortiProxy server.",
+                "name": "dstintf",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the Outgoing (egress) interface whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
+                "type": "json"
+              },
+              {
+                "title": "Transparent",
+                "description": "Specify the set webproxy to use original client address, from the following available options: enable:Enable using original client address for webproxy or disable: Disable using original client address for webproxy.",
+                "name": "transparent",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "tooltip": "Specify the set webproxy to use original client address, from the following available options: enable:Enable using original client address for webproxy or disable: Disable using original client address for webproxy.",
+                "options": [
+                  "enable",
+                  "disable"
+                ]
+              }
+            ],
+            "Transparent": [
+              {
+                "title": "Source Interface",
+                "description": "Specify the Incoming (ingress) interface whose firewall policy that you want to create in FortiProxy server.",
+                "name": "srcintf",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the Incoming (ingress) interface whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
+                "type": "json"
+              },
+              {
+                "title": "Destination Interface",
+                "description": "Specify the Outgoing (egress) interface whose firewall policy that you want to create in FortiProxy server.",
+                "name": "dstintf",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the Outgoing (egress) interface whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
+                "type": "json"
+              },
+              {
+                "title": "Status",
+                "description": "Specify the status for the policy, from the following available options: enable: Enable setting for this policy or disable: Disable setting for this policy.",
+                "name": "status",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "tooltip": "Specify the status for the policy, from the following available options: enable: Enable setting for this policy or disable: Disable setting for this policy.",
+                "options": [
+                  "enable",
+                  "disable"
+                ]
+              },
+              {
+                "title": "Force Proxy",
+                "description": "Specify the force proxy for the policy, from the following available options: enable: Force all TCP transparent traffic to proxy or disable: Do not force TCP transparent traffic to proxy.",
+                "name": "force-proxy",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "tooltip": "Specify the force proxy for the policy, from the following available options: enable: Force all TCP transparent traffic to proxy or disable: Do not force TCP transparent traffic to proxy.",
+                "options": [
+                  "enable",
+                  "disable"
+                ]
+              }
+            ],
+            "Explicit FTP": [
+              {
+                "title": "Destination Interface",
+                "description": "Specify the Outgoing (egress) interface whose firewall policy that you want to create in FortiProxy server.",
+                "name": "dstintf",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the Outgoing (egress) interface whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
+                "type": "json"
+              }
+            ],
+            "SSH Tunnel": [
+              {
+                "title": "Source Interface",
+                "description": "Specify the Incoming (ingress) interface whose firewall policy that you want to create in FortiProxy server.",
+                "name": "srcintf",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the Incoming (ingress) interface whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
+                "type": "json"
+              },
+              {
+                "title": "Destination Interface",
+                "description": "Specify the Outgoing (egress) interface whose firewall policy that you want to create in FortiProxy server.",
+                "name": "dstintf",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the Outgoing (egress) interface whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
+                "type": "json"
+              }
+            ],
+            "SSH": [
+              {
+                "title": "Source Interface",
+                "description": "Specify the Incoming (ingress) interface whose firewall policy that you want to create in FortiProxy server.",
+                "name": "srcintf",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the Incoming (ingress) interface whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
+                "type": "json"
+              },
+              {
+                "title": "Destination Interface",
+                "description": "Specify the Outgoing (egress) interface whose firewall policy that you want to create in FortiProxy server.",
+                "name": "dstintf",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the Outgoing (egress) interface whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
+                "type": "json"
+              }
+            ],
+            "Access Proxy": [
+              {
+                "title": "Destination Interface",
+                "description": "Specify the Outgoing (egress) interface whose firewall policy that you want to create in FortiProxy server.",
+                "name": "dstintf",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the Outgoing (egress) interface whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
+                "type": "json"
+              },
+              {
+                "title": "Access Proxy",
+                "description": "Specify the access proxy whose firewall policy that you want to create in FortiProxy server.",
+                "name": "access-proxy",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the access proxy whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
+                "type": "json"
+              }
+            ],
+            "WanOpt": [
+              {
+                "title": "Destination Interface",
+                "description": "Specify the Outgoing (egress) interface whose firewall policy that you want to create in FortiProxy server.",
+                "name": "dstintf",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the Outgoing (egress) interface whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
+                "type": "json"
+              }
+            ]
+          }
         },
         {
-          "title": "Status",
-          "name": "status",
+          "title": "Policy ID",
+          "description": "Specify the ID of the policy whose firewall policy that you want to create in FortiProxy server.",
+          "name": "policyid",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "select",
-          "description": "Specify the status for the policy, from the following available options: enable: Enable setting for this policy or disable: Disable setting for this policy.",
-          "options": [
-            "enable",
-            "disable"
-          ],
-          "tooltip": "Specify the status for the policy, from the following available options: enable: Enable setting for this policy or disable: Disable setting for this policy."
-        },
-        {
-          "title": "Force Proxy",
-          "name": "force-proxy",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "select",
-          "description": "Specify the force proxy for the policy, from the following available options: enable: Force all TCP transparent traffic to proxy or disable: Do not force TCP transparent traffic to proxy.",
-          "options": [
-            "enable",
-            "disable"
-          ],
-          "tooltip": "Specify the force proxy for the policy, from the following available options: enable: Force all TCP transparent traffic to proxy or disable: Do not force TCP transparent traffic to proxy."
+          "tooltip": "Specify the ID of the policy whose firewall policy that you want to create in FortiProxy server. Note: Size should be between 0 to 4294967294.",
+          "type": "integer"
         },
         {
           "title": "Source Address",
-          "description": "Specify the source address and address group names whose firewall policy you want to update in FortiProxy server.",
+          "description": "Specify the source address and address group names whose firewall policy that you want to create in FortiProxy server.",
           "name": "srcaddr",
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the source address and address group names whose firewall policy you want to update in FortiProxy server. Note: Maximum length should be 79.",
+          "tooltip": "Specify the source address and address group names whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
           "title": "Destination Address",
-          "description": "Specify the destination address and address group names whose firewall policy you want to update in FortiProxy server.",
+          "description": "Specify the destination address and address group names whose firewall policy that you want to create in FortiProxy server.",
           "name": "dstaddr",
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the destination address and address group names whose firewall policy you want to update in FortiProxy server. Note: Maximum length should be 79.",
+          "tooltip": "Specify the destination address and address group names whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
           "title": "IPV6 Source Address",
-          "description": "Specify the IPv6 source address (web proxy only) whose firewall policy you want to update in FortiProxy server.",
+          "description": "Specify the IPv6 source address (web proxy only) whose firewall policy that you want to create in FortiProxy server.",
           "name": "srcaddr6",
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the IPv6 source address (web proxy only) whose firewall policy you want to update in FortiProxy server. Note: Maximum length should be 79.",
+          "tooltip": "Specify the IPv6 source address (web proxy only) whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
           "title": "IPV6 Destination Address",
-          "description": "Specify the IPv6 destination address (web proxy only) whose firewall policy you want to update in FortiProxy server.",
+          "description": "Specify the IPv6 destination address (web proxy only) whose firewall policy that you want to create in FortiProxy server.",
           "name": "dstaddr6",
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Specify the IPv6 destination address (web proxy only) whose firewall policy you want to update in FortiProxy server. Note: Maximum length should be 79.",
+          "tooltip": "Specify the IPv6 destination address (web proxy only) whose firewall policy that you want to create in FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
         },
         {
           "title": "Policy Action",
+          "description": "Specify the policy action for this policy, from the following available options: Accept: Allows session that match the firewall policy, Deny: Blocks sessions that match the firewall policy, Redirect: Redirect sessions that match the firewall policy to a url, or Isolate: Isolate sessions that match the firewall policy with isolator.",
           "name": "policy_action",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "select",
-          "description": "Specify the policy action for this policy, from the following available options: Accept: Allows session that match the firewall policy, Deny: Blocks sessions that match the firewall policy, Redirect: Redirect sessions that match the firewall policy to a url, or Isolate: Isolate sessions that match the firewall policy with isolator.",
+          "tooltip": "Specify the policy action for this policy, from the following available options: Accept: Allows session that match the firewall policy, Deny: Blocks sessions that match the firewall policy, Redirect: Redirect sessions that match the firewall policy to a url, or Isolate: Isolate sessions that match the firewall policy with isolator.",
           "options": [
             "Accept",
             "Deny",
             "Redirect",
             "Isolate"
-          ],
-          "tooltip": "Specify the policy action for this policy, from the following available options: Accept: Allows session that match the firewall policy, Deny: Blocks sessions that match the firewall policy, Redirect: Redirect sessions that match the firewall policy to a url, or Isolate: Isolate sessions that match the firewall policy with isolator."
-        },
-        {
-          "title": "Transparent",
-          "name": "transparent",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "select",
-          "description": "Specify the set webproxy to use original client address, from the following available options: enable: Enable using original client address for webproxy or disable: Disable using original client address for webproxy.",
-          "options": [
-            "enable",
-            "disable"
-          ],
-          "tooltip": "Specify the set webproxy to use original client address, from the following available options: enable: Enable using original client address for webproxy or disable: Disable using original client address for webproxy."
-        },
-        {
-          "title": "Access Proxy",
-          "description": "Specify the access proxy whose firewall policy you want to update in FortiProxy server.",
-          "name": "access-proxy",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "tooltip": "Specify the access proxy whose firewall policy you want to update in FortiProxy server. Note: Maximum length should be 79.",
-          "type": "json"
+          ]
         },
         {
           "title": "VDOM",
@@ -1090,7 +1292,7 @@
     {
       "operation": "delete_firewall_policy",
       "title": "Delete Firewall Policy",
-      "description": "Deletes a specific firewall policy in FortiProxy server based on the policy ID and other input parameter that you have specified.",
+      "description": "Deletes a specific firewall policy from the FortiProxy server based on the policy ID and VDOM details that you have specified.",
       "category": "investigation",
       "annotation": "delete_firewall_policy",
       "enabled": true,
@@ -1134,7 +1336,7 @@
     {
       "operation": "create_firewall_address",
       "title": "Create Firewall Address",
-      "description": "Creates an firewall address in FortiProxy server based on the input parameters that you have specified.",
+      "description": "Creates a firewall address in the FortiProxy server based on the name of the address, the type of the address, and other input parameters that you have specified.",
       "category": "investigation",
       "annotation": "create_firewall_address",
       "enabled": true,
@@ -1148,26 +1350,6 @@
           "visible": true,
           "type": "text",
           "tooltip": "Specify the address name based on which you want to create an firewall address in FortiProxy server. Note: Maximum length should be 79."
-        },
-        {
-          "title": "UUID",
-          "description": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset).",
-          "name": "uuid",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "text",
-          "tooltip": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset)."
-        },
-        {
-          "title": "Subnet",
-          "description": "Specify the IP address and subnet mask of address based on which you want to create an firewall address in FortiProxy server.",
-          "name": "subnet",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "text",
-          "tooltip": "Specify the IP address and subnet mask of address based on which you want to create an firewall address in FortiProxy server."
         },
         {
           "title": "Address Type",
@@ -1187,92 +1369,142 @@
             "Interface Subnet",
             "MAC"
           ],
-          "tooltip": "Specify the type of the address, from the following available options: IP Mask: Standard IPv4 address with subnet mask, IP Range: Range of IPv4 addresses between two specified addresses (inclusive), FQDN: Fully Qualified Domain Name address, Geography: IP addresses from a specified country, WildCard: Standard IPv4 using a wildcard subnet mask, Dynamic: Dynamic address object, Interface Subnet: IP and subnet of interface, or MAC: Range of MAC addresses."
+          "tooltip": "Specify the type of the address, from the following available options: IP Mask: Standard IPv4 address with subnet mask, IP Range: Range of IPv4 addresses between two specified addresses (inclusive), FQDN: Fully Qualified Domain Name address, Geography: IP addresses from a specified country, WildCard: Standard IPv4 using a wildcard subnet mask, Dynamic: Dynamic address object, Interface Subnet: IP and subnet of interface, or MAC: Range of MAC addresses.",
+          "onchange": {
+            "IP Mask": [
+              {
+                "title": "Subnet",
+                "description": "Specify the IP address and subnet mask of address based on which you want to create an firewall address in FortiProxy server.",
+                "name": "subnet",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "text",
+                "tooltip": "Specify the IP address and subnet mask of address based on which you want to create an firewall address in FortiProxy server."
+              }
+            ],
+            "IP Range": [
+              {
+                "title": "Start IPV4 Address",
+                "description": "Specify the first IP address (inclusive) in the range for the address based on which you want to create an firewall address in FortiProxy server.",
+                "name": "start-ip",
+                "type": "text",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the first IP address (inclusive) in the range for the address based on which you want to create an firewall address in FortiProxy server."
+              },
+              {
+                "title": "End IPV4 Address",
+                "description": "Specify the final IP address (inclusive) in the range for the address based on which you want to create an firewall address in FortiProxy server.",
+                "name": "end-ip",
+                "type": "text",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the final IP address (inclusive) in the range for the address based on which you want to create an firewall address in FortiProxy server."
+              }
+            ],
+            "FQDN": [
+              {
+                "title": "FQDN Address",
+                "description": "Specify the Fully Qualified Domain Name address based on which you want to create an firewall address in FortiProxy server.",
+                "name": "fqdn",
+                "type": "text",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the Fully Qualified Domain Name address based on which you want to create an firewall address in FortiProxy server. Note: Maximum length should be 255."
+              }
+            ],
+            "Geography": [
+              {
+                "title": "Country",
+                "description": "IP addresses associated to a specific country based on which you want to create an firewall address in FortiProxy server.",
+                "name": "country",
+                "type": "text",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "tooltip": "IP addresses associated to a specific country based on which you want to create an firewall address in FortiProxy server. Note: Maximum length should be 2."
+              }
+            ],
+            "WildCard": [
+              {
+                "title": "Wildcard Address and Netmask",
+                "name": "wildcard",
+                "description": "Specify the wildcard address and netmask based on which you want to create an firewall address in FortiProxy server.",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "text",
+                "tooltip": "Specify the wildcard address and netmask based on which you want to create an firewall address in FortiProxy server."
+              }
+            ],
+            "Dynamic": [
+              {
+                "title": "Sub-Type Address",
+                "name": "sub-type",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "description": "Specify the Sub-type of address, from the following available options: SDN: SDN address, ClearPass SPT: ClearPass SPT (System Posture Token) address, FSSO: FSSO address, EMS Tag: FortiClient EMS tag, or SWC Tag: Switch Controller NAC policy tag.",
+                "options": [
+                  "SDN",
+                  "ClearPass SPT",
+                  "FSSO",
+                  "EMS Tag",
+                  "SWC Tag"
+                ],
+                "tooltip": "Specify the Sub-type of address, from the following available options: SDN: SDN address, ClearPass SPT: ClearPass SPT (System Posture Token) address, FSSO: FSSO address, EMS Tag: FortiClient EMS tag, or SWC Tag: Switch Controller NAC policy tag.",
+                "onchange": {
+                  "ClearPass SPT": [
+                    {
+                      "title": "System Posture Token",
+                      "name": "clearpass-spt",
+                      "type": "select",
+                      "required": false,
+                      "editable": true,
+                      "visible": true,
+                      "description": "Specify the System Posture Token, from the following available options: Unknown, Healthy, Quarantine, Checkup, Transient, or Infected",
+                      "options": [
+                        "Unknown",
+                        "Healthy",
+                        "Quarantine",
+                        "Checkup",
+                        "Transient",
+                        "Infected"
+                      ],
+                      "tooltip": "Specify the System Posture Token, from the following available options: Unknown, Healthy, Quarantine, Checkup, Transient, or Infected"
+                    }
+                  ]
+                }
+              }
+            ],
+            "MAC": [
+              {
+                "title": "MAC Address",
+                "name": "macaddr",
+                "description": "Specify the multiple MAC address ranges based on which you want to create an firewall address in FortiProxy server.",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "json",
+                "tooltip": "Specify the multiple MAC address ranges based on which you want to create an firewall address in FortiProxy server. Note: Maximum length should be 127."
+              }
+            ]
+          }
         },
         {
-          "title": "Sub-Type Address",
-          "name": "sub-type",
+          "title": "Interface",
+          "description": "Specify the name of interface whose IP address is to be used to create an firewall address group in FortiProxy server.",
+          "name": "interface",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "select",
-          "description": "Specify the Sub-type of address, from the following available options: SDN: SDN address, ClearPass SPT: ClearPass SPT (System Posture Token) address, FSSO: FSSO address, EMS Tag: FortiClient EMS tag, or SWC Tag: Switch Controller NAC policy tag.",
-          "options": [
-            "SDN",
-            "ClearPass SPT",
-            "FSSO",
-            "EMS Tag",
-            "SWC Tag"
-          ],
-          "tooltip": "Specify the Sub-type of address, from the following available options: SDN: SDN address, ClearPass SPT: ClearPass SPT (System Posture Token) address, FSSO: FSSO address, EMS Tag: FortiClient EMS tag, or SWC Tag: Switch Controller NAC policy tag."
-        },
-        {
-          "title": "System Posture Token",
-          "name": "clearpass-spt",
-          "type": "select",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "description": "Specify the System Posture Token, from the following available options: Unknown, Healthy, Quarantine, Checkup, Transient, or Infected",
-          "options": [
-            "Unknown",
-            "Healthy",
-            "Quarantine",
-            "Checkup",
-            "Transient",
-            "Infected"
-          ],
-          "tooltip": "Specify the System Posture Token, from the following available options: Unknown, Healthy, Quarantine, Checkup, Transient, or Infected"
-        },
-        {
-          "title": "MAC Address",
-          "name": "macaddr",
-          "description": "Specify the multiple MAC address ranges based on which you want to create an firewall address in FortiProxy server.",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "json",
-          "tooltip": "Specify the multiple MAC address ranges based on which you want to create an firewall address in FortiProxy server. Note: Maximum length should be 127."
-        },
-        {
-          "title": "Start IPV4 Address",
-          "description": "Specify the first IP address (inclusive) in the range for the address based on which you want to create an firewall address in FortiProxy server.",
-          "name": "start-ip",
           "type": "text",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "tooltip": "Specify the first IP address (inclusive) in the range for the address based on which you want to create an firewall address in FortiProxy server."
-        },
-        {
-          "title": "End IPV4 Address",
-          "description": "Specify the final IP address (inclusive) in the range for the address based on which you want to create an firewall address in FortiProxy server.",
-          "name": "end-ip",
-          "type": "text",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "tooltip": "Specify the final IP address (inclusive) in the range for the address based on which you want to create an firewall address in FortiProxy server."
-        },
-        {
-          "title": "FQDN Address",
-          "description": "Specify the Fully Qualified Domain Name address based on which you want to create an firewall address in FortiProxy server.",
-          "name": "fqdn",
-          "type": "text",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "tooltip": "Specify the Fully Qualified Domain Name address based on which you want to create an firewall address in FortiProxy server. Note: Maximum length should be 255."
-        },
-        {
-          "title": "Country",
-          "description": "IP addresses associated to a specific country. based on which you want to create an firewall address in FortiProxy server.",
-          "name": "country",
-          "type": "text",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "tooltip": "IP addresses associated to a specific country. based on which you want to create an firewall address in FortiProxy server. Note: Maximum length should be 2."
+          "tooltip": "Specify the name of interface whose IP address is to be used to create an firewall address group in FortiProxy server. Note: Maximum length should be 35."
         },
         {
           "title": "VDOM",
@@ -1334,7 +1566,7 @@
     {
       "operation": "get_firewall_address",
       "title": "Get Firewall Address",
-      "description": "Retrieves all firewall address from FortiProxy server based on the input parameters that you have specified.",
+      "description": "Retrieves all firewall addresses or specific firewall addresses from the FortiProxy server based on Properties, Start index, Count, and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "get_firewall_address",
       "enabled": true,
@@ -1557,7 +1789,7 @@
     {
       "operation": "get_firewall_address_details",
       "title": "Get Firewall Address Details",
-      "description": "Retrieves an specific firewall address from FortiProxy server based on the address name and other input parameters that you have specified.",
+      "description": "Retrieves details of a specific firewall address from the FortiProxy server based on the Address Name, Properties, and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "get_firewall_address_details",
       "enabled": true,
@@ -1699,7 +1931,7 @@
     {
       "operation": "update_firewall_address",
       "title": "Update Firewall Address",
-      "description": "Updates an firewall address in FortiProxy server based on the address name and other input parameters that you have specified.",
+      "description": "Updates a specific firewall policy in the FortiProxy server based on the name of the firewall address, the type of the address, and other input parameters that you have specified.",
       "category": "investigation",
       "annotation": "update_firewall_address",
       "enabled": true,
@@ -1713,26 +1945,6 @@
           "visible": true,
           "type": "text",
           "tooltip": "Specify the address name based on which you want to update the firewall address in FortiProxy server. Note: Maximum length should be 79."
-        },
-        {
-          "title": "UUID",
-          "description": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset).",
-          "name": "uuid",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "text",
-          "tooltip": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset)."
-        },
-        {
-          "title": "Subnet",
-          "description": "Specify the IP address and subnet mask of address based on which you want to update the firewall address in FortiProxy server.",
-          "name": "subnet",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "text",
-          "tooltip": "Specify the IP address and subnet mask of address based on which you want to update the firewall address in FortiProxy server."
         },
         {
           "title": "Address Type",
@@ -1752,92 +1964,142 @@
             "Interface Subnet",
             "MAC"
           ],
-          "tooltip": "Specify the type of address, from the following available options: IP Mask: Standard IPv4 address with subnet mask, IP Range: Range of IPv4 addresses between two specified addresses (inclusive), FQDN : Fully Qualified Domain Name address, Geography: IP addresses from a specified country, Wildcard: Standard IPv4 using a wildcard subnet mask, Dynamic: Dynamic address object, Interface Subnet: IP and subnet of interface or Mac: Range of MAC addresses."
+          "tooltip": "Specify the type of address, from the following available options: IP Mask: Standard IPv4 address with subnet mask, IP Range: Range of IPv4 addresses between two specified addresses (inclusive), FQDN : Fully Qualified Domain Name address, Geography: IP addresses from a specified country, Wildcard: Standard IPv4 using a wildcard subnet mask, Dynamic: Dynamic address object, Interface Subnet: IP and subnet of interface or Mac: Range of MAC addresses.",
+          "onchange": {
+            "IP Mask": [
+              {
+                "title": "Subnet",
+                "description": "Specify the IP address and subnet mask of address based on which you want to update the firewall address in FortiProxy server.",
+                "name": "subnet",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "text",
+                "tooltip": "Specify the IP address and subnet mask of address based on which you want to update the firewall address in FortiProxy server."
+              }
+            ],
+            "IP Range": [
+              {
+                "title": "Start IPV4 Address",
+                "description": "Specify the First IP address (inclusive) in the range for the address based on which you want to update the firewall address in FortiProxy server.",
+                "name": "start-ip",
+                "type": "text",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the First IP address (inclusive) in the range for the address based on which you want to update the firewall address in FortiProxy server."
+              },
+              {
+                "title": "End IPV4 Address",
+                "description": "Specify the Final IP address (inclusive) in the range for the address based on which you want to update the firewall address in FortiProxy server.",
+                "name": "end-ip",
+                "type": "text",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the Final IP address (inclusive) in the range for the address based on which you want to update the firewall address in FortiProxy server."
+              }
+            ],
+            "FQDN": [
+              {
+                "title": "FQDN Address",
+                "description": "Specify the Fully Qualified Domain Name address based on which you want to update the firewall address in FortiProxy server.",
+                "name": "fqdn",
+                "type": "text",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the Fully Qualified Domain Name address based on which you want to update the firewall address in FortiProxy server. Note: Maximum length should be 255."
+              }
+            ],
+            "Geography": [
+              {
+                "title": "Country",
+                "description": "IP addresses associated to a specific country based on which you want to update the firewall address in FortiProxy server.",
+                "name": "country",
+                "type": "text",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "tooltip": "IP addresses associated to a specific country on which you want to update the firewall address in FortiProxy server. Note: Maximum length should be 2."
+              }
+            ],
+            "WildCard": [
+              {
+                "title": "Wildcard Address and Netmask",
+                "name": "wildcard",
+                "description": "Specify the wildcard address and netmask based on which you want to create an firewall address in FortiProxy server.",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "text",
+                "tooltip": "Specify the wildcard address and netmask based on which you want to create an firewall address in FortiProxy server."
+              }
+            ],
+            "Dynamic": [
+              {
+                "title": "Sub-Type Address",
+                "name": "sub-type",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "description": "Specify the Sub-type of address, from the following available options: SDN: SDN address, ClearPass SPT: ClearPass SPT (System Posture Token) address, FSSO: FSSO address, EMS Tag: FortiClient EMS tag or SWC Tag: Switch Controller NAC policy tag.",
+                "options": [
+                  "SDN",
+                  "ClearPass SPT",
+                  "FSSO",
+                  "EMS Tag",
+                  "SWC Tag"
+                ],
+                "tooltip": "Specify the Sub-type of address, from the following available options: SDN: SDN address, ClearPass SPT: ClearPass SPT (System Posture Token) address, FSSO: FSSO address, EMS Tag: FortiClient EMS tag or SWC Tag: Switch Controller NAC policy tag.",
+                "onchange": {
+                  "ClearPass SPT": [
+                    {
+                      "title": "System Posture Token",
+                      "name": "clearpass-spt",
+                      "type": "select",
+                      "required": false,
+                      "editable": true,
+                      "visible": true,
+                      "description": "Specify the System Posture Token, from the following available options: Unknown, Healthy, Quarantine, Checkup, Transient, or Infected.",
+                      "options": [
+                        "Unknown",
+                        "Healthy",
+                        "Quarantine",
+                        "Checkup",
+                        "Transient",
+                        "Infected"
+                      ],
+                      "tooltip": "Specify the System Posture Token, from the following available options: Unknown, Healthy, Quarantine, Checkup, Transient, or Infected."
+                    }
+                  ]
+                }
+              }
+            ],
+            "MAC": [
+              {
+                "title": "MAC Address",
+                "name": "macaddr",
+                "description": "Specify the multiple MAC address ranges based on which you want to update the firewall address in FortiProxy server.",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "json",
+                "tooltip": "Specify the multiple MAC address ranges based on which you want to update the firewall address in FortiProxy server. Note: Maximum length should be 127."
+              }
+            ]
+          }
         },
         {
-          "title": "Sub-Type Address",
-          "name": "sub-type",
+          "title": "Interface",
+          "description": "Specify the name of interface whose IP address is to be used to update an firewall address group in FortiProxy server.",
+          "name": "interface",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "select",
-          "description": "Specify the Sub-type of address, from the following available options: SDN: SDN address, ClearPass SPT: ClearPass SPT (System Posture Token) address, FSSO: FSSO address, EMS Tag: FortiClient EMS tag or SWC Tag: Switch Controller NAC policy tag.",
-          "options": [
-            "SDN",
-            "ClearPass SPT",
-            "FSSO",
-            "EMS Tag",
-            "SWC Tag"
-          ],
-          "tooltip": "Specify the Sub-type of address, from the following available options: SDN: SDN address, ClearPass SPT: ClearPass SPT (System Posture Token) address, FSSO: FSSO address, EMS Tag: FortiClient EMS tag or SWC Tag: Switch Controller NAC policy tag."
-        },
-        {
-          "title": "System Posture Token",
-          "name": "clearpass-spt",
-          "type": "select",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "description": "Specify the System Posture Token, from the following available options: Unknown, Healthy, Quarantine, Checkup, Transient, or Infected.",
-          "options": [
-            "Unknown",
-            "Healthy",
-            "Quarantine",
-            "Checkup",
-            "Transient",
-            "Infected"
-          ],
-          "tooltip": "Specify the System Posture Token, from the following available options: Unknown, Healthy, Quarantine, Checkup, Transient, or Infected."
-        },
-        {
-          "title": "MAC Address",
-          "name": "macaddr",
-          "description": "Specify the multiple MAC address ranges based on which you want to update the firewall address in FortiProxy server.",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "json",
-          "tooltip": "Specify the multiple MAC address ranges based on which you want to update the firewall address in FortiProxy server. Note: Maximum length should be 127."
-        },
-        {
-          "title": "Start IPV4 Address",
-          "description": "Specify the First IP address (inclusive) in the range for the address based on which you want to update the firewall address in FortiProxy server.",
-          "name": "start-ip",
           "type": "text",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "tooltip": "Specify the First IP address (inclusive) in the range for the address based on which you want to update the firewall address in FortiProxy server."
-        },
-        {
-          "title": "End IPV4 Address",
-          "description": "Specify the Final IP address (inclusive) in the range for the address based on which you want to update the firewall address in FortiProxy server.",
-          "name": "end-ip",
-          "type": "text",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "tooltip": "Specify the Final IP address (inclusive) in the range for the address based on which you want to update the firewall address in FortiProxy server."
-        },
-        {
-          "title": "FQDN Address",
-          "description": "Specify the Fully Qualified Domain Name address based on which you want to update the firewall address in FortiProxy server.",
-          "name": "fqdn",
-          "type": "text",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "tooltip": "Specify the Fully Qualified Domain Name address based on which you want to update the firewall address in FortiProxy server. Note: Maximum length should be 255."
-        },
-        {
-          "title": "Country",
-          "description": "IP addresses associated to a specific country. based on which you want to update the firewall address in FortiProxy server.",
-          "name": "country",
-          "type": "text",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "tooltip": "IP addresses associated to a specific country. on which you want to update the firewall address in FortiProxy server. Note: Maximum length should be 2."
+          "tooltip": "Specify the name of interface whose IP address is to be used to update an firewall address group in FortiProxy server. Note: Maximum length should be 35."
         },
         {
           "title": "VDOM",
@@ -1918,7 +2180,7 @@
     {
       "operation": "delete_firewall_address",
       "title": "Delete Firewall Address",
-      "description": "Deletes a specific firewall address in FortiProxy server based on the address name and other input parameter that you have specified.",
+      "description": "Deletes a specific firewall address from the FortiProxy server based on the name of the firewall address and VDOM details that you have specified.",
       "category": "investigation",
       "annotation": "delete_firewall_address",
       "enabled": true,
@@ -1962,7 +2224,7 @@
     {
       "operation": "create_firewall_address_group",
       "title": "Create Firewall Address Group",
-      "description": "Creates an firewall address group in FortiProxy server based on the input parameters that you have specified.",
+      "description": "Creates a firewall address group in the FortiProxy server based on the name, members, category, type, etc of the address group, and other input parameters that you have specified.",
       "category": "investigation",
       "annotation": "create_firewall_address_group",
       "enabled": true,
@@ -2002,31 +2264,6 @@
           "tooltip": "Specify the type of address group, from the following available options: Default: Default address group type (address may belong to multiple groups), or Folder: Address folder group (members may not belong to any other group)."
         },
         {
-          "title": "Category",
-          "name": "category",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "select",
-          "description": "Specify the category of address group, from the following available options: Default: Default address group category (cannot be used as ztna-ems-tag or ztna-geo-tag in policy), ZTNA EMS Tag: Members must be ztna-ems-tag group or ems-tag address, can be used as ztna-ems-tag in policy, or ZTNA Geo Tag: Members must be ztna-geo-tag group or geographic address, can be used as ztna-geo-tag in policy.",
-          "options": [
-            "Default",
-            "ZTNA EMS Tag",
-            "ZTNA Geo Tag"
-          ],
-          "tooltip": "Specify the category of address group, from the following available options: Default: Default address group category (cannot be used as ztna-ems-tag or ztna-geo-tag in policy), ZTNA EMS Tag: Members must be ztna-ems-tag group or ems-tag address, can be used as ztna-ems-tag in policy, or ZTNA Geo Tag: Members must be ztna-geo-tag group or geographic address, can be used as ztna-geo-tag in policy."
-        },
-        {
-          "title": "UUID",
-          "description": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset).",
-          "name": "uuid",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "text",
-          "tooltip": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset)."
-        },
-        {
           "title": "Comment",
           "description": "Specify the comment based on which you want to create you want to create an firewall address group in FortiProxy server.",
           "name": "comment",
@@ -2048,17 +2285,21 @@
             "enable",
             "disable"
           ],
-          "tooltip": "Specify the exclude address, from the following available options: enable: Enable address exclusion or disable: Disable address exclusion."
-        },
-        {
-          "title": "Exclude Member",
-          "name": "exclude-member",
-          "description": "Specify the address exclusion member based on which you want to create you want to create an firewall address group in FortiProxy server.",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "json",
-          "tooltip": "Specify the address exclusion member based on which you want to create you want to create an firewall address group in FortiProxy server. Note: Maximum length should be 79."
+          "tooltip": "Specify the exclude address, from the following available options: enable: Enable address exclusion or disable: Disable address exclusion.",
+          "onchange": {
+            "enable": [
+              {
+                "title": "Exclude Member",
+                "name": "exclude-member",
+                "description": "Specify the address exclusion member based on which you want to create you want to create an firewall address group in FortiProxy server.",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "json",
+                "tooltip": "Specify the address exclusion member based on which you want to create you want to create an firewall address group in FortiProxy server. Note: Maximum length should be 79."
+              }
+            ]
+          }
         },
         {
           "title": "Color",
@@ -2069,16 +2310,6 @@
           "visible": true,
           "type": "integer",
           "tooltip": "Specify the color of icon on the GUI based on which you want to create you want to create an firewall address group in FortiProxy server. Note: Maximum length should be between 0 to 32"
-        },
-        {
-          "title": "Tagging",
-          "name": "tagging",
-          "description": "Specify the config object tagging based on which you want to create you want to create an firewall address group in FortiProxy server.",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "json",
-          "tooltip": "Specify the config object tagging based on which you want to create you want to create an firewall address group in FortiProxy server. Note: Maximum length should be 63."
         },
         {
           "title": "Allow Routing",
@@ -2137,6 +2368,16 @@
           "visible": true,
           "type": "text",
           "tooltip": "If \"Action\" parameter value is specified as \"clone\", use ID for the new resource to be created. For example, to clone `address1` to `address1_clone`, use: \"Action\" parameter as \"clone\" and \"New Resource ID\" parameter as \"address1_clone\". Note: This parameter can only be used when the \"Action\" parameter is set to \"clone\"."
+        },
+        {
+          "title": "Custom Properties",
+          "name": "custom_attributes",
+          "type": "json",
+          "description": "Specify additional properties, in JSON format, of the firewall address group to create in FortiProxy. The additional properties signify additional fields associated with the address group.",
+          "tooltip": "Additional properties, in the JSON format, that you want to create firewall address group in FortiProxy. The additional properties signify additional fields associated with the address group.",
+          "visible": true,
+          "required": false,
+          "editable": true
         }
       ],
       "output_schema": {
@@ -2158,7 +2399,7 @@
     {
       "operation": "get_firewall_address_group",
       "title": "Get Firewall Address Group",
-      "description": "Retrieves all firewall address group from FortiProxy server based on the input parameters that you have specified.",
+      "description": "Retrieves all firewall address groups or specific firewall address groups from the FortiProxy server based on Properties, Start index, Count, and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "get_firewall_address_group",
       "enabled": true,
@@ -2372,7 +2613,7 @@
     {
       "operation": "get_firewall_address_group_details",
       "title": "Get Firewall Address Group Details",
-      "description": "Retrieves an specific firewall address group from FortiProxy server based on the address group name and other input parameters that you have specified.",
+      "description": "Retrieves details of a specific firewall address group from the FortiProxy server based on the Address Group Name, Data Source, and other input parameters that you have specified.",
       "category": "investigation",
       "annotation": "get_firewall_address_group_details",
       "enabled": true,
@@ -2505,7 +2746,7 @@
     {
       "operation": "update_firewall_address_group",
       "title": "Update Firewall Address Group",
-      "description": "Updates an firewall address group in FortiProxy server based on the address group name and other input parameters that you have specified.",
+      "description": "Updates a specific firewall address group in the FortiProxy server based on the name of the firewall address, the type of the address, and other input parameters that you have specified.",
       "category": "investigation",
       "annotation": "update_firewall_address_group",
       "enabled": true,
@@ -2533,31 +2774,6 @@
             "Folder"
           ],
           "tooltip": "Specify the type of the address group, from the following available options: Default: Default address group type (address may belong to multiple groups) or Folder: Address folder group (members may not belong to any other group)."
-        },
-        {
-          "title": "Category",
-          "name": "category",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "select",
-          "description": "Specify the category of the address group, from the following available options: Default: Default address group category (cannot be used as ztna-ems-tag or ztna-geo-tag in policy), ZTNA EMS Tag: Members must be ztna-ems-tag group or ems-tag address, can be used as ztna-ems-tag in policy, or ZTNA Geo Tag: Members must be ztna-geo-tag group or geographic address, can be used as ztna-geo-tag in policy.",
-          "options": [
-            "Default",
-            "ZTNA EMS Tag",
-            "ZTNA Geo Tag"
-          ],
-          "tooltip": "Specify the category of the address group, from the following available options: Default: Default address group category (cannot be used as ztna-ems-tag or ztna-geo-tag in policy), ZTNA EMS Tag: Members must be ztna-ems-tag group or ems-tag address, can be used as ztna-ems-tag in policy, or ZTNA Geo Tag: Members must be ztna-geo-tag group or geographic address, can be used as ztna-geo-tag in policy."
-        },
-        {
-          "title": "UUID",
-          "description": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset).",
-          "name": "uuid",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "text",
-          "tooltip": "Universally Unique Identifier (UUID; automatically assigned but can be manually reset)."
         },
         {
           "title": "Member",
@@ -2591,37 +2807,31 @@
             "enable",
             "disable"
           ],
-          "tooltip": "Specify the exclude address exclusion, from the following available options: enable: Enable address exclusion or disable: Disable address exclusion."
-        },
-        {
-          "title": "Exclude Member",
-          "name": "exclude-member",
-          "description": "Specify the Address exclusion member based on which you want to update the firewall address group in FortiProxy server.",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "json",
-          "tooltip": "Specify the Address exclusion member based on which you want to update the firewall address group in FortiProxy server."
+          "tooltip": "Specify the exclude address exclusion, from the following available options: enable: Enable address exclusion or disable: Disable address exclusion.",
+          "onchange": {
+            "enable": [
+              {
+                "title": "Exclude Member",
+                "name": "exclude-member",
+                "description": "Specify the Address exclusion member based on which you want to update the firewall address group in FortiProxy server.",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "json",
+                "tooltip": "Specify the Address exclusion member based on which you want to update the firewall address group in FortiProxy server."
+              }
+            ]
+          }
         },
         {
           "title": "Color",
-          "tooltip": "Specify the color of icon on the GUI based on which you want to update the firewall address group in FortiProxy server.",
+          "tooltip": "Specify the color of icon on the GUI based on which you want to update the firewall address group in FortiProxy server. Note: Maximum length should be between 0 to 32",
           "name": "color",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
           "description": "Specify the color of icon on the GUI based on which you want to update the firewall address group in FortiProxy server. Note: Maximum length should be between 0 to 32"
-        },
-        {
-          "title": "Tagging",
-          "name": "tagging",
-          "description": "Specify the config object tagging based on which you want to update the firewall address group in FortiProxy server.",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "json",
-          "tooltip": "Specify the config object tagging based on which you want to update the firewall address group in FortiProxy server. Note: Maximum length should be 63."
         },
         {
           "title": "Allow Routing",
@@ -2690,6 +2900,16 @@
           "visible": true,
           "type": "text",
           "tooltip": "If \"Action\" parameter value is specified as \"move\", use this parameter to specify the ID of the resource that this resource will be moved before. For example, to move `object 1` to after `object 2`, use: \"Action\" parameter as \"move\" and \"New Resource ID\" parameter as 3. Note: This parameter can only be used when the \"Action\" parameter is set to \"move\"."
+        },
+        {
+          "title": "Custom Properties",
+          "name": "custom_attributes",
+          "type": "json",
+          "description": "Specify additional properties, in JSON format, of the firewall address group to create in FortiProxy. The additional properties signify additional fields associated with the address group.",
+          "tooltip": "Additional properties, in the JSON format, that you want to create firewall address group in FortiProxy. The additional properties signify additional fields associated with the address group.",
+          "visible": true,
+          "required": false,
+          "editable": true
         }
       ],
       "output_schema": {
@@ -2710,7 +2930,7 @@
     {
       "operation": "delete_firewall_address_group",
       "title": "Delete Firewall Address Group",
-      "description": "Deletes a specific firewall address group in FortiProxy server based on the address group name and other input parameter that you have specified.",
+      "description": "Deletes a specific firewall address group from the FortiProxy server based on the name of the firewall address group and VDOM details that you have specified.",
       "category": "investigation",
       "annotation": "delete_firewall_address_group",
       "enabled": true,
@@ -2755,7 +2975,7 @@
     {
       "operation": "create_firewall_service_group",
       "title": "Create Firewall Service Group",
-      "description": "Creates an firewall service group in FortiProxy server based on the input parameters that you have specified.",
+      "description": "Creates a firewall service group in the FortiProxy server based on the name of the address group, members, and other input parameters that you have specified.",
       "category": "investigation",
       "annotation": "create_firewall_service_group",
       "enabled": true,
@@ -2803,6 +3023,16 @@
           "visible": true,
           "type": "integer",
           "tooltip": "Color of icon on the GUI based on which you want to create an firewall service group from FortiProxy server. Note: Maximum length should be between 0 to 32"
+        },
+        {
+          "title": "Comment",
+          "description": "Specify the comment based on which you want to create you want to create an firewall service group in FortiProxy server.",
+          "name": "comment",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "tooltip": "Specify the comment based on which you want to create you want to create an firewall service group in FortiProxy server. Note: Maximum length should be 255."
         },
         {
           "title": "Security Fabric Object",
@@ -2868,7 +3098,7 @@
     {
       "operation": "get_firewall_service_group",
       "title": "Get Firewall Service Group",
-      "description": "Retrieves all firewall service group from FortiProxy server based on the input parameters that you have specified.",
+      "description": "Retrieves all firewall service groups or specific firewall service groups from the FortiProxy server based on Properties, Start index, Count, and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "get_firewall_service_group",
       "enabled": true,
@@ -3076,7 +3306,7 @@
     {
       "operation": "get_firewall_service_group_details",
       "title": "Get Firewall Service Group Details",
-      "description": "Retrieves an specific firewall service group from FortiProxy server based on the address group name and other input parameters that you have specified.",
+      "description": "Retrieves details of a specific firewall service group from the FortiProxy server based on the Address Group Name, Data Source, and other input parameters that you have specified.",
       "category": "investigation",
       "annotation": "get_firewall_service_group_details",
       "enabled": true,
@@ -3204,7 +3434,7 @@
     {
       "operation": "update_firewall_service_group",
       "title": "Update Firewall Service Group",
-      "description": "Updates an firewall service group in FortiProxy server based on the address group name and other input parameters that you have specified.",
+      "description": "Updates a specific firewall service group in the FortiProxy serve based on the name of the address group, members, and other input parameters that you have specified.",
       "category": "investigation",
       "annotation": "update_firewall_service_group",
       "enabled": true,
@@ -3218,20 +3448,6 @@
           "visible": true,
           "type": "text",
           "tooltip": "Specify the address group name based on which you want to update an firewall service group in FortiProxy server. Note: Maximum length should be 79."
-        },
-        {
-          "title": "Proxy",
-          "name": "proxy",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "select",
-          "description": "Specify the web proxy service group, from the following available options: enable: Enable setting or disable: Disable setting.",
-          "options": [
-            "enable",
-            "disable"
-          ],
-          "tooltip": "Specify the web proxy service group, from the following available options: enable: Enable setting or disable: Disable setting."
         },
         {
           "title": "Member",
@@ -3251,7 +3467,17 @@
           "editable": true,
           "visible": true,
           "type": "integer",
-          "dtooltip": "Specify the color of icon on the GUI based on which you want to update an firewall service group in FortiProxy server. Note: Maximum length should be between 0 to 32"
+          "tooltip": "Specify the color of icon on the GUI based on which you want to update an firewall service group in FortiProxy server. Note: Maximum length should be between 0 to 32"
+        },
+        {
+          "title": "Comment",
+          "description": "Specify the comment based on which you want to create you want to create an firewall service group in FortiProxy server.",
+          "name": "comment",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "tooltip": "Specify the comment based on which you want to create you want to create an firewall service group in FortiProxy server. Note: Maximum length should be 255."
         },
         {
           "title": "Security Fabric Object",
@@ -3327,7 +3553,7 @@
     {
       "operation": "delete_firewall_service_group",
       "title": "Delete Firewall Service Group",
-      "description": "Deletes a specific firewall service group in FortiProxy server based on the address group name and other input parameter that you have specified.",
+      "description": "Deletes a specific firewall service group from the FortiProxy server based on the name of the firewall service group and VDOM details that you have specified.",
       "category": "investigation",
       "annotation": "delete_firewall_service_group",
       "enabled": true,
@@ -3372,7 +3598,7 @@
     {
       "operation": "get_authenticated_firewall_users_list",
       "title": "Get Authenticated Firewall Users List",
-      "description": "Retrieves all authenticated firewall users of \"authgrp\" access group from FortiProxy server based on the input parameters that you have specified.",
+      "description": "Retrieves all authenticated firewall users or specific authenticated firewall users of the authgrp access group from the FortiProxy server based on the start index, count, and other input parameters that you have specified.",
       "category": "investigation",
       "annotation": "get_authenticated_firewall_users_list",
       "enabled": true,
@@ -3435,7 +3661,7 @@
     {
       "operation": "deauthenticate_firewall_users",
       "title": "DeAuthenticate Firewall Users",
-      "description": "Retrieves all de-authenticated firewall users of \"authgrp\" access group from FortiProxy server based on the user type, user ID, IP address, and other input parameters that you have specified.",
+      "description": "Deauthenticates firewall users from the authgrp access group in the FortiProxy server based on the user type, user ID, IP address, and other input parameters that you have specified.",
       "category": "investigation",
       "annotation": "deauthenticate_firewall_users",
       "enabled": true,
@@ -3516,7 +3742,7 @@
     {
       "operation": "add_users_to_banned_list",
       "title": "Add Users to Banned List",
-      "description": "Add users to banned list of \"authgrp\" access group from FortiProxy based on the IP addresses and expiry that you have specified.",
+      "description": "Adds users to the banned list of the authgrp access group in the FortiProxy server based on the IP addresses and the ban expiration time you have specified.",
       "category": "investigation",
       "annotation": "add_users_to_banned_list",
       "enabled": true,
@@ -3559,7 +3785,7 @@
     {
       "operation": "get_all_banned_users_list",
       "title": "Get All Banned Users List",
-      "description": "Retrieves list of all banned users of \"authgrp\" access group from FortiProxy.",
+      "description": "Retrieves list of all banned users of the authgrp access group from the FortiProxy server.",
       "category": "investigation",
       "annotation": "get_all_banned_users_list",
       "enabled": true,
@@ -3587,7 +3813,7 @@
     {
       "operation": "clear_all_banned_users_list",
       "title": "Clear All Banned Users List",
-      "description": "Clear list of all banned users of \"authgrp\" access group from FortiProxy.",
+      "description": "Clears the list of all banned users of the authgrp access group from the FortiProxy server.",
       "category": "investigation",
       "annotation": "clear_all_banned_users_list",
       "enabled": true,
@@ -3609,7 +3835,7 @@
     {
       "operation": "clear_banned_users_list_by_ip",
       "title": "Clear Banned Users List by IP",
-      "description": "Clear list of all banned users by IP's of \"authgrp\" access group from FortiProxy based on the IP addresses that you have specified.",
+      "description": "Clears the list of all banned users of the authgrp access group from the FortiProxy server based on the IP addresses that you have specified.",
       "category": "investigation",
       "annotation": "clear_banned_users_list_by_ip",
       "enabled": true,

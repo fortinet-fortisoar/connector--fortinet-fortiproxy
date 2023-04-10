@@ -38,9 +38,3 @@ Sub_Type_Address = {
     "EMS Tag": "ems-tag",
     "SWC Tag": "swc-tag"
 }
-
-Category = {
-    "Default": "default",
-    "ZTNA EMS Tag": "ztna-ems-tag",
-    "ZTNA Geo Tag": "ztna-geo-tag"
-}

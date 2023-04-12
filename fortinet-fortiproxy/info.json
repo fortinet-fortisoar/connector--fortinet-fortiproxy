@@ -93,6 +93,16 @@
           "onchange": {
             "Explicit Web": [
               {
+                "title": "Explicit Web Proxy",
+                "description": "Specify the explicit web proxy of the firewall policy that you want to create in the FortiProxy server.",
+                "name": "explicit-web-proxy",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the explicit web proxy of the firewall policy that you want to create in the FortiProxy server. Note: Maximum length should be 35.",
+                "type": "text"
+              },
+              {
                 "title": "Destination Interface",
                 "description": "Specify the outgoing (egress) interface of the firewall policy that you want to create in the FortiProxy server.",
                 "name": "dstintf",
@@ -137,20 +147,6 @@
                 "visible": true,
                 "tooltip": "Specify the outgoing (egress) interface of the firewall policy that you want to create in the FortiProxy server. Note: Maximum length should be 79.",
                 "type": "json"
-              },
-              {
-                "title": "Status",
-                "description": "(Optional) Select the status to be set for the firewall policy that you want to create in the FortiProxy server. You can choose between enable or disable.",
-                "name": "status",
-                "required": false,
-                "editable": true,
-                "visible": true,
-                "type": "select",
-                "tooltip": "(Optional) Select the status to be set for the firewall policy that you want to create in the FortiProxy server. You can choose between enable or disable.",
-                "options": [
-                  "enable",
-                  "disable"
-                ]
               },
               {
                 "title": "Force Proxy",
@@ -323,6 +319,20 @@
             "Deny",
             "Redirect",
             "Isolate"
+          ]
+        },
+        {
+          "title": "Status",
+          "description": "(Optional) Select the status to be set for the firewall policy that you want to create in the FortiProxy server. You can choose between enable or disable.",
+          "name": "status",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "tooltip": "(Optional) Select the status to be set for the firewall policy that you want to create in the FortiProxy server. You can choose between enable or disable.",
+          "options": [
+            "enable",
+            "disable"
           ]
         },
         {
@@ -1027,20 +1037,6 @@
                 "type": "json"
               },
               {
-                "title": "Status",
-                "description": "Specify the status for the policy, from the following available options: enable: Enable setting for this policy or disable: Disable setting for this policy.",
-                "name": "status",
-                "required": false,
-                "editable": true,
-                "visible": true,
-                "type": "select",
-                "tooltip": "Specify the status for the policy, from the following available options: enable: Enable setting for this policy or disable: Disable setting for this policy.",
-                "options": [
-                  "enable",
-                  "disable"
-                ]
-              },
-              {
                 "title": "Force Proxy",
                 "description": "Specify the force proxy for the policy, from the following available options: enable: Force all TCP transparent traffic to proxy or disable: Do not force TCP transparent traffic to proxy.",
                 "name": "force-proxy",
@@ -1148,16 +1144,6 @@
           }
         },
         {
-          "title": "Policy ID",
-          "description": "Specify the ID of the policy whose firewall policy that you want to create in FortiProxy server.",
-          "name": "policyid",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "tooltip": "Specify the ID of the policy whose firewall policy that you want to create in FortiProxy server. Note: Size should be between 0 to 4294967294.",
-          "type": "integer"
-        },
-        {
           "title": "Source Address",
           "description": "Specify the source address and address group names whose firewall policy that you want to create in FortiProxy server.",
           "name": "srcaddr",
@@ -1211,6 +1197,20 @@
             "Deny",
             "Redirect",
             "Isolate"
+          ]
+        },
+        {
+          "title": "Status",
+          "description": "Specify the status for the policy, from the following available options: enable: Enable setting for this policy or disable: Disable setting for this policy.",
+          "name": "status",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "tooltip": "Specify the status for the policy, from the following available options: enable: Enable setting for this policy or disable: Disable setting for this policy.",
+          "options": [
+            "enable",
+            "disable"
           ]
         },
         {
@@ -2760,20 +2760,6 @@
           "visible": true,
           "type": "text",
           "tooltip": "Specify the address group name based on which you want to update the firewall address group in FortiProxy server. Note: Maximum length should be 79."
-        },
-        {
-          "title": "Address Group Type",
-          "name": "type",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "select",
-          "description": "Specify the type of the address group, from the following available options: Default: Default address group type (address may belong to multiple groups) or Folder: Address folder group (members may not belong to any other group).",
-          "options": [
-            "Default",
-            "Folder"
-          ],
-          "tooltip": "Specify the type of the address group, from the following available options: Default: Default address group type (address may belong to multiple groups) or Folder: Address folder group (members may not belong to any other group)."
         },
         {
           "title": "Member",

@@ -199,16 +199,6 @@
             ],
             "SSH": [
               {
-                "title": "Source Interface",
-                "description": "Specify the incoming (ingress) interface of the firewall policy that you want to create in the FortiProxy server.",
-                "name": "srcintf",
-                "required": true,
-                "editable": true,
-                "visible": true,
-                "tooltip": "Specify the incoming (ingress) interface of the firewall policy that you want to create in the FortiProxy server. Note: Maximum length should be 79.",
-                "type": "json"
-              },
-              {
                 "title": "Destination Interface",
                 "description": "Specify the outgoing (egress) interface of the firewall policy that you want to create in the FortiProxy server.",
                 "name": "dstintf",
@@ -221,6 +211,16 @@
             ],
             "Access Proxy": [
               {
+                "title": "Access Proxy",
+                "description": "Specify the access proxy of the firewall policy that you want to create in the FortiProxy server. Note: The maximum length that can be set is 79.",
+                "name": "access-proxy",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the access proxy of the firewall policy that you want to create in the FortiProxy server. Note: The maximum length that can be set is 79.",
+                "type": "json"
+              },
+              {
                 "title": "Destination Interface",
                 "description": "Specify the outgoing (egress) interface of the firewall policy that you want to create in the FortiProxy server.",
                 "name": "dstintf",
@@ -228,16 +228,6 @@
                 "editable": true,
                 "visible": true,
                 "tooltip": "Specify the outgoing (egress) interface of the firewall policy that you want to create in the FortiProxy server. Note: Maximum length should be 79.",
-                "type": "json"
-              },
-              {
-                "title": "Access Proxy",
-                "description": "(Optional) Specify the access proxy of the firewall policy that you want to create in the FortiProxy server. Note: The maximum length that can be set is 79.",
-                "name": "access-proxy",
-                "required": false,
-                "editable": true,
-                "visible": true,
-                "tooltip": "(Optional) Specify the access proxy of the firewall policy that you want to create in the FortiProxy server. Note: The maximum length that can be set is 79.",
                 "type": "json"
               }
             ],
@@ -256,20 +246,10 @@
           }
         },
         {
-          "title": "Policy ID",
-          "description": "(Optional) Specify the ID of the firewall policy that you want to create in the FortiProxy server.",
-          "name": "policyid",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "tooltip": "(Optional) Specify the ID of the firewall policy that you want to create in the FortiProxy server. Note: Size should be between 0 to 4294967294.",
-          "type": "integer"
-        },
-        {
           "title": "Source Address",
           "description": "(Optional) Specify the source address and address group names to be associated with the firewall policy you want to create in the FortiProxy server.",
           "name": "srcaddr",
-          "required": false,
+          "required": true,
           "editable": true,
           "visible": true,
           "tooltip": "(Optional) Specify the source address and address group names to be associated with the firewall policy you want to create in the FortiProxy server. Note: Maximum length should be 79.",
@@ -279,7 +259,7 @@
           "title": "Destination Address",
           "description": "(Optional) Specify the destination address and address group names to be associated with the firewall policy you want to create in the FortiProxy server.",
           "name": "dstaddr",
-          "required": false,
+          "required": true,
           "editable": true,
           "visible": true,
           "tooltip": "(Optional) Specify the destination address and address group names to be associated with the firewall policy you want to create in the FortiProxy server. Note: Maximum length should be 79.",
@@ -289,7 +269,7 @@
           "title": "IPV6 Source Address",
           "description": "(Optional) Specify the IPv6 source address (web proxy only) of the firewall policy you want to create in the FortiProxy server.",
           "name": "srcaddr6",
-          "required": false,
+          "required": true,
           "editable": true,
           "visible": true,
           "tooltip": "(Optional) Specify the IPv6 source address (web proxy only) of the firewall policy you want to create in the FortiProxy server. Note: Maximum length should be 79.",
@@ -299,11 +279,21 @@
           "title": "IPV6 Destination Address",
           "description": "(Optional) Specify the IPv6 destination address (web proxy only) of the firewall policy that you want to create in the FortiProxy server.",
           "name": "dstaddr6",
-          "required": false,
+          "required": true,
           "editable": true,
           "visible": true,
           "tooltip": "(Optional) Specify the IPv6 destination address (web proxy only) of the firewall policy that you want to create in the FortiProxy server. Note: Maximum length should be 79.",
           "type": "json"
+        },
+        {
+          "title": "Policy ID",
+          "description": "(Optional) Specify the ID of the firewall policy that you want to create in the FortiProxy server.",
+          "name": "policyid",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "tooltip": "(Optional) Specify the ID of the firewall policy that you want to create in the FortiProxy server. Note: Size should be between 0 to 4294967294.",
+          "type": "integer"
         },
         {
           "title": "Policy Action",

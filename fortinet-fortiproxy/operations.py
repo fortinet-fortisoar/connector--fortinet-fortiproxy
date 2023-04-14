@@ -257,7 +257,6 @@ def update_firewall_address_group(config, params):
         'before': params.pop('before', ''),
         'after': params.get('after', '')
     }
-    params.update({'type': params.get('type').lower() if params.get('type') else ''})
     custom_attributes = params.pop('custom_attributes', '')
     if custom_attributes:
         params.update(custom_attributes)
